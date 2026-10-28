@@ -1,0 +1,73 @@
+{
+  "projeto": "Banco de Áreas Elegíveis para Restauração Florestal — PES Charapucu",
+  "orgao": "IDEFLOR-Bio / NGEO",
+  "unidade_conservacao": "Parque Estadual Charapucu",
+  "municipio": "Afuá",
+  "filtro_aplicado": "Exclusão total de rios e orlas de maré com recuo de segurança >= 50 metros",
+  "meta_contratual_ha": 130.0,
+  "area_total_inventariada_ha": 366.72,
+  "superavit_ha": 236.72,
+  "percentual_meta_alcancado": 282.1,
+  "total_talhoes": 304,
+  "distancia_media_furos_m": 2192.7,
+  "estratificacao_metodos": [
+    {
+      "metodo": "Enriquecimento",
+      "qtd_talhoes": 206,
+      "area_total_ha": 263.24,
+      "area_media_ha": 1.28,
+      "dist_media_m": 2187.68
+    },
+    {
+      "metodo": "Plantio Direto",
+      "qtd_talhoes": 21,
+      "area_total_ha": 8.96,
+      "area_media_ha": 0.43,
+      "dist_media_m": 2540.85
+    },
+    {
+      "metodo": "RNA",
+      "qtd_talhoes": 77,
+      "area_total_ha": 94.52,
+      "area_media_ha": 1.23,
+      "dist_media_m": 2111.12
+    }
+  ],
+  "estratificacao_acesso": [
+    {
+      "acesso_fluvial": "Alta (50 - 200 m)",
+      "qtd_talhoes": 20,
+      "area_total_ha": 9.04,
+      "dist_media_m": 116.6
+    },
+    {
+      "acesso_fluvial": "Baixa (> 800 m)",
+      "qtd_talhoes": 231,
+      "area_total_ha": 308.64,
+      "dist_media_m": 2764.92
+    },
+    {
+      "acesso_fluvial": "Média (200 - 800 m)",
+      "qtd_talhoes": 53,
+      "area_total_ha": 49.04,
+      "dist_media_m": 482.04
+    }
+  ],
+  "estratificacao_porte": [
+    {
+      "classe_area": "Grande (20 - 50 ha)",
+      "qtd_talhoes": 1,
+      "area_total_ha": 45.72
+    },
+    {
+      "classe_area": "Médio (5 - 20 ha)",
+      "qtd_talhoes": 8,
+      "area_total_ha": 77.2
+    },
+    {
+      "classe_area": "Pequeno (< 5 ha)",
+      "qtd_talhoes": 295,
+      "area_total_ha": 243.8
+    }
+  ]
+}
