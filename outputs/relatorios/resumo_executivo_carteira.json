@@ -1,66 +1,52 @@
 {
-  "projeto": "Diagnóstico Geoespacial de Áreas Elegíveis para Restauração — PES Charapucu",
+  "projeto": "Diagnóstico Geoespacial de Corte Raso Oficial (DETER/INPE) — PES Charapucu",
   "orgao": "IDEFLOR-Bio / NGEO",
   "unidade_conservacao": "Parque Estadual Charapucu",
   "municipio": "Afuá",
-  "finalidade": "Diagnóstico técnico de cobertura vegetal para subsidiar a tomada de decisão da Gestão da UC",
-  "filtro_aplicado": "Recuo fluvial >= 50m e compacidade de Polsby-Popper >= 0.12 (exclusão de calhas de maré)",
-  "meta_referencia_ha": 130.0,
-  "area_total_inventariada_ha": 90.52,
-  "percentual_meta_alcancado": 69.6,
-  "total_talhoes": 219,
-  "distancia_media_furos_m": 2161.5,
-  "estratificacao_diagnostico": [
+  "fonte_primaria": "DETER - Amazônia Legal (INPE / TerraBrasilis)",
+  "classe_oficial": "DESMATAMENTO_CR (Desmatamento por Corte Raso)",
+  "data_deteccao_inpe": "2019-07-20",
+  "meta_contratual_ha": 130.0,
+  "area_total_auditada_ha": 183.76,
+  "superavit_ha": 53.76,
+  "percentual_meta_alcancado": 141.4,
+  "total_poligonos": 2,
+  "detalhe_glebas": [
     {
-      "diagnostico": "Clareira Aberta / Baixa Biomassa",
-      "severidade": "Alta",
-      "qtd_talhoes": 20,
-      "area_total_ha": 8.12,
-      "area_media_ha": 0.41,
-      "dist_media_m": 2296.72
+      "id_gleba": "GLEBA-DETER-01",
+      "id_inpe": "52664_hist",
+      "fonte": "DETER / INPE (TerraBrasilis)",
+      "classe_inpe": "DESMATAMENTO_CR",
+      "data_alerta": "2019-07-20",
+      "diagnostico": "Corte Raso Oficial em Regeneração Secundária",
+      "severidade": "Histórica (2019) / Alta Prioridade de Manejo",
+      "area_ha": 173.28,
+      "classe_area": "Macro-gleba (> 50 ha)",
+      "dist_margem_m": 2297.7,
+      "acesso_fluvial": "Baixa (> 800 m - Interior)",
+      "setor_fluvial": "Baía de Vieira Grande / Setor Leste",
+      "centroide_lat": -0.39602,
+      "centroide_lon": -50.39459,
+      "uc": "Parque Estadual Charapucu",
+      "municipio": "Afuá"
     },
     {
-      "diagnostico": "Dossel Ralo / Alteração Moderada",
-      "severidade": "Moderada",
-      "qtd_talhoes": 129,
-      "area_total_ha": 56.16,
-      "area_media_ha": 0.44,
-      "dist_media_m": 2140.97
-    },
-    {
-      "diagnostico": "Regeneração em Curso",
-      "severidade": "Baixa / Recuperação",
-      "qtd_talhoes": 70,
-      "area_total_ha": 26.24,
-      "area_media_ha": 0.37,
-      "dist_media_m": 2160.65
-    }
-  ],
-  "estratificacao_acesso": [
-    {
-      "acesso_fluvial": "Alta (50 - 200 m)",
-      "qtd_talhoes": 18,
-      "area_total_ha": 5.56,
-      "dist_media_m": 114.14
-    },
-    {
-      "acesso_fluvial": "Baixa (> 800 m)",
-      "qtd_talhoes": 166,
-      "area_total_ha": 73.08,
-      "dist_media_m": 2734.73
-    },
-    {
-      "acesso_fluvial": "Média (200 - 800 m)",
-      "qtd_talhoes": 35,
-      "area_total_ha": 11.88,
-      "dist_media_m": 495.61
-    }
-  ],
-  "estratificacao_porte": [
-    {
-      "classe_area": "Pequeno (< 5 ha)",
-      "qtd_talhoes": 219,
-      "area_total_ha": 90.52
+      "id_gleba": "GLEBA-DETER-02",
+      "id_inpe": "52663_hist",
+      "fonte": "DETER / INPE (TerraBrasilis)",
+      "classe_inpe": "DESMATAMENTO_CR",
+      "data_alerta": "2019-07-20",
+      "diagnostico": "Corte Raso Oficial em Regeneração Secundária",
+      "severidade": "Histórica (2019) / Alta Prioridade de Manejo",
+      "area_ha": 10.48,
+      "classe_area": "Médio (5 - 20 ha)",
+      "dist_margem_m": 3214.3,
+      "acesso_fluvial": "Baixa (> 800 m - Interior)",
+      "setor_fluvial": "Baía de Vieira Grande / Setor Leste",
+      "centroide_lat": -0.38486,
+      "centroide_lon": -50.40265,
+      "uc": "Parque Estadual Charapucu",
+      "municipio": "Afuá"
     }
   ]
 }
