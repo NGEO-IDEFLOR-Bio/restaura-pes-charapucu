@@ -13,6 +13,7 @@ import geopandas as gpd
 import pandas as pd
 import folium
 from folium import GeoJson, GeoJsonTooltip, GeoJsonPopup
+from branca.element import Element
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
@@ -255,6 +256,45 @@ def construir_mapa_reativo(
             )
         )
         geojson_layer.add_to(m)
+
+    # Legenda Flutuante
+    legenda_html = """
+    <div style="
+        position: fixed; 
+        bottom: 25px; 
+        left: 25px; 
+        width: 220px; 
+        background-color: rgba(255, 255, 255, 0.95);
+        border: 2px solid #bdc3c7;
+        border-radius: 8px;
+        z-index: 9999;
+        font-size: 11px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        padding: 10px 14px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    ">
+        <div style="font-weight: 700; margin-bottom: 6px; font-size: 12px; color: #2c3e50; border-bottom: 1px solid #e1e8ed; padding-bottom: 4px;">
+            Legenda do Inventário
+        </div>
+        <div style="display: flex; align-items: center; margin-bottom: 5px;">
+            <span style="background: #2ecc71; width: 13px; height: 13px; display: inline-block; border-radius: 3px; margin-right: 8px; border: 1px solid #27ae60;"></span>
+            <span style="color: #2c3e50;"><b>RNA</b> (Regeneração)</span>
+        </div>
+        <div style="display: flex; align-items: center; margin-bottom: 5px;">
+            <span style="background: #f39c12; width: 13px; height: 13px; display: inline-block; border-radius: 3px; margin-right: 8px; border: 1px solid #d68910;"></span>
+            <span style="color: #2c3e50;"><b>Enriquecimento</b></span>
+        </div>
+        <div style="display: flex; align-items: center; margin-bottom: 5px;">
+            <span style="background: #e74c3c; width: 13px; height: 13px; display: inline-block; border-radius: 3px; margin-right: 8px; border: 1px solid #c0392b;"></span>
+            <span style="color: #2c3e50;"><b>Plantio Direto</b></span>
+        </div>
+        <div style="display: flex; align-items: center; margin-top: 6px; padding-top: 5px; border-top: 1px dashed #d5dbdb;">
+            <span style="border-top: 2px dashed #00ffff; width: 16px; display: inline-block; margin-right: 8px;"></span>
+            <span style="color: #555; font-size: 10px;">Limite PES Charapucu</span>
+        </div>
+    </div>
+    """
+    m.get_root().html.add_child(Element(legenda_html))
 
     folium.LayerControl(position="topright", collapsed=False).add_to(m)
     return m
