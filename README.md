@@ -3,6 +3,11 @@
 **Instituto de Desenvolvimento Florestal e da Biodiversidade do Estado do Pará (IDEFLOR-Bio)**  
 **Diretoria de Gestão da Biodiversidade (DGBIO) / Núcleo de Geotecnologias (NGEO)**
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NGEO-IDEFLOR-Bio/restaura-pes-charapucu/blob/main/notebooks/dashboard_charapucu.ipynb)
+![CRS](https://img.shields.io/badge/CRS-SIRGAS%202000%20%2F%20UTM%2022N%20(EPSG%3A31988)-blue)
+![Área Auditada](https://img.shields.io/badge/%C3%81rea%20Auditada-366.72%20ha%20(282.1%25)-darkgreen)
+![Glebas](https://img.shields.io/badge/Glebas-304%20pol%C3%ADgonos-orange)
+
 ---
 
 ## 1. Identificação Institucional e Enquadramento
@@ -47,42 +52,62 @@ Em estrita conformidade com os padrões do Sistema Cartográfico Nacional e dire
 
 A identificação dos talhões no ecossistema de várzea estuarina do Rio Amazonas e Baía de Vieira Grande exigiu metodologia híbrida multitemporal:
 
-```
-                      ┌──────────────────────────────────────┐
-                      │    Limite Oficial DGMUC/IDEFLOR      │
-                      │        (PES Charapucu - 72.506 ha)    │
-                      └──────────────────┬───────────────────┘
-                                         │
-                                         ▼
-                      ┌──────────────────────────────────────┐
-                      │    MÁSCARA HÍDRICA & EXCLUSÃO MARÉ   │
-                      │  • JRC Global Surface Water (38 anos)│
-                      │  • MapBiomas Col. 11 (Classe 33)     │
-                      │  • Recuo de Segurança Fluvial >= 50m │
-                      └──────────────────┬───────────────────┘
-                                         │
-                                         ▼
-                      ┌──────────────────────────────────────┐
-                      │    SÉRIE ESPECTRAL SENTINEL-2 (10m)  │
-                      │  • Composição Inicial (2020-2021)    │
-                      │  • Composição Recente (2024-2025)    │
-                      │  • ΔNDVI = NDVI_recente - NDVI_base  │
-                      │  • Piso Terrestre: NDVI >= 0.40      │
-                      └──────────────────┬───────────────────┘
-                                         │
-                                         ▼
-                      ┌──────────────────────────────────────┐
-                      │    ESTRATIFICAÇÃO DOS TALHÕES        │
-                      │  • RNA (ΔNDVI > 0.10 ou NDVI >= 0.68)│
-                      │  • Enriquecimento (0.48 <= NDVI<0.68)│
-                      │  • Plantio Direto (NDVI < 0.48)      │
-                      └──────────────────┬───────────────────┘
-                                         │
-                                         ▼
-                      ┌──────────────────────────────────────┐
-                      │    CARTEIRA AUDITADA CONSOLIDADA     │
-                      │       304 Glebas | 366,72 Hectares   │
-                      └──────────────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph INSUMOS["1. Insumos Cartográficos & Territoriais"]
+        A1["Limite Oficial DGMUC/IDEFLOR<br/>(PES Charapucu - 72.506 ha)"]
+        A2["Série Temporal Sentinel-2 MSI<br/>(Resolução 10m / Bandas B4, B8)"]
+        A3["Histórico de Ocorrência Hídrica<br/>(JRC Global Surface Water 38 anos)"]
+        A4["Cobertura e Uso da Terra<br/>(MapBiomas Col. 11 - Classe 33)"]
+    end
+
+    subgraph PREPROC["2. Exclusão Hídrica & Dinâmica de Maré"]
+        B1["Fusão Multifonte de Corpos D'Água<br/>(JRC Hídrico + MapBiomas Água)"]
+        B2["Geração de Buffer de Segurança Fluvial<br/>(Recuo Estrito ≥ 50m da Calha)"]
+        B3["Filtro de Biomassa Terrestre<br/>(Piso Mínimo NDVI ≥ 0.40)"]
+    end
+
+    subgraph ESPECTRAL["3. Análise Espectral Multitemporal"]
+        C1["Composição Inicial de Referência<br/>(Mediana 2020 - 2021)"]
+        C2["Composição Recente Monitorada<br/>(Mediana 2024 - 2025)"]
+        C3["Balanço Diferencial de Vegetação<br/>(ΔNDVI = NDVI_recente - NDVI_base)"]
+    end
+
+    subgraph ESTRATIFICACAO["4. Estratificação Técnica de Restauração"]
+        D1["Regeneração Natural Assistida - RNA<br/>• ΔNDVI > +0.10 ou NDVI ≥ 0.68<br/>• 77 glebas | 94,52 ha (25,8%)"]
+        D2["Enriquecimento Florestal<br/>• 0.48 ≤ NDVI < 0.68<br/>• 206 glebas | 263,24 ha (71,8%)"]
+        D3["Plantio Direto em Áreas Abertas<br/>• NDVI < 0.48 ou ΔNDVI < -0.10<br/>• 21 glebas | 8,96 ha (2,4%)"]
+    end
+
+    subgraph CARTEIRA["5. Carteira Técnica Consolidada (IDEFLOR-Bio)"]
+        E1["Validação Geodésica UTM 22N SIRGAS 2000<br/>Cálculo Métrico de Acessibilidade & Áreas"]
+        E2["Inventário Final Auditado<br/>★ 304 Glebas | 366,72 Hectares ★<br/>(Superávit de +236,72 ha | 282,1% da Meta de 130 ha)"]
+        E3["Aplicações & Produtos<br/>• GeoPackage Multicamadas & GeoJSON<br/>• Relatórios Cadastrais CSV & JSON<br/>• Mini-Dashboard Interativo"]
+    end
+
+    A1 --> PREPROC
+    A3 --> B1
+    A4 --> B1
+    B1 --> B2
+    B2 --> B3
+
+    A2 --> C1
+    A2 --> C2
+    C1 --> C3
+    C2 --> C3
+
+    B3 --> ESTRATIFICACAO
+    C3 --> ESTRATIFICACAO
+
+    ESTRATIFICACAO --> D1
+    ESTRATIFICACAO --> D2
+    ESTRATIFICACAO --> D3
+
+    D1 --> E1
+    D2 --> E1
+    D3 --> E1
+    E1 --> E2
+    E2 --> E3
 ```
 
 ### 4.1 Protocolo de Segurança Hídrica e Maré
@@ -199,7 +224,9 @@ Os arquivos vetoriais ([banco_restauracao_pes_charapucu.gpkg](file:///H:/Meu%20D
 
 ## 8. Execução do Mini-Dashboard no Google Colab
 
-O notebook [`notebooks/dashboard_charapucu.ipynb`](file:///H:/Meu%20Drive/IDEFLOR/levantamento-desmatamento-charapucu/notebooks/dashboard_charapucu.ipynb) foi desenvolvido com bibliotecas nativas de código aberto (`ipywidgets`, `plotly`, `folium`, `geopandas`), dispensando a inicialização de servidores externos ou licenças proprietárias.
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NGEO-IDEFLOR-Bio/restaura-pes-charapucu/blob/main/notebooks/dashboard_charapucu.ipynb)
+
+O notebook interativo [`notebooks/dashboard_charapucu.ipynb`](file:///H:/Meu%20Drive/IDEFLOR/levantamento-desmatamento-charapucu/notebooks/dashboard_charapucu.ipynb) pode ser executado instantaneamente na nuvem com **1 clique** no botão acima, ou localmente em ambiente Jupyter. Foi construído integralmente com bibliotecas open source (`ipywidgets`, `plotly`, `folium`, `geopandas`), dispensando servidores externos, bancos de dados dedicados ou licenças proprietárias. Ao ser aberto no Google Colab, o ambiente detecta automaticamente a plataforma e realiza o clone da base georreferenciada para visualização imediata.
 
 ### 8.1 Funcionalidades da Interface:
 1. **Painel de Controles:**
