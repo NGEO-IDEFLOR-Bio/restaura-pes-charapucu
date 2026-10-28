@@ -1,4 +1,4 @@
-# Banco de Áreas Elegíveis para Restauração Florestal — Parque Estadual Charapucu
+# Diagnóstico Geoespacial de Cobertura Vegetal e Áreas Elegíveis para Restauração — Parque Estadual Charapucu
 
 **Instituto de Desenvolvimento Florestal e da Biodiversidade do Estado do Pará (IDEFLOR-Bio)**  
 **Diretoria de Gestão da Biodiversidade (DGBIO) / Núcleo de Geotecnologias (NGEO)**
@@ -23,14 +23,14 @@
 
 ---
 
-## 2. Finalidade Estratégica do Projeto
+## 2. Finalidade Estratégica do Diagnóstico
 
-O presente projeto tem por objetivo consolidar uma **carteira técnica auditada e georreferenciada de polígonos elegíveis para restauração florestal** no interior do Parque Estadual Charapucu.
+O presente projeto tem por finalidade consolidar o **Diagnóstico Geoespacial de Cobertura Vegetal, Clareiras e Dinâmica Regenerativa** no interior do Parque Estadual Charapucu, fornecendo subsídios técnicos auditados e espaciais para apoiar a **Gestão da Unidade de Conservação** e a **Diretoria de Gestão da Biodiversidade (DGBIO)**.
 
-A estratégia institucional adotada pelo IDEFLOR-Bio visa ultrapassar a meta básica contratual de **130 hectares**, construindo um inventário robusto com **superávit qualificado**. Esta carteira excedente fornece musculatura técnica ao órgão estadual para:
-1. Submissão qualificada em editais públicos e chamadas de fomento à restauração ecológica (Fundo Amazônia, BNDES, GEF, recursos de compensação ambiental e conversão de multas).
-2. Formulação de Termos de Cooperação Técnica e Parcerias Público-Privadas com metas escalonáveis.
-3. Alocação prioritária de recursos com base em critérios objetivos de acessibilidade fluvial, redução de custos operacionais e aptidão ecológica de espécies de várzea.
+Em estrita consonância com os princípios de manejo de UCs de Proteção Integral:
+1. **O sensoriamento remoto não prescreve o método silvicultural final**: cabe exclusivamente à **Gestão do Parque** definir a tipologia de intervenção (condução de regeneração natural, enriquecimento com açaí nativo/virola, plantio direto, manejo florestal comunitário ou vigilância ambiental), com base nas vistorias de campo e no diálogo com as comunidades tradicionais ribeirinhas.
+2. **Entrega de Diagnóstico Físico Auditado**: O NGEO mapeia a localização exata das clareiras, o grau de severidade espectral, a área métrica precisa em hectares e a acessibilidade logística fluvial até as vias navegáveis.
+3. **Subsídio para Captação de Recursos e Editais**: Fornece um banco de áreas georreferenciado e auditado para submissão a chamadas públicas de restauração florestal (Fundo Amazônia, BNDES, GEF e compensação ambiental).
 
 ---
 
@@ -45,23 +45,23 @@ Em estrita conformidade com os padrões do Sistema Cartográfico Nacional e dire
 
 ---
 
-## 4. Metodologia de Sensoriamento Remoto e Exclusão Hídrica
+## 4. Metodologia de Sensoriamento Remoto e Diagnóstico de Várzea
 
-A identificação dos talhões no ecossistema de várzea estuarina do Rio Amazonas e Baía de Vieira Grande exigiu metodologia híbrida multitemporal:
+A identificação das glebas terrestres no ecossistema de várzea estuarina do Rio Amazonas e Baía de Vieira Grande exigiu metodologia híbrida multitemporal calibrada:
 
 ```mermaid
 flowchart TD
     subgraph INSUMOS["1. Insumos Cartográficos & Territoriais"]
         A1["Limite Oficial DGMUC/IDEFLOR<br/>(PES Charapucu - 72.506 ha)"]
-        A2["Série Temporal Sentinel-2 MSI<br/>(Resolução 10m / Bandas B4, B8)"]
+        A2["Série Temporal Sentinel-2 MSI<br/>(Resolução 10m / Bandas B4, B8, B11)"]
         A3["Histórico de Ocorrência Hídrica<br/>(JRC Global Surface Water 38 anos)"]
         A4["Cobertura e Uso da Terra<br/>(MapBiomas Col. 11 - Classe 33)"]
     end
 
     subgraph PREPROC["2. Exclusão Hídrica & Dinâmica de Maré"]
-        B1["Fusão Multifonte de Corpos D'Água<br/>(JRC Hídrico + MapBiomas Água)"]
+        B1["Fusão Multifonte de Corpos D'Água<br/>(JRC + MapBiomas + Sentinel-2 MNDWI)"]
         B2["Geração de Buffer de Segurança Fluvial<br/>(Recuo Estrito ≥ 50m da Calha)"]
-        B3["Filtro de Biomassa Terrestre<br/>(Piso Mínimo NDVI ≥ 0.40)"]
+        B3["Filtro Morfológico Anti-Canais<br/>(Compacidade Polsby-Popper ≥ 0.12)"]
     end
 
     subgraph ESPECTRAL["3. Análise Espectral Multitemporal"]
@@ -70,16 +70,16 @@ flowchart TD
         C3["Balanço Diferencial de Vegetação<br/>(ΔNDVI = NDVI_recente - NDVI_base)"]
     end
 
-    subgraph ESTRATIFICACAO["4. Estratificação Técnica de Restauração"]
-        D1["Regeneração Natural Assistida - RNA<br/>• ΔNDVI ≥ +0.10<br/>• 70 glebas | 26,24 ha (29,0%)"]
-        D2["Enriquecimento Florestal<br/>• Clareiras e bordas (0.45 ≤ NDVI < 0.55)<br/>• 129 glebas | 56,16 ha (62,0%)"]
-        D3["Plantio Direto em Áreas Abertas<br/>• NDVI < 0.45 ou ΔNDVI < -0.12<br/>• 20 glebas | 8,12 ha (9,0%)"]
+    subgraph DIAGNOSTICO["4. Diagnóstico de Cobertura e Severidade"]
+        D1["Regeneração em Curso<br/>• Dinâmica Natural (ΔNDVI ≥ +0.10)<br/>• 70 glebas | 26,24 ha (29,0%)"]
+        D2["Dossel Ralo / Alteração Moderada<br/>• Severidade Moderada (0.45 ≤ NDVI < 0.55)<br/>• 129 glebas | 56,16 ha (62,0%)"]
+        D3["Clareira Aberta / Baixa Biomassa<br/>• Severidade Alta (NDVI < 0.45 ou ΔNDVI < -0.12)<br/>• 20 glebas | 8,12 ha (9,0%)"]
     end
 
-    subgraph CARTEIRA["5. Carteira Técnica Consolidada (IDEFLOR-Bio)"]
-        E1["Validação Geodésica UTM 22N SIRGAS 2000<br/>Filtro de Morfologia Anti-Canais (Polsby-Popper ≥ 0.12)"]
-        E2["Inventário Final Auditado<br/>★ 219 Glebas Terrestres | 90,52 Hectares ★<br/>(100% Livre de Sobreposição a Corpos Hídricos)"]
-        E3["Aplicações & Produtos<br/>• GeoPackage Multicamadas & GeoJSON<br/>• Relatórios Cadastrais CSV & JSON<br/>• Mini-Dashboard Interativo com Legenda"]
+    subgraph CARTEIRA["5. Carteira Diagnóstica para Gestão da UC"]
+        E1["Validação Geodésica UTM 22N SIRGAS 2000<br/>Métricas de Logística Fluvial e Compacidade"]
+        E2["Banco de Áreas Auditadas<br/>★ 219 Glebas Terrestres | 90,52 Hectares ★<br/>(100% Livre de Sobreposição a Corpos Hídricos)"]
+        E3["Instrumentos de Decisão<br/>• GeoPackage Multicamadas & GeoJSON<br/>• Relatórios Cadastrais CSV & JSON<br/>• Mini-Dashboard Interativo com Legenda"]
     end
 
     A1 --> PREPROC
@@ -93,12 +93,12 @@ flowchart TD
     C1 --> C3
     C2 --> C3
 
-    B3 --> ESTRATIFICACAO
-    C3 --> ESTRATIFICACAO
+    B3 --> DIAGNOSTICO
+    C3 --> DIAGNOSTICO
 
-    ESTRATIFICACAO --> D1
-    ESTRATIFICACAO --> D2
-    ESTRATIFICACAO --> D3
+    DIAGNOSTICO --> D1
+    DIAGNOSTICO --> D2
+    DIAGNOSTICO --> D3
 
     D1 --> E1
     D2 --> E1
@@ -108,45 +108,39 @@ flowchart TD
 ```
 
 ### 4.1 Protocolo de Segurança Hídrica e Calibração para Várzea Estuarina
-Dada a alta turbidez e carga de sedimentos em suspensão dos rios marajoaras (que induzem falsos positivos em índices de água convencionais como o NDWI de McFeeters) e a presença de centenas de igarapés estreitos:
 1. **Exclusão de Água Multifonte de Alta Sensibilidade:** Integração do JRC Surface Water, MapBiomas Água (Classe 33) e Sentinel-2 MNDWI ($\text{MNDWI} > -0{,}16$ ou $\text{SWIR} < 650$), eliminando a contaminação hídrica subpixel em canais estreitos de maré.
 2. **Preservação da Floresta Íntegra de Várzea:** A floresta contínua de várzea ($\text{NDVI} \ge 0{,}55$) é mantida integralmente como ecossistema natural protegido, não sendo tratada erroneamente como degradação.
 3. **Filtro Morfológico Anti-Canais (Polsby-Popper $\ge 0{,}12$):** Elimina 100% de geometrias meândricas e fitas fluviais lineares ao longo da rede hidrográfica, preservando apenas clareiras e talhões poligonais compactos.
 4. **Faixa de Recuo Fluvial ($\ge 50\text{ metros}$):** Amortecimento estrito a partir da calha navegável externa.
 
-### 4.2 Dinâmica Espectral e Tipologia de Intervenção
-* **Regeneração Natural Assistida (RNA):** Identificada onde há ganho consistente de biomassa ($\Delta\text{NDVI} \ge +0{,}10$). Consiste no coroamento, eliminação de cipós e condução de plântulas regenerantes de baixo custo.
-* **Enriquecimento Florestal:** Clareiras parciais e bordas antrópicas mapeadas no MapBiomas ($0{,}45 \le \text{NDVI} < 0{,}55$). Demanda adensamento de espécies nativas de várzea (*Euterpe oleracea* / açaizeiro nativo, *Virola surinamensis* / virola, *Carapa guianensis* / andiroba).
-* **Plantio Direto:** Manchas abertas consolidadas ou quedas severas de biomassa ($\text{NDVI} < 0{,}45$ ou $\Delta\text{NDVI} < -0{,}12$). Demanda plantio ativo integral e recomposição da estrutura vegetal.
+### 4.2 Classes de Diagnóstico de Cobertura
+* **Regeneração em Curso (Severidade Baixa / Dinâmica Natural):** Identificada onde há ganho consistente de biomassa ($\Delta\text{NDVI} \ge +0{,}10$) partindo de clareiras abertas anteriores.
+* **Dossel Ralo / Alteração Moderada (Severidade Moderada):** Clareiras parciais e bordas antrópicas mapeadas no MapBiomas ($0{,}45 \le \text{NDVI} < 0{,}55$).
+* **Clareira Aberta / Baixa Biomassa (Severidade Alta):** Manchas abertas consolidadas, solo exposto ou perdas acentuadas de biomassa ($\text{NDVI} < 0{,}45$ ou $\Delta\text{NDVI} < -0{,}12$).
 
 ---
 
-## 5. Balanço Oficial da Carteira Auditada
+## 5. Balanço Oficial do Diagnóstico Territorial
 
-* **Meta Contratual Básica:** $130{,}00\text{ ha}$
-* **Área Terrestre Limpa Inventariada:** **$90{,}52\text{ ha}$** (69,6% da meta dentro do PES)
+* **Meta Referencial de Planejamento:** $130{,}00\text{ ha}$
+* **Área Terrestre Diagnosticada:** **$90{,}52\text{ ha}$** (69,6% da meta dentro do PES)
 * **Número Total de Glebas Aptas:** **$219\text{ polígonos}$**
 * **Distância Média aos Furos Navegáveis:** **$2.161{,}5\text{ metros}$**
 
-### 5.1 Estratificação por Método de Intervenção
-| Método de Restauração | Código | Qtd Glebas | Área Total ($ha$) | Participação | Distância Média aos Furos |
+### 5.1 Estratificação por Diagnóstico de Cobertura
+| Classe de Diagnóstico | Severidade | Qtd Glebas | Área Total ($ha$) | Participação | Distância Média aos Furos |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Enriquecimento Florestal** | `Enriquecimento` | 129 | $56{,}16\text{ ha}$ | $62{,}0\%$ | $2.141{,}0\text{ m}$ |
-| **Regeneração Natural Assistida** | `RNA` | 70 | $26{,}24\text{ ha}$ | $29{,}0\%$ | $2.160{,}7\text{ m}$ |
-| **Plantio Direto** | `Plantio Direto` | 20 | $8{,}12\text{ ha}$ | $9{,}0\%$ | $2.296{,}7\text{ m}$ |
+| **Dossel Ralo / Alteração Moderada** | Moderada | 129 | $56{,}16\text{ ha}$ | $62{,}0\%$ | $2.141{,}0\text{ m}$ |
+| **Regeneração em Curso** | Baixa / Recuperação | 70 | $26{,}24\text{ ha}$ | $29{,}0\%$ | $2.160{,}7\text{ m}$ |
+| **Clareira Aberta / Baixa Biomassa** | Alta | 20 | $8{,}12\text{ ha}$ | $9{,}0\%$ | $2.296{,}7\text{ m}$ |
 | **TOTAL** | — | **219** | **$90{,}52\text{ ha}$** | **$100{,}0\%$** | **$2.161{,}5\text{ m}$** |
 
 ### 5.2 Estratificação por Acessibilidade Fluvial (Logística Operacional)
 | Faixa de Acessibilidade | Distância à Calha Navegável | Qtd Glebas | Área Total ($ha$) | Participação | Viabilidade Logística |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Alta Acessibilidade** | $50\text{ a }200\text{ m}$ | 18 | $5{,}56\text{ ha}$ | $6{,}1\%$ | Desembarque direto por voadeiras com transporte manual de mudas |
+| **Alta Acessibilidade** | $50\text{ a }200\text{ m}$ | 18 | $5{,}56\text{ ha}$ | $6{,}1\%$ | Desembarque direto por voadeiras com transporte manual de mudas/equipes |
 | **Média Acessibilidade** | $200\text{ a }800\text{ m}$ | 35 | $11{,}88\text{ ha}$ | $13{,}1\%$ | Acesso por picadas curtas ou igarapés secundários |
 | **Baixa Acessibilidade** | $> 800\text{ m}$ (Interior) | 166 | $73{,}08\text{ ha}$ | $80{,}7\%$ | Operações com acampamento base avançado no interior da ilha |
-
-### 5.3 Estratificação por Classe de Porte
-* **Pequeno Porte ($< 5\text{ ha}$):** 295 glebas ($243{,}80\text{ ha}$) — Adequado para projetos comunitários e manejo florestal em mosaico.
-* **Médio Porte ($5 - 20\text{ ha}$):** 8 glebas ($77{,}20\text{ ha}$) — Blocos contínuos de intervenção otimizada.
-* **Grande Porte ($20 - 50\text{ ha}$):** 1 gleba ($45{,}72\text{ ha}$) — Macro-intervenção prioritária com ganhos de escala.
 
 ---
 
@@ -171,9 +165,10 @@ Dada a alta turbidez e carga de sedimentos em suspensão dos rios marajoaras (qu
 │   ├── 00_extracao_limite_pes_charapucu.py  # Isolamento e validação topológica da UC
 │   ├── 03_estratificacao_talhoes.py         # Métrica geodésica, setores e atributos
 │   ├── 04_dashboard_components.py           # Construtores modulares de widgets, cards e mapa
-│   ├── 05_saneamento_fluvial_local.py       # Exclusão hídrica com buffer de segurança (>= 50m)
+│   ├── 05_saneamento_fluvial_local.py       # Exclusão hídrica e compacidade anti-canais
+│   ├── gerar_notebook_dashboard.py          # Gerador automatizado do notebook interativo
 │   └── gee/
-│       ├── 01_levantamento_restauracao_charapucu.js # Script de produção para GEE Code Editor
+│       ├── 01_levantamento_restauracao_charapucu.js # Script de produção GEE v2.0
 │       └── 02_diagnostico_cobertura_charapucu.js   # Script de auditoria espectral e classes
 │
 ├── notebooks/
@@ -181,15 +176,15 @@ Dada a alta turbidez e carga de sedimentos em suspensão dos rios marajoaras (qu
 │
 └── outputs/
     ├── vetores/
-    │   ├── banco_restauracao_pes_charapucu.gpkg     # GeoPackage multicamada oficial
-    │   │   ├── Layer 'carteira_completa_terrestre'   (304 glebas - 366,72 ha)
+    │   ├── banco_restauracao_pes_charapucu.gpkg     # GeoPackage multicamada oficial (EPSG:31988)
+    │   │   ├── Layer 'carteira_completa_terrestre'   (219 glebas - 90,52 ha)
     │   │   ├── Layer 'prioridade_alta_acessibilidade' (Glebas <= 200m)
     │   │   └── Layer 'limite_pes_charapucu'          (Polígono DGMUC UTM 22N)
     │   └── banco_restauracao_pes_charapucu.geojson  (Camada padronizada para web EPSG:4326)
     │
     └── relatorios/
-        ├── tabela_geral_todas_glebas.csv            (Atributos cadastrais das 304 glebas)
-        ├── sintese_por_metodo.csv                   (Balanço por método de restauração)
+        ├── tabela_geral_todas_glebas.csv            (Atributos cadastrais das 219 glebas)
+        ├── sintese_por_diagnostico.csv              (Balanço por classe de diagnóstico)
         ├── sintese_por_acessibilidade.csv           (Balanço por distância aos furos)
         ├── sintese_por_porte.csv                    (Balanço por classe de tamanho)
         └── resumo_executivo_carteira.json           (Sumário estruturado para sistemas)
@@ -199,15 +194,16 @@ Dada a alta turbidez e carga de sedimentos em suspensão dos rios marajoaras (qu
 
 ## 7. Dicionário de Dados da Base Vetorial
 
-Os arquivos vetoriais ([banco_restauracao_pes_charapucu.gpkg](file:///H:/Meu%20Drive/IDEFLOR/levantamento-desmatamento-charapucu/outputs/vetores/banco_restauracao_pes_charapucu.gpkg) e [banco_restauracao_pes_charapucu.geojson](file:///H:/Meu%20Drive/IDEFLOR/levantamento-desmatamento-charapucu/outputs/vetores/banco_restauracao_pes_charapucu.geojson)) contêm a seguinte estrutura tabular:
+Os arquivos vetoriais contêm a seguinte estrutura tabular padronizada:
 
 | Campo | Tipo | Descrição Técnica | Exemplo |
 | :--- | :--- | :--- | :--- |
 | `id_gleba` | String | Identificador operacional único e sequencial da gleba | `GLEBA-001` |
-| `metodo` | String | Tipologia de restauração florestal indicada | `Enriquecimento`, `RNA`, `Plantio Direto` |
-| `area_ha` | Float | Área métrica calculada em projeção UTM Zone 22N ($ha$) | `45.72` |
-| `classe_area` | String | Categoria de porte da gleba para planejamento de intervenção | `Grande (20 - 50 ha)` |
-| `acesso_fluvial` | String | Faixa de acessibilidade logística com base na distância à margem | `Alta (50 - 200 m)` |
+| `diagnostico` | String | Classe de diagnóstico da cobertura vegetal | `Clareira Aberta / Baixa Biomassa`, `Dossel Ralo / Alteração Moderada`, `Regeneração em Curso` |
+| `severidade` | String | Grau de severidade espectral da alteração | `Alta`, `Moderada`, `Baixa / Recuperação` |
+| `area_ha` | Float | Área métrica calculada em projeção UTM Zone 22N ($ha$) | `8.20` |
+| `classe_area` | String | Categoria de porte da gleba para planejamento | `Pequeno (< 5 ha)`, `Médio (5 - 20 ha)` |
+| `acesso_fluvial` | String | Faixa de acessibilidade logística com base na distância à margem | `Alta (50 - 200 m)`, `Média (200 - 800 m)`, `Baixa (> 800 m)` |
 | `dist_margem_m` | Float | Distância euclidiana mínima calculada até a calha navegável ($m$) | `68.4` |
 | `setor_fluvial` | String | Setor hidrográfico de referência circunscrito à ilha | `Furo do Charapucu / Norte` |
 | `centroide_lat` | Float | Latitude do centroide em SIRGAS 2000 (graus decimais) | `-0.31254` |
@@ -226,19 +222,19 @@ O notebook interativo [`notebooks/dashboard_charapucu.ipynb`](file:///H:/Meu%20D
 
 ### 8.1 Funcionalidades da Interface:
 1. **Painel de Controles:**
-   * Seleção múltipla de métodos (`RNA`, `Enriquecimento`, `Plantio Direto`).
+   * Seleção múltipla de diagnósticos (`Clareira Aberta / Baixa Biomassa`, `Dossel Ralo / Alteração Moderada`, `Regeneração em Curso`).
    * Dropdowns de acessibilidade fluvial e classe de porte.
    * Slider dinâmico com limites mínimo e máximo de área ($ha$).
    * Botão de reset de filtros e botão de exportação da seleção corrente em `.gpkg` e `.csv`.
 2. **Cards Dinâmicos de KPI:**
-   * Atualização em tempo real da área selecionada e comparação percentual contra a meta base de 130 ha.
-   * Contagem de polígonos selecionados e área média por talhão.
+   * Atualização em tempo real da área selecionada e comparação percentual contra a meta de referência de 130 ha.
+   * Contagem de polígonos selecionados e área média por gleba.
    * Distância média ponderada até a via navegável mais próxima.
-   * Identificação do método de restauração predominante na seleção ativa.
+   * Identificação do diagnóstico predominante na seleção ativa.
 3. **Painel Analítico Plotly:**
-   * Gráfico donut com proporção percentual e volumetria por método.
+   * Gráfico donut com proporção percentual e volumetria por classe de diagnóstico.
    * Histograma de barras estruturado por classe de porte.
 4. **Mapa Temático Reativo:**
    * Camadas base abertas e sem necessidade de chave de API: Satélite de alta resolução (`Esri World Imagery`), Mapa Claro de alto contraste neutro (`Esri Light Gray Canvas`) e Mapa Topográfico/Hidrográfico (`Esri World Topo`).
    * Contorno do limite oficial do PES Charapucu.
-   * Polígonos coloridos por método com tooltips de sobrevoo e popups completos ao clique.
+   * Polígonos coloridos por diagnóstico com tooltips de sobrevoo, popups completos e legenda flutuante no mapa.

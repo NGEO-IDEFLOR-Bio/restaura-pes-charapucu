@@ -1,220 +1,220 @@
-﻿id_gleba,metodo,area_ha,classe_area,acesso_fluvial,dist_margem_m,setor_fluvial,centroide_lat,centroide_lon,uc,municipio
-GLEBA-001,Plantio Direto,2.16,Pequeno (< 5 ha),Baixa (> 800 m),7322.7,Canal Central / Interior da Ilha,-0.39665,-50.49046,Parque Estadual Charapucu,Afuá
-GLEBA-002,Enriquecimento,1.88,Pequeno (< 5 ha),Baixa (> 800 m),7260.3,Canal Central / Interior da Ilha,-0.39097,-50.49324,Parque Estadual Charapucu,Afuá
-GLEBA-003,RNA,1.84,Pequeno (< 5 ha),Baixa (> 800 m),2836.2,Baía do Vieira Grande / Leste,-0.39904,-50.38828,Parque Estadual Charapucu,Afuá
-GLEBA-004,Enriquecimento,1.76,Pequeno (< 5 ha),Baixa (> 800 m),5573.0,Canal Central / Interior da Ilha,-0.4095,-50.4992,Parque Estadual Charapucu,Afuá
-GLEBA-005,Enriquecimento,1.52,Pequeno (< 5 ha),Baixa (> 800 m),2153.6,Rio Tajapuru / Furo dos Macacos (Sul),-0.43457,-50.5907,Parque Estadual Charapucu,Afuá
-GLEBA-006,Enriquecimento,1.44,Pequeno (< 5 ha),Baixa (> 800 m),6476.1,Canal Central / Interior da Ilha,-0.37126,-50.50183,Parque Estadual Charapucu,Afuá
-GLEBA-007,RNA,1.28,Pequeno (< 5 ha),Baixa (> 800 m),1788.7,Furo do Charapucu / Norte,-0.24207,-50.57408,Parque Estadual Charapucu,Afuá
-GLEBA-008,Enriquecimento,1.2,Pequeno (< 5 ha),Baixa (> 800 m),1387.6,Rio Tajapuru / Furo dos Macacos (Sul),-0.45196,-50.51029,Parque Estadual Charapucu,Afuá
-GLEBA-009,RNA,1.16,Pequeno (< 5 ha),Baixa (> 800 m),887.6,Canal Central / Interior da Ilha,-0.26976,-50.53078,Parque Estadual Charapucu,Afuá
-GLEBA-010,Enriquecimento,0.96,Pequeno (< 5 ha),Baixa (> 800 m),7513.0,Canal Central / Interior da Ilha,-0.39643,-50.48969,Parque Estadual Charapucu,Afuá
-GLEBA-011,RNA,0.92,Pequeno (< 5 ha),Baixa (> 800 m),5795.1,Canal Central / Interior da Ilha,-0.40752,-50.49856,Parque Estadual Charapucu,Afuá
-GLEBA-012,Enriquecimento,0.88,Pequeno (< 5 ha),Baixa (> 800 m),7498.8,Canal Central / Interior da Ilha,-0.39705,-50.48768,Parque Estadual Charapucu,Afuá
-GLEBA-013,RNA,0.84,Pequeno (< 5 ha),Baixa (> 800 m),5385.5,Canal Central / Interior da Ilha,-0.4115,-50.49937,Parque Estadual Charapucu,Afuá
-GLEBA-014,Enriquecimento,0.8,Pequeno (< 5 ha),Baixa (> 800 m),4358.0,Rio Afuá / Oeste,-0.41508,-50.58929,Parque Estadual Charapucu,Afuá
-GLEBA-015,Enriquecimento,0.8,Pequeno (< 5 ha),Baixa (> 800 m),2516.8,Furo do Charapucu / Norte,-0.24929,-50.57398,Parque Estadual Charapucu,Afuá
-GLEBA-016,RNA,0.8,Pequeno (< 5 ha),Baixa (> 800 m),2579.4,Furo do Charapucu / Norte,-0.25,-50.57411,Parque Estadual Charapucu,Afuá
-GLEBA-017,Enriquecimento,0.8,Pequeno (< 5 ha),Baixa (> 800 m),1661.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.44408,-50.51475,Parque Estadual Charapucu,Afuá
-GLEBA-018,Enriquecimento,0.76,Pequeno (< 5 ha),Média (200 - 800 m),710.7,Rio Tajapuru / Furo dos Macacos (Sul),-0.47624,-50.50592,Parque Estadual Charapucu,Afuá
-GLEBA-019,Enriquecimento,0.72,Pequeno (< 5 ha),Baixa (> 800 m),801.1,Canal Central / Interior da Ilha,-0.27503,-50.51688,Parque Estadual Charapucu,Afuá
-GLEBA-020,Enriquecimento,0.72,Pequeno (< 5 ha),Baixa (> 800 m),2797.8,Rio Tajapuru / Furo dos Macacos (Sul),-0.42807,-50.51473,Parque Estadual Charapucu,Afuá
-GLEBA-021,RNA,0.68,Pequeno (< 5 ha),Baixa (> 800 m),997.6,Canal Central / Interior da Ilha,-0.27208,-50.5297,Parque Estadual Charapucu,Afuá
-GLEBA-022,Enriquecimento,0.64,Pequeno (< 5 ha),Baixa (> 800 m),2871.4,Rio Tajapuru / Furo dos Macacos (Sul),-0.42907,-50.59182,Parque Estadual Charapucu,Afuá
-GLEBA-023,Enriquecimento,0.64,Pequeno (< 5 ha),Baixa (> 800 m),1440.8,Rio Afuá / Oeste,-0.37319,-50.65739,Parque Estadual Charapucu,Afuá
-GLEBA-024,Enriquecimento,0.64,Pequeno (< 5 ha),Baixa (> 800 m),1368.6,Canal Central / Interior da Ilha,-0.26111,-50.54913,Parque Estadual Charapucu,Afuá
-GLEBA-025,Enriquecimento,0.64,Pequeno (< 5 ha),Baixa (> 800 m),2033.5,Canal Central / Interior da Ilha,-0.262,-50.56033,Parque Estadual Charapucu,Afuá
-GLEBA-026,RNA,0.6,Pequeno (< 5 ha),Baixa (> 800 m),2430.6,Furo do Charapucu / Norte,-0.25742,-50.58032,Parque Estadual Charapucu,Afuá
-GLEBA-027,Enriquecimento,0.6,Pequeno (< 5 ha),Média (200 - 800 m),724.1,Rio Tajapuru / Furo dos Macacos (Sul),-0.4617,-50.50719,Parque Estadual Charapucu,Afuá
-GLEBA-028,Enriquecimento,0.6,Pequeno (< 5 ha),Baixa (> 800 m),1458.9,Canal Central / Interior da Ilha,-0.29229,-50.49018,Parque Estadual Charapucu,Afuá
-GLEBA-029,Enriquecimento,0.56,Pequeno (< 5 ha),Alta (50 - 200 m),157.4,Rio Tajapuru / Furo dos Macacos (Sul),-0.44299,-50.6428,Parque Estadual Charapucu,Afuá
-GLEBA-030,Enriquecimento,0.56,Pequeno (< 5 ha),Baixa (> 800 m),6795.4,Canal Central / Interior da Ilha,-0.3806,-50.49783,Parque Estadual Charapucu,Afuá
-GLEBA-031,Enriquecimento,0.56,Pequeno (< 5 ha),Baixa (> 800 m),1170.8,Furo do Charapucu / Norte,-0.24495,-50.56183,Parque Estadual Charapucu,Afuá
-GLEBA-032,Enriquecimento,0.56,Pequeno (< 5 ha),Baixa (> 800 m),1981.1,Furo do Charapucu / Norte,-0.23769,-50.58018,Parque Estadual Charapucu,Afuá
-GLEBA-033,Enriquecimento,0.56,Pequeno (< 5 ha),Baixa (> 800 m),4738.5,Rio Afuá / Oeste,-0.412,-50.58891,Parque Estadual Charapucu,Afuá
-GLEBA-034,Plantio Direto,0.56,Pequeno (< 5 ha),Média (200 - 800 m),517.9,Rio Tajapuru / Furo dos Macacos (Sul),-0.45103,-50.59863,Parque Estadual Charapucu,Afuá
-GLEBA-035,RNA,0.52,Pequeno (< 5 ha),Baixa (> 800 m),2444.2,Furo do Charapucu / Norte,-0.24434,-50.58035,Parque Estadual Charapucu,Afuá
-GLEBA-036,Enriquecimento,0.52,Pequeno (< 5 ha),Baixa (> 800 m),1606.5,Rio Afuá / Oeste,-0.37234,-50.65541,Parque Estadual Charapucu,Afuá
-GLEBA-037,Enriquecimento,0.52,Pequeno (< 5 ha),Baixa (> 800 m),1697.1,Canal Central / Interior da Ilha,-0.2793,-50.52766,Parque Estadual Charapucu,Afuá
-GLEBA-038,Enriquecimento,0.52,Pequeno (< 5 ha),Baixa (> 800 m),946.6,Rio Tajapuru / Furo dos Macacos (Sul),-0.47502,-50.50454,Parque Estadual Charapucu,Afuá
-GLEBA-039,Enriquecimento,0.52,Pequeno (< 5 ha),Alta (50 - 200 m),113.7,Rio Tajapuru / Furo dos Macacos (Sul),-0.48428,-50.49651,Parque Estadual Charapucu,Afuá
-GLEBA-040,Enriquecimento,0.52,Pequeno (< 5 ha),Baixa (> 800 m),2113.9,Rio Afuá / Oeste,-0.2687,-50.58921,Parque Estadual Charapucu,Afuá
-GLEBA-041,Enriquecimento,0.52,Pequeno (< 5 ha),Baixa (> 800 m),2013.7,Furo do Charapucu / Norte,-0.23934,-50.57926,Parque Estadual Charapucu,Afuá
-GLEBA-042,Enriquecimento,0.52,Pequeno (< 5 ha),Baixa (> 800 m),1048.8,Furo do Charapucu / Norte,-0.23701,-50.5696,Parque Estadual Charapucu,Afuá
-GLEBA-043,Enriquecimento,0.48,Pequeno (< 5 ha),Baixa (> 800 m),2030.8,Furo do Charapucu / Norte,-0.24615,-50.58345,Parque Estadual Charapucu,Afuá
-GLEBA-044,Enriquecimento,0.48,Pequeno (< 5 ha),Média (200 - 800 m),403.0,Canal Central / Interior da Ilha,-0.28218,-50.48867,Parque Estadual Charapucu,Afuá
-GLEBA-045,Enriquecimento,0.48,Pequeno (< 5 ha),Baixa (> 800 m),6825.5,Canal Central / Interior da Ilha,-0.3395,-50.51309,Parque Estadual Charapucu,Afuá
-GLEBA-046,Enriquecimento,0.48,Pequeno (< 5 ha),Média (200 - 800 m),494.5,Rio Tajapuru / Furo dos Macacos (Sul),-0.47642,-50.50806,Parque Estadual Charapucu,Afuá
-GLEBA-047,Enriquecimento,0.48,Pequeno (< 5 ha),Baixa (> 800 m),1523.5,Furo do Charapucu / Norte,-0.24881,-50.5636,Parque Estadual Charapucu,Afuá
-GLEBA-048,Enriquecimento,0.48,Pequeno (< 5 ha),Baixa (> 800 m),938.7,Canal Central / Interior da Ilha,-0.26379,-50.53676,Parque Estadual Charapucu,Afuá
-GLEBA-049,Enriquecimento,0.48,Pequeno (< 5 ha),Baixa (> 800 m),840.2,Canal Central / Interior da Ilha,-0.28457,-50.49143,Parque Estadual Charapucu,Afuá
-GLEBA-050,RNA,0.44,Pequeno (< 5 ha),Baixa (> 800 m),1225.4,Canal Central / Interior da Ilha,-0.27368,-50.53009,Parque Estadual Charapucu,Afuá
-GLEBA-051,Enriquecimento,0.44,Pequeno (< 5 ha),Baixa (> 800 m),6598.3,Canal Central / Interior da Ilha,-0.37393,-50.50083,Parque Estadual Charapucu,Afuá
-GLEBA-052,Enriquecimento,0.44,Pequeno (< 5 ha),Média (200 - 800 m),581.9,Canal Central / Interior da Ilha,-0.33864,-50.45922,Parque Estadual Charapucu,Afuá
-GLEBA-053,Plantio Direto,0.44,Pequeno (< 5 ha),Baixa (> 800 m),2071.2,Rio Tajapuru / Furo dos Macacos (Sul),-0.43615,-50.59015,Parque Estadual Charapucu,Afuá
-GLEBA-054,Enriquecimento,0.44,Pequeno (< 5 ha),Baixa (> 800 m),1667.9,Furo do Charapucu / Norte,-0.24074,-50.5737,Parque Estadual Charapucu,Afuá
-GLEBA-055,Enriquecimento,0.44,Pequeno (< 5 ha),Baixa (> 800 m),2463.0,Furo do Charapucu / Norte,-0.24795,-50.57457,Parque Estadual Charapucu,Afuá
-GLEBA-056,Enriquecimento,0.44,Pequeno (< 5 ha),Baixa (> 800 m),2413.2,Furo do Charapucu / Norte,-0.2477,-50.57404,Parque Estadual Charapucu,Afuá
-GLEBA-057,RNA,0.4,Pequeno (< 5 ha),Baixa (> 800 m),1502.4,Furo do Charapucu / Norte,-0.24,-50.5716,Parque Estadual Charapucu,Afuá
-GLEBA-058,Enriquecimento,0.4,Pequeno (< 5 ha),Baixa (> 800 m),1160.0,Rio Afuá / Oeste,-0.39316,-50.65543,Parque Estadual Charapucu,Afuá
-GLEBA-059,RNA,0.4,Pequeno (< 5 ha),Baixa (> 800 m),917.7,Canal Central / Interior da Ilha,-0.26812,-50.53197,Parque Estadual Charapucu,Afuá
-GLEBA-060,Enriquecimento,0.4,Pequeno (< 5 ha),Média (200 - 800 m),268.5,Furo do Charapucu / Norte,-0.23063,-50.56691,Parque Estadual Charapucu,Afuá
-GLEBA-061,Enriquecimento,0.4,Pequeno (< 5 ha),Média (200 - 800 m),281.5,Furo do Charapucu / Norte,-0.21385,-50.5707,Parque Estadual Charapucu,Afuá
-GLEBA-062,Plantio Direto,0.4,Pequeno (< 5 ha),Alta (50 - 200 m),119.5,Furo do Charapucu / Norte,-0.22929,-50.56696,Parque Estadual Charapucu,Afuá
-GLEBA-063,RNA,0.4,Pequeno (< 5 ha),Baixa (> 800 m),1133.7,Rio Afuá / Oeste,-0.38003,-50.66105,Parque Estadual Charapucu,Afuá
-GLEBA-064,Enriquecimento,0.4,Pequeno (< 5 ha),Baixa (> 800 m),2198.4,Canal Central / Interior da Ilha,-0.26921,-50.5465,Parque Estadual Charapucu,Afuá
-GLEBA-065,Enriquecimento,0.4,Pequeno (< 5 ha),Média (200 - 800 m),510.1,Canal Central / Interior da Ilha,-0.27892,-50.49881,Parque Estadual Charapucu,Afuá
-GLEBA-066,Enriquecimento,0.4,Pequeno (< 5 ha),Baixa (> 800 m),1064.9,Baía do Vieira Grande / Leste,-0.41336,-50.35285,Parque Estadual Charapucu,Afuá
-GLEBA-067,Enriquecimento,0.4,Pequeno (< 5 ha),Média (200 - 800 m),224.1,Canal Central / Interior da Ilha,-0.28079,-50.48756,Parque Estadual Charapucu,Afuá
-GLEBA-068,RNA,0.4,Pequeno (< 5 ha),Alta (50 - 200 m),73.7,Canal Central / Interior da Ilha,-0.28593,-50.47329,Parque Estadual Charapucu,Afuá
-GLEBA-069,Enriquecimento,0.4,Pequeno (< 5 ha),Baixa (> 800 m),7248.8,Rio Afuá / Oeste,-0.39044,-50.5903,Parque Estadual Charapucu,Afuá
-GLEBA-070,Enriquecimento,0.4,Pequeno (< 5 ha),Baixa (> 800 m),1039.6,Baía do Vieira Grande / Leste,-0.41811,-50.34782,Parque Estadual Charapucu,Afuá
-GLEBA-071,Plantio Direto,0.4,Pequeno (< 5 ha),Baixa (> 800 m),992.9,Rio Afuá / Oeste,-0.38434,-50.66219,Parque Estadual Charapucu,Afuá
-GLEBA-072,Enriquecimento,0.36,Pequeno (< 5 ha),Média (200 - 800 m),498.2,Canal Central / Interior da Ilha,-0.29175,-50.47194,Parque Estadual Charapucu,Afuá
-GLEBA-073,RNA,0.36,Pequeno (< 5 ha),Média (200 - 800 m),462.9,Canal Central / Interior da Ilha,-0.29135,-50.47211,Parque Estadual Charapucu,Afuá
-GLEBA-074,Enriquecimento,0.36,Pequeno (< 5 ha),Baixa (> 800 m),7535.0,Rio Afuá / Oeste,-0.38613,-50.59368,Parque Estadual Charapucu,Afuá
-GLEBA-075,Enriquecimento,0.36,Pequeno (< 5 ha),Baixa (> 800 m),996.8,Canal Central / Interior da Ilha,-0.29852,-50.47036,Parque Estadual Charapucu,Afuá
-GLEBA-076,Enriquecimento,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1268.6,Baía do Vieira Grande / Leste,-0.41257,-50.35634,Parque Estadual Charapucu,Afuá
-GLEBA-077,Enriquecimento,0.36,Pequeno (< 5 ha),Média (200 - 800 m),270.9,Rio Afuá / Oeste,-0.36454,-50.66519,Parque Estadual Charapucu,Afuá
-GLEBA-078,RNA,0.36,Pequeno (< 5 ha),Baixa (> 800 m),2358.9,Rio Tajapuru / Furo dos Macacos (Sul),-0.43631,-50.62113,Parque Estadual Charapucu,Afuá
-GLEBA-079,Enriquecimento,0.36,Pequeno (< 5 ha),Baixa (> 800 m),2047.8,Rio Afuá / Oeste,-0.26675,-50.58876,Parque Estadual Charapucu,Afuá
-GLEBA-080,Plantio Direto,0.36,Pequeno (< 5 ha),Baixa (> 800 m),2471.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.43286,-50.59031,Parque Estadual Charapucu,Afuá
-GLEBA-081,Plantio Direto,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1106.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.44597,-50.59545,Parque Estadual Charapucu,Afuá
-GLEBA-082,Enriquecimento,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1071.0,Rio Tajapuru / Furo dos Macacos (Sul),-0.44529,-50.591,Parque Estadual Charapucu,Afuá
-GLEBA-083,RNA,0.36,Pequeno (< 5 ha),Baixa (> 800 m),2354.9,Furo do Charapucu / Norte,-0.25554,-50.58038,Parque Estadual Charapucu,Afuá
-GLEBA-084,Enriquecimento,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1144.6,Rio Tajapuru / Furo dos Macacos (Sul),-0.47181,-50.50329,Parque Estadual Charapucu,Afuá
-GLEBA-085,Enriquecimento,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1425.7,Furo do Charapucu / Norte,-0.23985,-50.5705,Parque Estadual Charapucu,Afuá
-GLEBA-086,RNA,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1095.2,Furo do Charapucu / Norte,-0.23615,-50.57103,Parque Estadual Charapucu,Afuá
-GLEBA-087,RNA,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1369.0,Rio Tajapuru / Furo dos Macacos (Sul),-0.45324,-50.51004,Parque Estadual Charapucu,Afuá
-GLEBA-088,Enriquecimento,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1604.5,Furo do Charapucu / Norte,-0.24075,-50.57264,Parque Estadual Charapucu,Afuá
-GLEBA-089,Enriquecimento,0.36,Pequeno (< 5 ha),Baixa (> 800 m),6623.8,Canal Central / Interior da Ilha,-0.37494,-50.50033,Parque Estadual Charapucu,Afuá
-GLEBA-090,Plantio Direto,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1285.7,Rio Tajapuru / Furo dos Macacos (Sul),-0.44311,-50.52003,Parque Estadual Charapucu,Afuá
-GLEBA-091,Enriquecimento,0.36,Pequeno (< 5 ha),Baixa (> 800 m),2468.2,Canal Central / Interior da Ilha,-0.27038,-50.54926,Parque Estadual Charapucu,Afuá
-GLEBA-092,Enriquecimento,0.36,Pequeno (< 5 ha),Média (200 - 800 m),593.3,Furo do Charapucu / Norte,-0.25556,-50.54203,Parque Estadual Charapucu,Afuá
-GLEBA-093,Enriquecimento,0.36,Pequeno (< 5 ha),Baixa (> 800 m),2589.8,Canal Central / Interior da Ilha,-0.27777,-50.543,Parque Estadual Charapucu,Afuá
-GLEBA-094,Enriquecimento,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1257.2,Canal Central / Interior da Ilha,-0.26149,-50.54388,Parque Estadual Charapucu,Afuá
-GLEBA-095,Enriquecimento,0.36,Pequeno (< 5 ha),Média (200 - 800 m),403.7,Furo do Charapucu / Norte,-0.2535,-50.54453,Parque Estadual Charapucu,Afuá
-GLEBA-096,RNA,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1152.8,Rio Afuá / Oeste,-0.38252,-50.66137,Parque Estadual Charapucu,Afuá
-GLEBA-097,RNA,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1546.5,Rio Afuá / Oeste,-0.37255,-50.65644,Parque Estadual Charapucu,Afuá
-GLEBA-098,RNA,0.32,Pequeno (< 5 ha),Baixa (> 800 m),842.2,Canal Central / Interior da Ilha,-0.27055,-50.529,Parque Estadual Charapucu,Afuá
-GLEBA-099,Enriquecimento,0.32,Pequeno (< 5 ha),Baixa (> 800 m),1029.4,Baía do Vieira Grande / Leste,-0.41634,-50.34919,Parque Estadual Charapucu,Afuá
-GLEBA-100,Enriquecimento,0.32,Pequeno (< 5 ha),Baixa (> 800 m),1195.3,Baía do Vieira Grande / Leste,-0.41284,-50.35468,Parque Estadual Charapucu,Afuá
-GLEBA-101,Enriquecimento,0.32,Pequeno (< 5 ha),Baixa (> 800 m),2724.4,Canal Central / Interior da Ilha,-0.27682,-50.54558,Parque Estadual Charapucu,Afuá
-GLEBA-102,Enriquecimento,0.32,Pequeno (< 5 ha),Baixa (> 800 m),1447.5,Canal Central / Interior da Ilha,-0.26258,-50.54541,Parque Estadual Charapucu,Afuá
-GLEBA-103,Enriquecimento,0.32,Pequeno (< 5 ha),Média (200 - 800 m),683.6,Furo do Charapucu / Norte,-0.25582,-50.54476,Parque Estadual Charapucu,Afuá
-GLEBA-104,Enriquecimento,0.32,Pequeno (< 5 ha),Baixa (> 800 m),2779.8,Canal Central / Interior da Ilha,-0.28938,-50.52778,Parque Estadual Charapucu,Afuá
-GLEBA-105,Enriquecimento,0.32,Pequeno (< 5 ha),Baixa (> 800 m),7583.7,Rio Afuá / Oeste,-0.38804,-50.59227,Parque Estadual Charapucu,Afuá
-GLEBA-106,Enriquecimento,0.32,Pequeno (< 5 ha),Baixa (> 800 m),1348.4,Furo do Charapucu / Norte,-0.23898,-50.57089,Parque Estadual Charapucu,Afuá
-GLEBA-107,Enriquecimento,0.32,Pequeno (< 5 ha),Alta (50 - 200 m),140.5,Furo do Charapucu / Norte,-0.22229,-50.57008,Parque Estadual Charapucu,Afuá
-GLEBA-108,Enriquecimento,0.32,Pequeno (< 5 ha),Média (200 - 800 m),355.4,Rio Tajapuru / Furo dos Macacos (Sul),-0.47189,-50.50971,Parque Estadual Charapucu,Afuá
-GLEBA-109,RNA,0.32,Pequeno (< 5 ha),Baixa (> 800 m),2823.1,Furo do Charapucu / Norte,-0.25158,-50.57509,Parque Estadual Charapucu,Afuá
-GLEBA-110,RNA,0.32,Pequeno (< 5 ha),Baixa (> 800 m),4764.0,Canal Central / Interior da Ilha,-0.41625,-50.50317,Parque Estadual Charapucu,Afuá
-GLEBA-111,Enriquecimento,0.32,Pequeno (< 5 ha),Baixa (> 800 m),967.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.47821,-50.50241,Parque Estadual Charapucu,Afuá
-GLEBA-112,Enriquecimento,0.32,Pequeno (< 5 ha),Baixa (> 800 m),2021.5,Canal Central / Interior da Ilha,-0.26749,-50.54624,Parque Estadual Charapucu,Afuá
-GLEBA-113,Enriquecimento,0.32,Pequeno (< 5 ha),Baixa (> 800 m),1504.6,Furo do Charapucu / Norte,-0.2507,-50.56243,Parque Estadual Charapucu,Afuá
-GLEBA-114,RNA,0.32,Pequeno (< 5 ha),Baixa (> 800 m),1680.9,Furo do Charapucu / Norte,-0.25473,-50.56194,Parque Estadual Charapucu,Afuá
-GLEBA-115,Enriquecimento,0.32,Pequeno (< 5 ha),Baixa (> 800 m),998.3,Canal Central / Interior da Ilha,-0.27765,-50.51395,Parque Estadual Charapucu,Afuá
-GLEBA-116,Enriquecimento,0.32,Pequeno (< 5 ha),Baixa (> 800 m),896.6,Canal Central / Interior da Ilha,-0.27655,-50.51546,Parque Estadual Charapucu,Afuá
-GLEBA-117,Enriquecimento,0.32,Pequeno (< 5 ha),Baixa (> 800 m),950.5,Furo do Charapucu / Norte,-0.25313,-50.55595,Parque Estadual Charapucu,Afuá
-GLEBA-118,RNA,0.32,Pequeno (< 5 ha),Baixa (> 800 m),2148.9,Rio Afuá / Oeste,-0.26498,-50.5867,Parque Estadual Charapucu,Afuá
-GLEBA-119,Enriquecimento,0.32,Pequeno (< 5 ha),Baixa (> 800 m),2020.9,Furo do Charapucu / Norte,-0.23638,-50.58135,Parque Estadual Charapucu,Afuá
-GLEBA-120,Enriquecimento,0.32,Pequeno (< 5 ha),Baixa (> 800 m),1520.6,Canal Central / Interior da Ilha,-0.29024,-50.49314,Parque Estadual Charapucu,Afuá
-GLEBA-121,RNA,0.32,Pequeno (< 5 ha),Média (200 - 800 m),235.6,Canal Central / Interior da Ilha,-0.28798,-50.47291,Parque Estadual Charapucu,Afuá
-GLEBA-122,Enriquecimento,0.32,Pequeno (< 5 ha),Alta (50 - 200 m),117.1,Canal Central / Interior da Ilha,-0.28009,-50.48692,Parque Estadual Charapucu,Afuá
-GLEBA-123,RNA,0.28,Pequeno (< 5 ha),Alta (50 - 200 m),64.8,Rio Tajapuru / Furo dos Macacos (Sul),-0.45031,-50.63907,Parque Estadual Charapucu,Afuá
-GLEBA-124,Plantio Direto,0.28,Pequeno (< 5 ha),Alta (50 - 200 m),72.4,Rio Tajapuru / Furo dos Macacos (Sul),-0.45562,-50.60724,Parque Estadual Charapucu,Afuá
-GLEBA-125,RNA,0.28,Pequeno (< 5 ha),Alta (50 - 200 m),137.5,Rio Tajapuru / Furo dos Macacos (Sul),-0.44342,-50.64271,Parque Estadual Charapucu,Afuá
-GLEBA-126,RNA,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1716.6,Canal Central / Interior da Ilha,-0.29153,-50.49437,Parque Estadual Charapucu,Afuá
-GLEBA-127,RNA,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2779.1,Canal Central / Interior da Ilha,-0.2897,-50.52668,Parque Estadual Charapucu,Afuá
-GLEBA-128,Enriquecimento,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1614.8,Canal Central / Interior da Ilha,-0.2638,-50.54598,Parque Estadual Charapucu,Afuá
-GLEBA-129,Enriquecimento,0.28,Pequeno (< 5 ha),Baixa (> 800 m),7503.3,Canal Central / Interior da Ilha,-0.33385,-50.52156,Parque Estadual Charapucu,Afuá
-GLEBA-130,Enriquecimento,0.28,Pequeno (< 5 ha),Média (200 - 800 m),447.7,Rio Afuá / Oeste,-0.36351,-50.66283,Parque Estadual Charapucu,Afuá
-GLEBA-131,Enriquecimento,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2627.5,Baía do Vieira Grande / Leste,-0.39611,-50.38808,Parque Estadual Charapucu,Afuá
-GLEBA-132,RNA,0.28,Pequeno (< 5 ha),Média (200 - 800 m),362.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.44528,-50.52783,Parque Estadual Charapucu,Afuá
-GLEBA-133,Enriquecimento,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1409.1,Rio Tajapuru / Furo dos Macacos (Sul),-0.44515,-50.62605,Parque Estadual Charapucu,Afuá
-GLEBA-134,Enriquecimento,0.28,Pequeno (< 5 ha),Baixa (> 800 m),5263.9,Canal Central / Interior da Ilha,-0.41707,-50.49704,Parque Estadual Charapucu,Afuá
-GLEBA-135,Plantio Direto,0.28,Pequeno (< 5 ha),Baixa (> 800 m),6859.0,Canal Central / Interior da Ilha,-0.38161,-50.49748,Parque Estadual Charapucu,Afuá
-GLEBA-136,Enriquecimento,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1260.1,Rio Tajapuru / Furo dos Macacos (Sul),-0.4464,-50.6266,Parque Estadual Charapucu,Afuá
-GLEBA-137,Enriquecimento,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2162.5,Rio Afuá / Oeste,-0.37315,-50.65121,Parque Estadual Charapucu,Afuá
-GLEBA-138,RNA,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1985.1,Furo do Charapucu / Norte,-0.24792,-50.58404,Parque Estadual Charapucu,Afuá
-GLEBA-139,RNA,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1772.2,Furo do Charapucu / Norte,-0.25576,-50.56226,Parque Estadual Charapucu,Afuá
-GLEBA-140,RNA,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1569.0,Rio Tajapuru / Furo dos Macacos (Sul),-0.451,-50.51041,Parque Estadual Charapucu,Afuá
-GLEBA-141,Enriquecimento,0.28,Pequeno (< 5 ha),Baixa (> 800 m),870.3,Furo do Charapucu / Norte,-0.23535,-50.56927,Parque Estadual Charapucu,Afuá
-GLEBA-142,Enriquecimento,0.28,Pequeno (< 5 ha),Alta (50 - 200 m),52.0,Canal Central / Interior da Ilha,-0.27224,-50.50499,Parque Estadual Charapucu,Afuá
-GLEBA-143,RNA,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2328.9,Furo do Charapucu / Norte,-0.25787,-50.58147,Parque Estadual Charapucu,Afuá
-GLEBA-144,Plantio Direto,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1086.7,Rio Tajapuru / Furo dos Macacos (Sul),-0.44505,-50.59036,Parque Estadual Charapucu,Afuá
-GLEBA-145,RNA,0.28,Pequeno (< 5 ha),Baixa (> 800 m),6585.9,Rio Afuá / Oeste,-0.39641,-50.58936,Parque Estadual Charapucu,Afuá
-GLEBA-146,RNA,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2311.0,Furo do Charapucu / Norte,-0.24385,-50.58234,Parque Estadual Charapucu,Afuá
-GLEBA-147,RNA,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2363.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.43053,-50.51801,Parque Estadual Charapucu,Afuá
-GLEBA-148,RNA,0.28,Pequeno (< 5 ha),Baixa (> 800 m),3435.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.42429,-50.51153,Parque Estadual Charapucu,Afuá
-GLEBA-149,RNA,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2103.2,Canal Central / Interior da Ilha,-0.26365,-50.55845,Parque Estadual Charapucu,Afuá
-GLEBA-150,Enriquecimento,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2502.4,Canal Central / Interior da Ilha,-0.27862,-50.54143,Parque Estadual Charapucu,Afuá
-GLEBA-151,RNA,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1209.9,Rio Tajapuru / Furo dos Macacos (Sul),-0.44306,-50.52105,Parque Estadual Charapucu,Afuá
-GLEBA-152,Enriquecimento,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1648.2,Canal Central / Interior da Ilha,-0.29023,-50.49513,Parque Estadual Charapucu,Afuá
-GLEBA-153,Plantio Direto,0.28,Pequeno (< 5 ha),Baixa (> 800 m),7179.3,Canal Central / Interior da Ilha,-0.39851,-50.49199,Parque Estadual Charapucu,Afuá
-GLEBA-154,Plantio Direto,0.28,Pequeno (< 5 ha),Baixa (> 800 m),6762.4,Canal Central / Interior da Ilha,-0.37934,-50.49837,Parque Estadual Charapucu,Afuá
-GLEBA-155,RNA,0.28,Pequeno (< 5 ha),Baixa (> 800 m),5243.4,Canal Central / Interior da Ilha,-0.34726,-50.49902,Parque Estadual Charapucu,Afuá
-GLEBA-156,Enriquecimento,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2477.3,Furo do Charapucu / Norte,-0.25432,-50.57945,Parque Estadual Charapucu,Afuá
-GLEBA-157,RNA,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1034.4,Furo do Charapucu / Norte,-0.23601,-50.57027,Parque Estadual Charapucu,Afuá
-GLEBA-158,RNA,0.28,Pequeno (< 5 ha),Baixa (> 800 m),5031.1,Canal Central / Interior da Ilha,-0.41515,-50.50137,Parque Estadual Charapucu,Afuá
-GLEBA-159,RNA,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2975.2,Furo do Charapucu / Norte,-0.25455,-50.57441,Parque Estadual Charapucu,Afuá
-GLEBA-160,Enriquecimento,0.28,Pequeno (< 5 ha),Média (200 - 800 m),610.6,Canal Central / Interior da Ilha,-0.2787,-50.50082,Parque Estadual Charapucu,Afuá
-GLEBA-161,Enriquecimento,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1151.2,Furo do Charapucu / Norte,-0.23621,-50.57159,Parque Estadual Charapucu,Afuá
-GLEBA-162,RNA,0.28,Pequeno (< 5 ha),Baixa (> 800 m),7361.2,Canal Central / Interior da Ilha,-0.33666,-50.51751,Parque Estadual Charapucu,Afuá
-GLEBA-163,Enriquecimento,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2332.3,Canal Central / Interior da Ilha,-0.26956,-50.54792,Parque Estadual Charapucu,Afuá
-GLEBA-164,RNA,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1725.4,Canal Central / Interior da Ilha,-0.27973,-50.52703,Parque Estadual Charapucu,Afuá
-GLEBA-165,Enriquecimento,0.24,Pequeno (< 5 ha),Alta (50 - 200 m),141.6,Rio Afuá / Oeste,-0.36543,-50.667,Parque Estadual Charapucu,Afuá
-GLEBA-166,RNA,0.24,Pequeno (< 5 ha),Baixa (> 800 m),839.2,Rio Afuá / Oeste,-0.37647,-50.66348,Parque Estadual Charapucu,Afuá
-GLEBA-167,Plantio Direto,0.24,Pequeno (< 5 ha),Média (200 - 800 m),398.8,Rio Tajapuru / Furo dos Macacos (Sul),-0.42267,-50.33572,Parque Estadual Charapucu,Afuá
-GLEBA-168,Enriquecimento,0.24,Pequeno (< 5 ha),Alta (50 - 200 m),89.7,Rio Afuá / Oeste,-0.40002,-50.66278,Parque Estadual Charapucu,Afuá
-GLEBA-169,Enriquecimento,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1332.7,Canal Central / Interior da Ilha,-0.26145,-50.54472,Parque Estadual Charapucu,Afuá
-GLEBA-170,Enriquecimento,0.24,Pequeno (< 5 ha),Baixa (> 800 m),2595.4,Canal Central / Interior da Ilha,-0.27452,-50.54615,Parque Estadual Charapucu,Afuá
-GLEBA-171,RNA,0.24,Pequeno (< 5 ha),Média (200 - 800 m),539.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.45276,-50.52209,Parque Estadual Charapucu,Afuá
-GLEBA-172,RNA,0.24,Pequeno (< 5 ha),Alta (50 - 200 m),54.8,Rio Tajapuru / Furo dos Macacos (Sul),-0.46495,-50.52611,Parque Estadual Charapucu,Afuá
-GLEBA-173,RNA,0.24,Pequeno (< 5 ha),Média (200 - 800 m),571.0,Rio Tajapuru / Furo dos Macacos (Sul),-0.44471,-50.52631,Parque Estadual Charapucu,Afuá
-GLEBA-174,Enriquecimento,0.24,Pequeno (< 5 ha),Baixa (> 800 m),2848.9,Canal Central / Interior da Ilha,-0.29056,-50.52604,Parque Estadual Charapucu,Afuá
-GLEBA-175,Plantio Direto,0.24,Pequeno (< 5 ha),Baixa (> 800 m),950.5,Rio Tajapuru / Furo dos Macacos (Sul),-0.44395,-50.52305,Parque Estadual Charapucu,Afuá
-GLEBA-176,RNA,0.24,Pequeno (< 5 ha),Alta (50 - 200 m),112.7,Canal Central / Interior da Ilha,-0.2666,-50.52301,Parque Estadual Charapucu,Afuá
-GLEBA-177,Plantio Direto,0.24,Pequeno (< 5 ha),Média (200 - 800 m),366.5,Furo do Charapucu / Norte,-0.23166,-50.5663,Parque Estadual Charapucu,Afuá
-GLEBA-178,RNA,0.24,Pequeno (< 5 ha),Baixa (> 800 m),3518.1,Rio Tajapuru / Furo dos Macacos (Sul),-0.42431,-50.51048,Parque Estadual Charapucu,Afuá
-GLEBA-179,Enriquecimento,0.24,Pequeno (< 5 ha),Baixa (> 800 m),3282.2,Canal Central / Interior da Ilha,-0.27224,-50.56351,Parque Estadual Charapucu,Afuá
-GLEBA-180,RNA,0.24,Pequeno (< 5 ha),Alta (50 - 200 m),180.7,Furo do Charapucu / Norte,-0.23011,-50.56596,Parque Estadual Charapucu,Afuá
-GLEBA-181,RNA,0.24,Pequeno (< 5 ha),Média (200 - 800 m),562.0,Rio Tajapuru / Furo dos Macacos (Sul),-0.46102,-50.51042,Parque Estadual Charapucu,Afuá
-GLEBA-182,Enriquecimento,0.24,Pequeno (< 5 ha),Média (200 - 800 m),788.8,Rio Tajapuru / Furo dos Macacos (Sul),-0.48004,-50.50457,Parque Estadual Charapucu,Afuá
-GLEBA-183,RNA,0.24,Pequeno (< 5 ha),Baixa (> 800 m),4903.9,Canal Central / Interior da Ilha,-0.41583,-50.50216,Parque Estadual Charapucu,Afuá
-GLEBA-184,RNA,0.24,Pequeno (< 5 ha),Média (200 - 800 m),355.3,Furo do Charapucu / Norte,-0.23982,-50.55563,Parque Estadual Charapucu,Afuá
-GLEBA-185,Enriquecimento,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1785.6,Canal Central / Interior da Ilha,-0.26509,-50.54631,Parque Estadual Charapucu,Afuá
-GLEBA-186,RNA,0.24,Pequeno (< 5 ha),Baixa (> 800 m),7545.2,Canal Central / Interior da Ilha,-0.34322,-50.51907,Parque Estadual Charapucu,Afuá
-GLEBA-187,Enriquecimento,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1053.0,Furo do Charapucu / Norte,-0.25429,-50.55555,Parque Estadual Charapucu,Afuá
-GLEBA-188,RNA,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1615.5,Rio Tajapuru / Furo dos Macacos (Sul),-0.43857,-50.51954,Parque Estadual Charapucu,Afuá
-GLEBA-189,RNA,0.24,Pequeno (< 5 ha),Média (200 - 800 m),642.1,Canal Central / Interior da Ilha,-0.27285,-50.51917,Parque Estadual Charapucu,Afuá
-GLEBA-190,Enriquecimento,0.24,Pequeno (< 5 ha),Baixa (> 800 m),7443.8,Canal Central / Interior da Ilha,-0.34261,-50.51839,Parque Estadual Charapucu,Afuá
-GLEBA-191,Enriquecimento,0.24,Pequeno (< 5 ha),Média (200 - 800 m),552.5,Furo do Charapucu / Norte,-0.2547,-50.54328,Parque Estadual Charapucu,Afuá
-GLEBA-192,RNA,0.24,Pequeno (< 5 ha),Alta (50 - 200 m),51.1,Rio Tajapuru / Furo dos Macacos (Sul),-0.469,-50.51239,Parque Estadual Charapucu,Afuá
-GLEBA-193,RNA,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1601.3,Furo do Charapucu / Norte,-0.25316,-50.56198,Parque Estadual Charapucu,Afuá
-GLEBA-194,RNA,0.24,Pequeno (< 5 ha),Baixa (> 800 m),2381.7,Canal Central / Interior da Ilha,-0.26311,-50.56295,Parque Estadual Charapucu,Afuá
-GLEBA-195,Enriquecimento,0.24,Pequeno (< 5 ha),Baixa (> 800 m),851.8,Furo do Charapucu / Norte,-0.23543,-50.56811,Parque Estadual Charapucu,Afuá
-GLEBA-196,Enriquecimento,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1232.2,Furo do Charapucu / Norte,-0.23915,-50.56901,Parque Estadual Charapucu,Afuá
-GLEBA-197,Enriquecimento,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1480.7,Furo do Charapucu / Norte,-0.2395,-50.57202,Parque Estadual Charapucu,Afuá
-GLEBA-198,Enriquecimento,0.24,Pequeno (< 5 ha),Média (200 - 800 m),693.4,Furo do Charapucu / Norte,-0.23403,-50.56771,Parque Estadual Charapucu,Afuá
-GLEBA-199,RNA,0.24,Pequeno (< 5 ha),Média (200 - 800 m),518.2,Furo do Charapucu / Norte,-0.22237,-50.57332,Parque Estadual Charapucu,Afuá
-GLEBA-200,Enriquecimento,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1077.6,Rio Tajapuru / Furo dos Macacos (Sul),-0.47643,-50.49995,Parque Estadual Charapucu,Afuá
-GLEBA-201,Enriquecimento,0.24,Pequeno (< 5 ha),Baixa (> 800 m),996.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.47749,-50.50126,Parque Estadual Charapucu,Afuá
-GLEBA-202,Enriquecimento,0.24,Pequeno (< 5 ha),Alta (50 - 200 m),198.0,Furo do Charapucu / Norte,-0.21339,-50.5693,Parque Estadual Charapucu,Afuá
-GLEBA-203,Enriquecimento,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1745.2,Canal Central / Interior da Ilha,-0.29062,-50.49617,Parque Estadual Charapucu,Afuá
-GLEBA-204,Plantio Direto,0.24,Pequeno (< 5 ha),Baixa (> 800 m),2038.3,Rio Afuá / Oeste,-0.26335,-50.58688,Parque Estadual Charapucu,Afuá
-GLEBA-205,RNA,0.24,Pequeno (< 5 ha),Baixa (> 800 m),6165.9,Canal Central / Interior da Ilha,-0.40581,-50.49721,Parque Estadual Charapucu,Afuá
-GLEBA-206,Enriquecimento,0.24,Pequeno (< 5 ha),Baixa (> 800 m),5210.0,Canal Central / Interior da Ilha,-0.41647,-50.49804,Parque Estadual Charapucu,Afuá
-GLEBA-207,RNA,0.24,Pequeno (< 5 ha),Baixa (> 800 m),6778.1,Rio Afuá / Oeste,-0.39484,-50.58879,Parque Estadual Charapucu,Afuá
-GLEBA-208,RNA,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1346.3,Canal Central / Interior da Ilha,-0.28665,-50.49719,Parque Estadual Charapucu,Afuá
-GLEBA-209,Enriquecimento,0.24,Pequeno (< 5 ha),Baixa (> 800 m),2440.3,Rio Afuá / Oeste,-0.2612,-50.58142,Parque Estadual Charapucu,Afuá
-GLEBA-210,Plantio Direto,0.24,Pequeno (< 5 ha),Baixa (> 800 m),2723.3,Furo do Charapucu / Norte,-0.25241,-50.57718,Parque Estadual Charapucu,Afuá
-GLEBA-211,Enriquecimento,0.24,Pequeno (< 5 ha),Média (200 - 800 m),534.9,Furo do Charapucu / Norte,-0.24832,-50.59735,Parque Estadual Charapucu,Afuá
-GLEBA-212,Enriquecimento,0.24,Pequeno (< 5 ha),Baixa (> 800 m),7563.1,Canal Central / Interior da Ilha,-0.39504,-50.49107,Parque Estadual Charapucu,Afuá
-GLEBA-213,Enriquecimento,0.24,Pequeno (< 5 ha),Alta (50 - 200 m),177.4,Furo do Charapucu / Norte,-0.22258,-50.60026,Parque Estadual Charapucu,Afuá
-GLEBA-214,Plantio Direto,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1078.9,Rio Tajapuru / Furo dos Macacos (Sul),-0.44548,-50.59145,Parque Estadual Charapucu,Afuá
-GLEBA-215,Enriquecimento,0.24,Pequeno (< 5 ha),Baixa (> 800 m),7635.3,Rio Afuá / Oeste,-0.3873,-50.59218,Parque Estadual Charapucu,Afuá
-GLEBA-216,Enriquecimento,0.24,Pequeno (< 5 ha),Média (200 - 800 m),652.2,Canal Central / Interior da Ilha,-0.28771,-50.47959,Parque Estadual Charapucu,Afuá
-GLEBA-217,RNA,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1694.4,Rio Afuá / Oeste,-0.37222,-50.65511,Parque Estadual Charapucu,Afuá
-GLEBA-218,RNA,0.24,Pequeno (< 5 ha),Baixa (> 800 m),2341.1,Rio Afuá / Oeste,-0.37189,-50.64908,Parque Estadual Charapucu,Afuá
-GLEBA-219,Plantio Direto,0.24,Pequeno (< 5 ha),Média (200 - 800 m),530.7,Canal Central / Interior da Ilha,-0.34489,-50.45802,Parque Estadual Charapucu,Afuá
+﻿id_gleba,diagnostico,severidade,area_ha,classe_area,acesso_fluvial,dist_margem_m,setor_fluvial,centroide_lat,centroide_lon,uc,municipio
+GLEBA-001,Clareira Aberta / Baixa Biomassa,Alta,2.16,Pequeno (< 5 ha),Baixa (> 800 m),7322.7,Canal Central / Interior da Ilha,-0.39665,-50.49046,Parque Estadual Charapucu,Afuá
+GLEBA-002,Dossel Ralo / Alteração Moderada,Moderada,1.88,Pequeno (< 5 ha),Baixa (> 800 m),7260.3,Canal Central / Interior da Ilha,-0.39097,-50.49324,Parque Estadual Charapucu,Afuá
+GLEBA-003,Regeneração em Curso,Baixa / Recuperação,1.84,Pequeno (< 5 ha),Baixa (> 800 m),2836.2,Baía do Vieira Grande / Leste,-0.39904,-50.38828,Parque Estadual Charapucu,Afuá
+GLEBA-004,Dossel Ralo / Alteração Moderada,Moderada,1.76,Pequeno (< 5 ha),Baixa (> 800 m),5573.0,Canal Central / Interior da Ilha,-0.4095,-50.4992,Parque Estadual Charapucu,Afuá
+GLEBA-005,Dossel Ralo / Alteração Moderada,Moderada,1.52,Pequeno (< 5 ha),Baixa (> 800 m),2153.6,Rio Tajapuru / Furo dos Macacos (Sul),-0.43457,-50.5907,Parque Estadual Charapucu,Afuá
+GLEBA-006,Dossel Ralo / Alteração Moderada,Moderada,1.44,Pequeno (< 5 ha),Baixa (> 800 m),6476.1,Canal Central / Interior da Ilha,-0.37126,-50.50183,Parque Estadual Charapucu,Afuá
+GLEBA-007,Regeneração em Curso,Baixa / Recuperação,1.28,Pequeno (< 5 ha),Baixa (> 800 m),1788.7,Furo do Charapucu / Norte,-0.24207,-50.57408,Parque Estadual Charapucu,Afuá
+GLEBA-008,Dossel Ralo / Alteração Moderada,Moderada,1.2,Pequeno (< 5 ha),Baixa (> 800 m),1387.6,Rio Tajapuru / Furo dos Macacos (Sul),-0.45196,-50.51029,Parque Estadual Charapucu,Afuá
+GLEBA-009,Regeneração em Curso,Baixa / Recuperação,1.16,Pequeno (< 5 ha),Baixa (> 800 m),887.6,Canal Central / Interior da Ilha,-0.26976,-50.53078,Parque Estadual Charapucu,Afuá
+GLEBA-010,Dossel Ralo / Alteração Moderada,Moderada,0.96,Pequeno (< 5 ha),Baixa (> 800 m),7513.0,Canal Central / Interior da Ilha,-0.39643,-50.48969,Parque Estadual Charapucu,Afuá
+GLEBA-011,Regeneração em Curso,Baixa / Recuperação,0.92,Pequeno (< 5 ha),Baixa (> 800 m),5795.1,Canal Central / Interior da Ilha,-0.40752,-50.49856,Parque Estadual Charapucu,Afuá
+GLEBA-012,Dossel Ralo / Alteração Moderada,Moderada,0.88,Pequeno (< 5 ha),Baixa (> 800 m),7498.8,Canal Central / Interior da Ilha,-0.39705,-50.48768,Parque Estadual Charapucu,Afuá
+GLEBA-013,Regeneração em Curso,Baixa / Recuperação,0.84,Pequeno (< 5 ha),Baixa (> 800 m),5385.5,Canal Central / Interior da Ilha,-0.4115,-50.49937,Parque Estadual Charapucu,Afuá
+GLEBA-014,Dossel Ralo / Alteração Moderada,Moderada,0.8,Pequeno (< 5 ha),Baixa (> 800 m),4358.0,Rio Afuá / Oeste,-0.41508,-50.58929,Parque Estadual Charapucu,Afuá
+GLEBA-015,Dossel Ralo / Alteração Moderada,Moderada,0.8,Pequeno (< 5 ha),Baixa (> 800 m),2516.8,Furo do Charapucu / Norte,-0.24929,-50.57398,Parque Estadual Charapucu,Afuá
+GLEBA-016,Regeneração em Curso,Baixa / Recuperação,0.8,Pequeno (< 5 ha),Baixa (> 800 m),2579.4,Furo do Charapucu / Norte,-0.25,-50.57411,Parque Estadual Charapucu,Afuá
+GLEBA-017,Dossel Ralo / Alteração Moderada,Moderada,0.8,Pequeno (< 5 ha),Baixa (> 800 m),1661.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.44408,-50.51475,Parque Estadual Charapucu,Afuá
+GLEBA-018,Dossel Ralo / Alteração Moderada,Moderada,0.76,Pequeno (< 5 ha),Média (200 - 800 m),710.7,Rio Tajapuru / Furo dos Macacos (Sul),-0.47624,-50.50592,Parque Estadual Charapucu,Afuá
+GLEBA-019,Dossel Ralo / Alteração Moderada,Moderada,0.72,Pequeno (< 5 ha),Baixa (> 800 m),801.1,Canal Central / Interior da Ilha,-0.27503,-50.51688,Parque Estadual Charapucu,Afuá
+GLEBA-020,Dossel Ralo / Alteração Moderada,Moderada,0.72,Pequeno (< 5 ha),Baixa (> 800 m),2797.8,Rio Tajapuru / Furo dos Macacos (Sul),-0.42807,-50.51473,Parque Estadual Charapucu,Afuá
+GLEBA-021,Regeneração em Curso,Baixa / Recuperação,0.68,Pequeno (< 5 ha),Baixa (> 800 m),997.6,Canal Central / Interior da Ilha,-0.27208,-50.5297,Parque Estadual Charapucu,Afuá
+GLEBA-022,Dossel Ralo / Alteração Moderada,Moderada,0.64,Pequeno (< 5 ha),Baixa (> 800 m),2871.4,Rio Tajapuru / Furo dos Macacos (Sul),-0.42907,-50.59182,Parque Estadual Charapucu,Afuá
+GLEBA-023,Dossel Ralo / Alteração Moderada,Moderada,0.64,Pequeno (< 5 ha),Baixa (> 800 m),1440.8,Rio Afuá / Oeste,-0.37319,-50.65739,Parque Estadual Charapucu,Afuá
+GLEBA-024,Dossel Ralo / Alteração Moderada,Moderada,0.64,Pequeno (< 5 ha),Baixa (> 800 m),1368.6,Canal Central / Interior da Ilha,-0.26111,-50.54913,Parque Estadual Charapucu,Afuá
+GLEBA-025,Dossel Ralo / Alteração Moderada,Moderada,0.64,Pequeno (< 5 ha),Baixa (> 800 m),2033.5,Canal Central / Interior da Ilha,-0.262,-50.56033,Parque Estadual Charapucu,Afuá
+GLEBA-026,Regeneração em Curso,Baixa / Recuperação,0.6,Pequeno (< 5 ha),Baixa (> 800 m),2430.6,Furo do Charapucu / Norte,-0.25742,-50.58032,Parque Estadual Charapucu,Afuá
+GLEBA-027,Dossel Ralo / Alteração Moderada,Moderada,0.6,Pequeno (< 5 ha),Média (200 - 800 m),724.1,Rio Tajapuru / Furo dos Macacos (Sul),-0.4617,-50.50719,Parque Estadual Charapucu,Afuá
+GLEBA-028,Dossel Ralo / Alteração Moderada,Moderada,0.6,Pequeno (< 5 ha),Baixa (> 800 m),1458.9,Canal Central / Interior da Ilha,-0.29229,-50.49018,Parque Estadual Charapucu,Afuá
+GLEBA-029,Dossel Ralo / Alteração Moderada,Moderada,0.56,Pequeno (< 5 ha),Alta (50 - 200 m),157.4,Rio Tajapuru / Furo dos Macacos (Sul),-0.44299,-50.6428,Parque Estadual Charapucu,Afuá
+GLEBA-030,Dossel Ralo / Alteração Moderada,Moderada,0.56,Pequeno (< 5 ha),Baixa (> 800 m),6795.4,Canal Central / Interior da Ilha,-0.3806,-50.49783,Parque Estadual Charapucu,Afuá
+GLEBA-031,Dossel Ralo / Alteração Moderada,Moderada,0.56,Pequeno (< 5 ha),Baixa (> 800 m),1170.8,Furo do Charapucu / Norte,-0.24495,-50.56183,Parque Estadual Charapucu,Afuá
+GLEBA-032,Dossel Ralo / Alteração Moderada,Moderada,0.56,Pequeno (< 5 ha),Baixa (> 800 m),1981.1,Furo do Charapucu / Norte,-0.23769,-50.58018,Parque Estadual Charapucu,Afuá
+GLEBA-033,Dossel Ralo / Alteração Moderada,Moderada,0.56,Pequeno (< 5 ha),Baixa (> 800 m),4738.5,Rio Afuá / Oeste,-0.412,-50.58891,Parque Estadual Charapucu,Afuá
+GLEBA-034,Clareira Aberta / Baixa Biomassa,Alta,0.56,Pequeno (< 5 ha),Média (200 - 800 m),517.9,Rio Tajapuru / Furo dos Macacos (Sul),-0.45103,-50.59863,Parque Estadual Charapucu,Afuá
+GLEBA-035,Regeneração em Curso,Baixa / Recuperação,0.52,Pequeno (< 5 ha),Baixa (> 800 m),2444.2,Furo do Charapucu / Norte,-0.24434,-50.58035,Parque Estadual Charapucu,Afuá
+GLEBA-036,Dossel Ralo / Alteração Moderada,Moderada,0.52,Pequeno (< 5 ha),Baixa (> 800 m),1606.5,Rio Afuá / Oeste,-0.37234,-50.65541,Parque Estadual Charapucu,Afuá
+GLEBA-037,Dossel Ralo / Alteração Moderada,Moderada,0.52,Pequeno (< 5 ha),Baixa (> 800 m),1697.1,Canal Central / Interior da Ilha,-0.2793,-50.52766,Parque Estadual Charapucu,Afuá
+GLEBA-038,Dossel Ralo / Alteração Moderada,Moderada,0.52,Pequeno (< 5 ha),Baixa (> 800 m),946.6,Rio Tajapuru / Furo dos Macacos (Sul),-0.47502,-50.50454,Parque Estadual Charapucu,Afuá
+GLEBA-039,Dossel Ralo / Alteração Moderada,Moderada,0.52,Pequeno (< 5 ha),Alta (50 - 200 m),113.7,Rio Tajapuru / Furo dos Macacos (Sul),-0.48428,-50.49651,Parque Estadual Charapucu,Afuá
+GLEBA-040,Dossel Ralo / Alteração Moderada,Moderada,0.52,Pequeno (< 5 ha),Baixa (> 800 m),2113.9,Rio Afuá / Oeste,-0.2687,-50.58921,Parque Estadual Charapucu,Afuá
+GLEBA-041,Dossel Ralo / Alteração Moderada,Moderada,0.52,Pequeno (< 5 ha),Baixa (> 800 m),2013.7,Furo do Charapucu / Norte,-0.23934,-50.57926,Parque Estadual Charapucu,Afuá
+GLEBA-042,Dossel Ralo / Alteração Moderada,Moderada,0.52,Pequeno (< 5 ha),Baixa (> 800 m),1048.8,Furo do Charapucu / Norte,-0.23701,-50.5696,Parque Estadual Charapucu,Afuá
+GLEBA-043,Dossel Ralo / Alteração Moderada,Moderada,0.48,Pequeno (< 5 ha),Baixa (> 800 m),2030.8,Furo do Charapucu / Norte,-0.24615,-50.58345,Parque Estadual Charapucu,Afuá
+GLEBA-044,Dossel Ralo / Alteração Moderada,Moderada,0.48,Pequeno (< 5 ha),Média (200 - 800 m),403.0,Canal Central / Interior da Ilha,-0.28218,-50.48867,Parque Estadual Charapucu,Afuá
+GLEBA-045,Dossel Ralo / Alteração Moderada,Moderada,0.48,Pequeno (< 5 ha),Baixa (> 800 m),6825.5,Canal Central / Interior da Ilha,-0.3395,-50.51309,Parque Estadual Charapucu,Afuá
+GLEBA-046,Dossel Ralo / Alteração Moderada,Moderada,0.48,Pequeno (< 5 ha),Média (200 - 800 m),494.5,Rio Tajapuru / Furo dos Macacos (Sul),-0.47642,-50.50806,Parque Estadual Charapucu,Afuá
+GLEBA-047,Dossel Ralo / Alteração Moderada,Moderada,0.48,Pequeno (< 5 ha),Baixa (> 800 m),1523.5,Furo do Charapucu / Norte,-0.24881,-50.5636,Parque Estadual Charapucu,Afuá
+GLEBA-048,Dossel Ralo / Alteração Moderada,Moderada,0.48,Pequeno (< 5 ha),Baixa (> 800 m),938.7,Canal Central / Interior da Ilha,-0.26379,-50.53676,Parque Estadual Charapucu,Afuá
+GLEBA-049,Dossel Ralo / Alteração Moderada,Moderada,0.48,Pequeno (< 5 ha),Baixa (> 800 m),840.2,Canal Central / Interior da Ilha,-0.28457,-50.49143,Parque Estadual Charapucu,Afuá
+GLEBA-050,Regeneração em Curso,Baixa / Recuperação,0.44,Pequeno (< 5 ha),Baixa (> 800 m),1225.4,Canal Central / Interior da Ilha,-0.27368,-50.53009,Parque Estadual Charapucu,Afuá
+GLEBA-051,Dossel Ralo / Alteração Moderada,Moderada,0.44,Pequeno (< 5 ha),Baixa (> 800 m),6598.3,Canal Central / Interior da Ilha,-0.37393,-50.50083,Parque Estadual Charapucu,Afuá
+GLEBA-052,Dossel Ralo / Alteração Moderada,Moderada,0.44,Pequeno (< 5 ha),Média (200 - 800 m),581.9,Canal Central / Interior da Ilha,-0.33864,-50.45922,Parque Estadual Charapucu,Afuá
+GLEBA-053,Clareira Aberta / Baixa Biomassa,Alta,0.44,Pequeno (< 5 ha),Baixa (> 800 m),2071.2,Rio Tajapuru / Furo dos Macacos (Sul),-0.43615,-50.59015,Parque Estadual Charapucu,Afuá
+GLEBA-054,Dossel Ralo / Alteração Moderada,Moderada,0.44,Pequeno (< 5 ha),Baixa (> 800 m),1667.9,Furo do Charapucu / Norte,-0.24074,-50.5737,Parque Estadual Charapucu,Afuá
+GLEBA-055,Dossel Ralo / Alteração Moderada,Moderada,0.44,Pequeno (< 5 ha),Baixa (> 800 m),2463.0,Furo do Charapucu / Norte,-0.24795,-50.57457,Parque Estadual Charapucu,Afuá
+GLEBA-056,Dossel Ralo / Alteração Moderada,Moderada,0.44,Pequeno (< 5 ha),Baixa (> 800 m),2413.2,Furo do Charapucu / Norte,-0.2477,-50.57404,Parque Estadual Charapucu,Afuá
+GLEBA-057,Regeneração em Curso,Baixa / Recuperação,0.4,Pequeno (< 5 ha),Baixa (> 800 m),1502.4,Furo do Charapucu / Norte,-0.24,-50.5716,Parque Estadual Charapucu,Afuá
+GLEBA-058,Dossel Ralo / Alteração Moderada,Moderada,0.4,Pequeno (< 5 ha),Baixa (> 800 m),1160.0,Rio Afuá / Oeste,-0.39316,-50.65543,Parque Estadual Charapucu,Afuá
+GLEBA-059,Regeneração em Curso,Baixa / Recuperação,0.4,Pequeno (< 5 ha),Baixa (> 800 m),917.7,Canal Central / Interior da Ilha,-0.26812,-50.53197,Parque Estadual Charapucu,Afuá
+GLEBA-060,Dossel Ralo / Alteração Moderada,Moderada,0.4,Pequeno (< 5 ha),Média (200 - 800 m),268.5,Furo do Charapucu / Norte,-0.23063,-50.56691,Parque Estadual Charapucu,Afuá
+GLEBA-061,Dossel Ralo / Alteração Moderada,Moderada,0.4,Pequeno (< 5 ha),Média (200 - 800 m),281.5,Furo do Charapucu / Norte,-0.21385,-50.5707,Parque Estadual Charapucu,Afuá
+GLEBA-062,Clareira Aberta / Baixa Biomassa,Alta,0.4,Pequeno (< 5 ha),Alta (50 - 200 m),119.5,Furo do Charapucu / Norte,-0.22929,-50.56696,Parque Estadual Charapucu,Afuá
+GLEBA-063,Regeneração em Curso,Baixa / Recuperação,0.4,Pequeno (< 5 ha),Baixa (> 800 m),1133.7,Rio Afuá / Oeste,-0.38003,-50.66105,Parque Estadual Charapucu,Afuá
+GLEBA-064,Dossel Ralo / Alteração Moderada,Moderada,0.4,Pequeno (< 5 ha),Baixa (> 800 m),2198.4,Canal Central / Interior da Ilha,-0.26921,-50.5465,Parque Estadual Charapucu,Afuá
+GLEBA-065,Dossel Ralo / Alteração Moderada,Moderada,0.4,Pequeno (< 5 ha),Média (200 - 800 m),510.1,Canal Central / Interior da Ilha,-0.27892,-50.49881,Parque Estadual Charapucu,Afuá
+GLEBA-066,Dossel Ralo / Alteração Moderada,Moderada,0.4,Pequeno (< 5 ha),Baixa (> 800 m),1064.9,Baía do Vieira Grande / Leste,-0.41336,-50.35285,Parque Estadual Charapucu,Afuá
+GLEBA-067,Dossel Ralo / Alteração Moderada,Moderada,0.4,Pequeno (< 5 ha),Média (200 - 800 m),224.1,Canal Central / Interior da Ilha,-0.28079,-50.48756,Parque Estadual Charapucu,Afuá
+GLEBA-068,Regeneração em Curso,Baixa / Recuperação,0.4,Pequeno (< 5 ha),Alta (50 - 200 m),73.7,Canal Central / Interior da Ilha,-0.28593,-50.47329,Parque Estadual Charapucu,Afuá
+GLEBA-069,Dossel Ralo / Alteração Moderada,Moderada,0.4,Pequeno (< 5 ha),Baixa (> 800 m),7248.8,Rio Afuá / Oeste,-0.39044,-50.5903,Parque Estadual Charapucu,Afuá
+GLEBA-070,Dossel Ralo / Alteração Moderada,Moderada,0.4,Pequeno (< 5 ha),Baixa (> 800 m),1039.6,Baía do Vieira Grande / Leste,-0.41811,-50.34782,Parque Estadual Charapucu,Afuá
+GLEBA-071,Clareira Aberta / Baixa Biomassa,Alta,0.4,Pequeno (< 5 ha),Baixa (> 800 m),992.9,Rio Afuá / Oeste,-0.38434,-50.66219,Parque Estadual Charapucu,Afuá
+GLEBA-072,Dossel Ralo / Alteração Moderada,Moderada,0.36,Pequeno (< 5 ha),Média (200 - 800 m),498.2,Canal Central / Interior da Ilha,-0.29175,-50.47194,Parque Estadual Charapucu,Afuá
+GLEBA-073,Regeneração em Curso,Baixa / Recuperação,0.36,Pequeno (< 5 ha),Média (200 - 800 m),462.9,Canal Central / Interior da Ilha,-0.29135,-50.47211,Parque Estadual Charapucu,Afuá
+GLEBA-074,Dossel Ralo / Alteração Moderada,Moderada,0.36,Pequeno (< 5 ha),Baixa (> 800 m),7535.0,Rio Afuá / Oeste,-0.38613,-50.59368,Parque Estadual Charapucu,Afuá
+GLEBA-075,Dossel Ralo / Alteração Moderada,Moderada,0.36,Pequeno (< 5 ha),Baixa (> 800 m),996.8,Canal Central / Interior da Ilha,-0.29852,-50.47036,Parque Estadual Charapucu,Afuá
+GLEBA-076,Dossel Ralo / Alteração Moderada,Moderada,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1268.6,Baía do Vieira Grande / Leste,-0.41257,-50.35634,Parque Estadual Charapucu,Afuá
+GLEBA-077,Dossel Ralo / Alteração Moderada,Moderada,0.36,Pequeno (< 5 ha),Média (200 - 800 m),270.9,Rio Afuá / Oeste,-0.36454,-50.66519,Parque Estadual Charapucu,Afuá
+GLEBA-078,Regeneração em Curso,Baixa / Recuperação,0.36,Pequeno (< 5 ha),Baixa (> 800 m),2358.9,Rio Tajapuru / Furo dos Macacos (Sul),-0.43631,-50.62113,Parque Estadual Charapucu,Afuá
+GLEBA-079,Dossel Ralo / Alteração Moderada,Moderada,0.36,Pequeno (< 5 ha),Baixa (> 800 m),2047.8,Rio Afuá / Oeste,-0.26675,-50.58876,Parque Estadual Charapucu,Afuá
+GLEBA-080,Clareira Aberta / Baixa Biomassa,Alta,0.36,Pequeno (< 5 ha),Baixa (> 800 m),2471.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.43286,-50.59031,Parque Estadual Charapucu,Afuá
+GLEBA-081,Clareira Aberta / Baixa Biomassa,Alta,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1106.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.44597,-50.59545,Parque Estadual Charapucu,Afuá
+GLEBA-082,Dossel Ralo / Alteração Moderada,Moderada,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1071.0,Rio Tajapuru / Furo dos Macacos (Sul),-0.44529,-50.591,Parque Estadual Charapucu,Afuá
+GLEBA-083,Regeneração em Curso,Baixa / Recuperação,0.36,Pequeno (< 5 ha),Baixa (> 800 m),2354.9,Furo do Charapucu / Norte,-0.25554,-50.58038,Parque Estadual Charapucu,Afuá
+GLEBA-084,Dossel Ralo / Alteração Moderada,Moderada,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1144.6,Rio Tajapuru / Furo dos Macacos (Sul),-0.47181,-50.50329,Parque Estadual Charapucu,Afuá
+GLEBA-085,Dossel Ralo / Alteração Moderada,Moderada,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1425.7,Furo do Charapucu / Norte,-0.23985,-50.5705,Parque Estadual Charapucu,Afuá
+GLEBA-086,Regeneração em Curso,Baixa / Recuperação,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1095.2,Furo do Charapucu / Norte,-0.23615,-50.57103,Parque Estadual Charapucu,Afuá
+GLEBA-087,Regeneração em Curso,Baixa / Recuperação,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1369.0,Rio Tajapuru / Furo dos Macacos (Sul),-0.45324,-50.51004,Parque Estadual Charapucu,Afuá
+GLEBA-088,Dossel Ralo / Alteração Moderada,Moderada,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1604.5,Furo do Charapucu / Norte,-0.24075,-50.57264,Parque Estadual Charapucu,Afuá
+GLEBA-089,Dossel Ralo / Alteração Moderada,Moderada,0.36,Pequeno (< 5 ha),Baixa (> 800 m),6623.8,Canal Central / Interior da Ilha,-0.37494,-50.50033,Parque Estadual Charapucu,Afuá
+GLEBA-090,Clareira Aberta / Baixa Biomassa,Alta,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1285.7,Rio Tajapuru / Furo dos Macacos (Sul),-0.44311,-50.52003,Parque Estadual Charapucu,Afuá
+GLEBA-091,Dossel Ralo / Alteração Moderada,Moderada,0.36,Pequeno (< 5 ha),Baixa (> 800 m),2468.2,Canal Central / Interior da Ilha,-0.27038,-50.54926,Parque Estadual Charapucu,Afuá
+GLEBA-092,Dossel Ralo / Alteração Moderada,Moderada,0.36,Pequeno (< 5 ha),Média (200 - 800 m),593.3,Furo do Charapucu / Norte,-0.25556,-50.54203,Parque Estadual Charapucu,Afuá
+GLEBA-093,Dossel Ralo / Alteração Moderada,Moderada,0.36,Pequeno (< 5 ha),Baixa (> 800 m),2589.8,Canal Central / Interior da Ilha,-0.27777,-50.543,Parque Estadual Charapucu,Afuá
+GLEBA-094,Dossel Ralo / Alteração Moderada,Moderada,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1257.2,Canal Central / Interior da Ilha,-0.26149,-50.54388,Parque Estadual Charapucu,Afuá
+GLEBA-095,Dossel Ralo / Alteração Moderada,Moderada,0.36,Pequeno (< 5 ha),Média (200 - 800 m),403.7,Furo do Charapucu / Norte,-0.2535,-50.54453,Parque Estadual Charapucu,Afuá
+GLEBA-096,Regeneração em Curso,Baixa / Recuperação,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1152.8,Rio Afuá / Oeste,-0.38252,-50.66137,Parque Estadual Charapucu,Afuá
+GLEBA-097,Regeneração em Curso,Baixa / Recuperação,0.36,Pequeno (< 5 ha),Baixa (> 800 m),1546.5,Rio Afuá / Oeste,-0.37255,-50.65644,Parque Estadual Charapucu,Afuá
+GLEBA-098,Regeneração em Curso,Baixa / Recuperação,0.32,Pequeno (< 5 ha),Baixa (> 800 m),842.2,Canal Central / Interior da Ilha,-0.27055,-50.529,Parque Estadual Charapucu,Afuá
+GLEBA-099,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Baixa (> 800 m),1029.4,Baía do Vieira Grande / Leste,-0.41634,-50.34919,Parque Estadual Charapucu,Afuá
+GLEBA-100,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Baixa (> 800 m),1195.3,Baía do Vieira Grande / Leste,-0.41284,-50.35468,Parque Estadual Charapucu,Afuá
+GLEBA-101,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Baixa (> 800 m),2724.4,Canal Central / Interior da Ilha,-0.27682,-50.54558,Parque Estadual Charapucu,Afuá
+GLEBA-102,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Baixa (> 800 m),1447.5,Canal Central / Interior da Ilha,-0.26258,-50.54541,Parque Estadual Charapucu,Afuá
+GLEBA-103,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Média (200 - 800 m),683.6,Furo do Charapucu / Norte,-0.25582,-50.54476,Parque Estadual Charapucu,Afuá
+GLEBA-104,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Baixa (> 800 m),2779.8,Canal Central / Interior da Ilha,-0.28938,-50.52778,Parque Estadual Charapucu,Afuá
+GLEBA-105,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Baixa (> 800 m),7583.7,Rio Afuá / Oeste,-0.38804,-50.59227,Parque Estadual Charapucu,Afuá
+GLEBA-106,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Baixa (> 800 m),1348.4,Furo do Charapucu / Norte,-0.23898,-50.57089,Parque Estadual Charapucu,Afuá
+GLEBA-107,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Alta (50 - 200 m),140.5,Furo do Charapucu / Norte,-0.22229,-50.57008,Parque Estadual Charapucu,Afuá
+GLEBA-108,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Média (200 - 800 m),355.4,Rio Tajapuru / Furo dos Macacos (Sul),-0.47189,-50.50971,Parque Estadual Charapucu,Afuá
+GLEBA-109,Regeneração em Curso,Baixa / Recuperação,0.32,Pequeno (< 5 ha),Baixa (> 800 m),2823.1,Furo do Charapucu / Norte,-0.25158,-50.57509,Parque Estadual Charapucu,Afuá
+GLEBA-110,Regeneração em Curso,Baixa / Recuperação,0.32,Pequeno (< 5 ha),Baixa (> 800 m),4764.0,Canal Central / Interior da Ilha,-0.41625,-50.50317,Parque Estadual Charapucu,Afuá
+GLEBA-111,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Baixa (> 800 m),967.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.47821,-50.50241,Parque Estadual Charapucu,Afuá
+GLEBA-112,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Baixa (> 800 m),2021.5,Canal Central / Interior da Ilha,-0.26749,-50.54624,Parque Estadual Charapucu,Afuá
+GLEBA-113,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Baixa (> 800 m),1504.6,Furo do Charapucu / Norte,-0.2507,-50.56243,Parque Estadual Charapucu,Afuá
+GLEBA-114,Regeneração em Curso,Baixa / Recuperação,0.32,Pequeno (< 5 ha),Baixa (> 800 m),1680.9,Furo do Charapucu / Norte,-0.25473,-50.56194,Parque Estadual Charapucu,Afuá
+GLEBA-115,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Baixa (> 800 m),998.3,Canal Central / Interior da Ilha,-0.27765,-50.51395,Parque Estadual Charapucu,Afuá
+GLEBA-116,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Baixa (> 800 m),896.6,Canal Central / Interior da Ilha,-0.27655,-50.51546,Parque Estadual Charapucu,Afuá
+GLEBA-117,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Baixa (> 800 m),950.5,Furo do Charapucu / Norte,-0.25313,-50.55595,Parque Estadual Charapucu,Afuá
+GLEBA-118,Regeneração em Curso,Baixa / Recuperação,0.32,Pequeno (< 5 ha),Baixa (> 800 m),2148.9,Rio Afuá / Oeste,-0.26498,-50.5867,Parque Estadual Charapucu,Afuá
+GLEBA-119,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Baixa (> 800 m),2020.9,Furo do Charapucu / Norte,-0.23638,-50.58135,Parque Estadual Charapucu,Afuá
+GLEBA-120,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Baixa (> 800 m),1520.6,Canal Central / Interior da Ilha,-0.29024,-50.49314,Parque Estadual Charapucu,Afuá
+GLEBA-121,Regeneração em Curso,Baixa / Recuperação,0.32,Pequeno (< 5 ha),Média (200 - 800 m),235.6,Canal Central / Interior da Ilha,-0.28798,-50.47291,Parque Estadual Charapucu,Afuá
+GLEBA-122,Dossel Ralo / Alteração Moderada,Moderada,0.32,Pequeno (< 5 ha),Alta (50 - 200 m),117.1,Canal Central / Interior da Ilha,-0.28009,-50.48692,Parque Estadual Charapucu,Afuá
+GLEBA-123,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Alta (50 - 200 m),64.8,Rio Tajapuru / Furo dos Macacos (Sul),-0.45031,-50.63907,Parque Estadual Charapucu,Afuá
+GLEBA-124,Clareira Aberta / Baixa Biomassa,Alta,0.28,Pequeno (< 5 ha),Alta (50 - 200 m),72.4,Rio Tajapuru / Furo dos Macacos (Sul),-0.45562,-50.60724,Parque Estadual Charapucu,Afuá
+GLEBA-125,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Alta (50 - 200 m),137.5,Rio Tajapuru / Furo dos Macacos (Sul),-0.44342,-50.64271,Parque Estadual Charapucu,Afuá
+GLEBA-126,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1716.6,Canal Central / Interior da Ilha,-0.29153,-50.49437,Parque Estadual Charapucu,Afuá
+GLEBA-127,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2779.1,Canal Central / Interior da Ilha,-0.2897,-50.52668,Parque Estadual Charapucu,Afuá
+GLEBA-128,Dossel Ralo / Alteração Moderada,Moderada,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1614.8,Canal Central / Interior da Ilha,-0.2638,-50.54598,Parque Estadual Charapucu,Afuá
+GLEBA-129,Dossel Ralo / Alteração Moderada,Moderada,0.28,Pequeno (< 5 ha),Baixa (> 800 m),7503.3,Canal Central / Interior da Ilha,-0.33385,-50.52156,Parque Estadual Charapucu,Afuá
+GLEBA-130,Dossel Ralo / Alteração Moderada,Moderada,0.28,Pequeno (< 5 ha),Média (200 - 800 m),447.7,Rio Afuá / Oeste,-0.36351,-50.66283,Parque Estadual Charapucu,Afuá
+GLEBA-131,Dossel Ralo / Alteração Moderada,Moderada,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2627.5,Baía do Vieira Grande / Leste,-0.39611,-50.38808,Parque Estadual Charapucu,Afuá
+GLEBA-132,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Média (200 - 800 m),362.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.44528,-50.52783,Parque Estadual Charapucu,Afuá
+GLEBA-133,Dossel Ralo / Alteração Moderada,Moderada,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1409.1,Rio Tajapuru / Furo dos Macacos (Sul),-0.44515,-50.62605,Parque Estadual Charapucu,Afuá
+GLEBA-134,Dossel Ralo / Alteração Moderada,Moderada,0.28,Pequeno (< 5 ha),Baixa (> 800 m),5263.9,Canal Central / Interior da Ilha,-0.41707,-50.49704,Parque Estadual Charapucu,Afuá
+GLEBA-135,Clareira Aberta / Baixa Biomassa,Alta,0.28,Pequeno (< 5 ha),Baixa (> 800 m),6859.0,Canal Central / Interior da Ilha,-0.38161,-50.49748,Parque Estadual Charapucu,Afuá
+GLEBA-136,Dossel Ralo / Alteração Moderada,Moderada,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1260.1,Rio Tajapuru / Furo dos Macacos (Sul),-0.4464,-50.6266,Parque Estadual Charapucu,Afuá
+GLEBA-137,Dossel Ralo / Alteração Moderada,Moderada,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2162.5,Rio Afuá / Oeste,-0.37315,-50.65121,Parque Estadual Charapucu,Afuá
+GLEBA-138,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1985.1,Furo do Charapucu / Norte,-0.24792,-50.58404,Parque Estadual Charapucu,Afuá
+GLEBA-139,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1772.2,Furo do Charapucu / Norte,-0.25576,-50.56226,Parque Estadual Charapucu,Afuá
+GLEBA-140,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1569.0,Rio Tajapuru / Furo dos Macacos (Sul),-0.451,-50.51041,Parque Estadual Charapucu,Afuá
+GLEBA-141,Dossel Ralo / Alteração Moderada,Moderada,0.28,Pequeno (< 5 ha),Baixa (> 800 m),870.3,Furo do Charapucu / Norte,-0.23535,-50.56927,Parque Estadual Charapucu,Afuá
+GLEBA-142,Dossel Ralo / Alteração Moderada,Moderada,0.28,Pequeno (< 5 ha),Alta (50 - 200 m),52.0,Canal Central / Interior da Ilha,-0.27224,-50.50499,Parque Estadual Charapucu,Afuá
+GLEBA-143,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2328.9,Furo do Charapucu / Norte,-0.25787,-50.58147,Parque Estadual Charapucu,Afuá
+GLEBA-144,Clareira Aberta / Baixa Biomassa,Alta,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1086.7,Rio Tajapuru / Furo dos Macacos (Sul),-0.44505,-50.59036,Parque Estadual Charapucu,Afuá
+GLEBA-145,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Baixa (> 800 m),6585.9,Rio Afuá / Oeste,-0.39641,-50.58936,Parque Estadual Charapucu,Afuá
+GLEBA-146,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2311.0,Furo do Charapucu / Norte,-0.24385,-50.58234,Parque Estadual Charapucu,Afuá
+GLEBA-147,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2363.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.43053,-50.51801,Parque Estadual Charapucu,Afuá
+GLEBA-148,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Baixa (> 800 m),3435.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.42429,-50.51153,Parque Estadual Charapucu,Afuá
+GLEBA-149,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2103.2,Canal Central / Interior da Ilha,-0.26365,-50.55845,Parque Estadual Charapucu,Afuá
+GLEBA-150,Dossel Ralo / Alteração Moderada,Moderada,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2502.4,Canal Central / Interior da Ilha,-0.27862,-50.54143,Parque Estadual Charapucu,Afuá
+GLEBA-151,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1209.9,Rio Tajapuru / Furo dos Macacos (Sul),-0.44306,-50.52105,Parque Estadual Charapucu,Afuá
+GLEBA-152,Dossel Ralo / Alteração Moderada,Moderada,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1648.2,Canal Central / Interior da Ilha,-0.29023,-50.49513,Parque Estadual Charapucu,Afuá
+GLEBA-153,Clareira Aberta / Baixa Biomassa,Alta,0.28,Pequeno (< 5 ha),Baixa (> 800 m),7179.3,Canal Central / Interior da Ilha,-0.39851,-50.49199,Parque Estadual Charapucu,Afuá
+GLEBA-154,Clareira Aberta / Baixa Biomassa,Alta,0.28,Pequeno (< 5 ha),Baixa (> 800 m),6762.4,Canal Central / Interior da Ilha,-0.37934,-50.49837,Parque Estadual Charapucu,Afuá
+GLEBA-155,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Baixa (> 800 m),5243.4,Canal Central / Interior da Ilha,-0.34726,-50.49902,Parque Estadual Charapucu,Afuá
+GLEBA-156,Dossel Ralo / Alteração Moderada,Moderada,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2477.3,Furo do Charapucu / Norte,-0.25432,-50.57945,Parque Estadual Charapucu,Afuá
+GLEBA-157,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1034.4,Furo do Charapucu / Norte,-0.23601,-50.57027,Parque Estadual Charapucu,Afuá
+GLEBA-158,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Baixa (> 800 m),5031.1,Canal Central / Interior da Ilha,-0.41515,-50.50137,Parque Estadual Charapucu,Afuá
+GLEBA-159,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2975.2,Furo do Charapucu / Norte,-0.25455,-50.57441,Parque Estadual Charapucu,Afuá
+GLEBA-160,Dossel Ralo / Alteração Moderada,Moderada,0.28,Pequeno (< 5 ha),Média (200 - 800 m),610.6,Canal Central / Interior da Ilha,-0.2787,-50.50082,Parque Estadual Charapucu,Afuá
+GLEBA-161,Dossel Ralo / Alteração Moderada,Moderada,0.28,Pequeno (< 5 ha),Baixa (> 800 m),1151.2,Furo do Charapucu / Norte,-0.23621,-50.57159,Parque Estadual Charapucu,Afuá
+GLEBA-162,Regeneração em Curso,Baixa / Recuperação,0.28,Pequeno (< 5 ha),Baixa (> 800 m),7361.2,Canal Central / Interior da Ilha,-0.33666,-50.51751,Parque Estadual Charapucu,Afuá
+GLEBA-163,Dossel Ralo / Alteração Moderada,Moderada,0.28,Pequeno (< 5 ha),Baixa (> 800 m),2332.3,Canal Central / Interior da Ilha,-0.26956,-50.54792,Parque Estadual Charapucu,Afuá
+GLEBA-164,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1725.4,Canal Central / Interior da Ilha,-0.27973,-50.52703,Parque Estadual Charapucu,Afuá
+GLEBA-165,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Alta (50 - 200 m),141.6,Rio Afuá / Oeste,-0.36543,-50.667,Parque Estadual Charapucu,Afuá
+GLEBA-166,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Baixa (> 800 m),839.2,Rio Afuá / Oeste,-0.37647,-50.66348,Parque Estadual Charapucu,Afuá
+GLEBA-167,Clareira Aberta / Baixa Biomassa,Alta,0.24,Pequeno (< 5 ha),Média (200 - 800 m),398.8,Rio Tajapuru / Furo dos Macacos (Sul),-0.42267,-50.33572,Parque Estadual Charapucu,Afuá
+GLEBA-168,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Alta (50 - 200 m),89.7,Rio Afuá / Oeste,-0.40002,-50.66278,Parque Estadual Charapucu,Afuá
+GLEBA-169,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1332.7,Canal Central / Interior da Ilha,-0.26145,-50.54472,Parque Estadual Charapucu,Afuá
+GLEBA-170,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Baixa (> 800 m),2595.4,Canal Central / Interior da Ilha,-0.27452,-50.54615,Parque Estadual Charapucu,Afuá
+GLEBA-171,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Média (200 - 800 m),539.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.45276,-50.52209,Parque Estadual Charapucu,Afuá
+GLEBA-172,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Alta (50 - 200 m),54.8,Rio Tajapuru / Furo dos Macacos (Sul),-0.46495,-50.52611,Parque Estadual Charapucu,Afuá
+GLEBA-173,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Média (200 - 800 m),571.0,Rio Tajapuru / Furo dos Macacos (Sul),-0.44471,-50.52631,Parque Estadual Charapucu,Afuá
+GLEBA-174,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Baixa (> 800 m),2848.9,Canal Central / Interior da Ilha,-0.29056,-50.52604,Parque Estadual Charapucu,Afuá
+GLEBA-175,Clareira Aberta / Baixa Biomassa,Alta,0.24,Pequeno (< 5 ha),Baixa (> 800 m),950.5,Rio Tajapuru / Furo dos Macacos (Sul),-0.44395,-50.52305,Parque Estadual Charapucu,Afuá
+GLEBA-176,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Alta (50 - 200 m),112.7,Canal Central / Interior da Ilha,-0.2666,-50.52301,Parque Estadual Charapucu,Afuá
+GLEBA-177,Clareira Aberta / Baixa Biomassa,Alta,0.24,Pequeno (< 5 ha),Média (200 - 800 m),366.5,Furo do Charapucu / Norte,-0.23166,-50.5663,Parque Estadual Charapucu,Afuá
+GLEBA-178,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Baixa (> 800 m),3518.1,Rio Tajapuru / Furo dos Macacos (Sul),-0.42431,-50.51048,Parque Estadual Charapucu,Afuá
+GLEBA-179,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Baixa (> 800 m),3282.2,Canal Central / Interior da Ilha,-0.27224,-50.56351,Parque Estadual Charapucu,Afuá
+GLEBA-180,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Alta (50 - 200 m),180.7,Furo do Charapucu / Norte,-0.23011,-50.56596,Parque Estadual Charapucu,Afuá
+GLEBA-181,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Média (200 - 800 m),562.0,Rio Tajapuru / Furo dos Macacos (Sul),-0.46102,-50.51042,Parque Estadual Charapucu,Afuá
+GLEBA-182,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Média (200 - 800 m),788.8,Rio Tajapuru / Furo dos Macacos (Sul),-0.48004,-50.50457,Parque Estadual Charapucu,Afuá
+GLEBA-183,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Baixa (> 800 m),4903.9,Canal Central / Interior da Ilha,-0.41583,-50.50216,Parque Estadual Charapucu,Afuá
+GLEBA-184,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Média (200 - 800 m),355.3,Furo do Charapucu / Norte,-0.23982,-50.55563,Parque Estadual Charapucu,Afuá
+GLEBA-185,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1785.6,Canal Central / Interior da Ilha,-0.26509,-50.54631,Parque Estadual Charapucu,Afuá
+GLEBA-186,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Baixa (> 800 m),7545.2,Canal Central / Interior da Ilha,-0.34322,-50.51907,Parque Estadual Charapucu,Afuá
+GLEBA-187,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1053.0,Furo do Charapucu / Norte,-0.25429,-50.55555,Parque Estadual Charapucu,Afuá
+GLEBA-188,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1615.5,Rio Tajapuru / Furo dos Macacos (Sul),-0.43857,-50.51954,Parque Estadual Charapucu,Afuá
+GLEBA-189,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Média (200 - 800 m),642.1,Canal Central / Interior da Ilha,-0.27285,-50.51917,Parque Estadual Charapucu,Afuá
+GLEBA-190,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Baixa (> 800 m),7443.8,Canal Central / Interior da Ilha,-0.34261,-50.51839,Parque Estadual Charapucu,Afuá
+GLEBA-191,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Média (200 - 800 m),552.5,Furo do Charapucu / Norte,-0.2547,-50.54328,Parque Estadual Charapucu,Afuá
+GLEBA-192,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Alta (50 - 200 m),51.1,Rio Tajapuru / Furo dos Macacos (Sul),-0.469,-50.51239,Parque Estadual Charapucu,Afuá
+GLEBA-193,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1601.3,Furo do Charapucu / Norte,-0.25316,-50.56198,Parque Estadual Charapucu,Afuá
+GLEBA-194,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Baixa (> 800 m),2381.7,Canal Central / Interior da Ilha,-0.26311,-50.56295,Parque Estadual Charapucu,Afuá
+GLEBA-195,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Baixa (> 800 m),851.8,Furo do Charapucu / Norte,-0.23543,-50.56811,Parque Estadual Charapucu,Afuá
+GLEBA-196,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1232.2,Furo do Charapucu / Norte,-0.23915,-50.56901,Parque Estadual Charapucu,Afuá
+GLEBA-197,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1480.7,Furo do Charapucu / Norte,-0.2395,-50.57202,Parque Estadual Charapucu,Afuá
+GLEBA-198,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Média (200 - 800 m),693.4,Furo do Charapucu / Norte,-0.23403,-50.56771,Parque Estadual Charapucu,Afuá
+GLEBA-199,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Média (200 - 800 m),518.2,Furo do Charapucu / Norte,-0.22237,-50.57332,Parque Estadual Charapucu,Afuá
+GLEBA-200,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1077.6,Rio Tajapuru / Furo dos Macacos (Sul),-0.47643,-50.49995,Parque Estadual Charapucu,Afuá
+GLEBA-201,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Baixa (> 800 m),996.3,Rio Tajapuru / Furo dos Macacos (Sul),-0.47749,-50.50126,Parque Estadual Charapucu,Afuá
+GLEBA-202,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Alta (50 - 200 m),198.0,Furo do Charapucu / Norte,-0.21339,-50.5693,Parque Estadual Charapucu,Afuá
+GLEBA-203,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1745.2,Canal Central / Interior da Ilha,-0.29062,-50.49617,Parque Estadual Charapucu,Afuá
+GLEBA-204,Clareira Aberta / Baixa Biomassa,Alta,0.24,Pequeno (< 5 ha),Baixa (> 800 m),2038.3,Rio Afuá / Oeste,-0.26335,-50.58688,Parque Estadual Charapucu,Afuá
+GLEBA-205,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Baixa (> 800 m),6165.9,Canal Central / Interior da Ilha,-0.40581,-50.49721,Parque Estadual Charapucu,Afuá
+GLEBA-206,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Baixa (> 800 m),5210.0,Canal Central / Interior da Ilha,-0.41647,-50.49804,Parque Estadual Charapucu,Afuá
+GLEBA-207,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Baixa (> 800 m),6778.1,Rio Afuá / Oeste,-0.39484,-50.58879,Parque Estadual Charapucu,Afuá
+GLEBA-208,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1346.3,Canal Central / Interior da Ilha,-0.28665,-50.49719,Parque Estadual Charapucu,Afuá
+GLEBA-209,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Baixa (> 800 m),2440.3,Rio Afuá / Oeste,-0.2612,-50.58142,Parque Estadual Charapucu,Afuá
+GLEBA-210,Clareira Aberta / Baixa Biomassa,Alta,0.24,Pequeno (< 5 ha),Baixa (> 800 m),2723.3,Furo do Charapucu / Norte,-0.25241,-50.57718,Parque Estadual Charapucu,Afuá
+GLEBA-211,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Média (200 - 800 m),534.9,Furo do Charapucu / Norte,-0.24832,-50.59735,Parque Estadual Charapucu,Afuá
+GLEBA-212,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Baixa (> 800 m),7563.1,Canal Central / Interior da Ilha,-0.39504,-50.49107,Parque Estadual Charapucu,Afuá
+GLEBA-213,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Alta (50 - 200 m),177.4,Furo do Charapucu / Norte,-0.22258,-50.60026,Parque Estadual Charapucu,Afuá
+GLEBA-214,Clareira Aberta / Baixa Biomassa,Alta,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1078.9,Rio Tajapuru / Furo dos Macacos (Sul),-0.44548,-50.59145,Parque Estadual Charapucu,Afuá
+GLEBA-215,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Baixa (> 800 m),7635.3,Rio Afuá / Oeste,-0.3873,-50.59218,Parque Estadual Charapucu,Afuá
+GLEBA-216,Dossel Ralo / Alteração Moderada,Moderada,0.24,Pequeno (< 5 ha),Média (200 - 800 m),652.2,Canal Central / Interior da Ilha,-0.28771,-50.47959,Parque Estadual Charapucu,Afuá
+GLEBA-217,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Baixa (> 800 m),1694.4,Rio Afuá / Oeste,-0.37222,-50.65511,Parque Estadual Charapucu,Afuá
+GLEBA-218,Regeneração em Curso,Baixa / Recuperação,0.24,Pequeno (< 5 ha),Baixa (> 800 m),2341.1,Rio Afuá / Oeste,-0.37189,-50.64908,Parque Estadual Charapucu,Afuá
+GLEBA-219,Clareira Aberta / Baixa Biomassa,Alta,0.24,Pequeno (< 5 ha),Média (200 - 800 m),530.7,Canal Central / Interior da Ilha,-0.34489,-50.45802,Parque Estadual Charapucu,Afuá

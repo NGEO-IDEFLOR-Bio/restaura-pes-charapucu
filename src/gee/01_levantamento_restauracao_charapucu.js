@@ -138,9 +138,14 @@ var talhoesProcessados = talhoesVetoriais.map(function(feat) {
   var areaHa = feat.geometry().area(1).divide(10000);
   var cod = ee.Number(feat.get('classe_cod'));
   
-  var metodo = ee.Algorithms.If(
-    cod.eq(3), 'RNA',
-    ee.Algorithms.If(cod.eq(2), 'Enriquecimento', 'Plantio Direto')
+  var diagnostico = ee.Algorithms.If(
+    cod.eq(3), 'Regeneração em Curso',
+    ee.Algorithms.If(cod.eq(2), 'Dossel Ralo / Alteração Moderada', 'Clareira Aberta / Baixa Biomassa')
+  );
+
+  var severidade = ee.Algorithms.If(
+    cod.eq(3), 'Baixa / Recuperação',
+    ee.Algorithms.If(cod.eq(2), 'Moderada', 'Alta')
   );
 
   var classeArea = ee.Algorithms.If(
@@ -154,7 +159,8 @@ var talhoesProcessados = talhoesVetoriais.map(function(feat) {
   return feat.set({
     'id_talhao': feat.id(),
     'area_ha': areaHa,
-    'metodo': metodo,
+    'diagnostico': diagnostico,
+    'severidade': severidade,
     'classe_area': classeArea,
     'uc': 'Parque Estadual Charapucu',
     'municipio': 'Afuá'
@@ -162,29 +168,29 @@ var talhoesProcessados = talhoesVetoriais.map(function(feat) {
 }).filter(ee.Filter.gte('area_ha', 0.25));
 
 // ------------------------------------------------------------------------------
-// 6. VISUALIZAÇÃO TEMÁTICA
+// 6. VISUALIZAÇÃO TEMÁTICA DE DIAGNÓSTICO
 // ------------------------------------------------------------------------------
-var talhoesRNA = talhoesProcessados.filter(ee.Filter.eq('metodo', 'RNA'));
-var talhoesEnriq = talhoesProcessados.filter(ee.Filter.eq('metodo', 'Enriquecimento'));
-var talhoesPlantio = talhoesProcessados.filter(ee.Filter.eq('metodo', 'Plantio Direto'));
+var talhoesRegen = talhoesProcessados.filter(ee.Filter.eq('diagnostico', 'Regeneração em Curso'));
+var talhoesDossel = talhoesProcessados.filter(ee.Filter.eq('diagnostico', 'Dossel Ralo / Alteração Moderada'));
+var talhoesClareira = talhoesProcessados.filter(ee.Filter.eq('diagnostico', 'Clareira Aberta / Baixa Biomassa'));
 
-Map.addLayer(talhoesRNA.style({color: '2ecc71', fillColor: '2ecc71aa', width: 1.5}), {}, 'Talhões: RNA (Regeneração Natural)');
-Map.addLayer(talhoesEnriq.style({color: 'f39c12', fillColor: 'f39c12aa', width: 1.5}), {}, 'Talhões: Enriquecimento Florestal');
-Map.addLayer(talhoesPlantio.style({color: 'e74c3c', fillColor: 'e74c3caa', width: 1.5}), {}, 'Talhões: Plantio Direto');
+Map.addLayer(talhoesRegen.style({color: '2ecc71', fillColor: '2ecc71aa', width: 1.5}), {}, 'Diagnóstico: Regeneração em Curso');
+Map.addLayer(talhoesDossel.style({color: 'f39c12', fillColor: 'f39c12aa', width: 1.5}), {}, 'Diagnóstico: Dossel Ralo / Moderada');
+Map.addLayer(talhoesClareira.style({color: 'e74c3c', fillColor: 'e74c3caa', width: 1.5}), {}, 'Diagnóstico: Clareira Aberta (Alta)');
 
 // ------------------------------------------------------------------------------
 // 7. ESTATÍSTICAS NO CONSOLE
 // ------------------------------------------------------------------------------
 print('===========================================================');
-print('🌳 BANCO DE RESTAURAÇÃO PES CHARAPUCU — CALIBRAÇÃO VÁRZEA');
+print('DIAGNÓSTICO GEOESPACIAL DE COBERTURA — PES CHARAPUCU');
 print('===========================================================');
-print('Total de Talhões Terrestres:', talhoesProcessados.size());
-print('Área Total Auditada (ha):', talhoesProcessados.aggregate_sum('area_ha'));
+print('Total de Glebas Terrestres:', talhoesProcessados.size());
+print('Área Total Diagnosticada (ha):', talhoesProcessados.aggregate_sum('area_ha'));
 
-print('--- Estratificação por Método ---');
-print('RNA (Regeneração Assistida):', talhoesRNA.size(), 'talhões | Área (ha):', talhoesRNA.aggregate_sum('area_ha'));
-print('Enriquecimento Florestal   :', talhoesEnriq.size(), 'talhões | Área (ha):', talhoesEnriq.aggregate_sum('area_ha'));
-print('Plantio Direto             :', talhoesPlantio.size(), 'talhões | Área (ha):', talhoesPlantio.aggregate_sum('area_ha'));
+print('--- Estratificação por Diagnóstico ---');
+print('Regeneração em Curso            :', talhoesRegen.size(), 'glebas | Área (ha):', talhoesRegen.aggregate_sum('area_ha'));
+print('Dossel Ralo / Alteração Moderada:', talhoesDossel.size(), 'glebas | Área (ha):', talhoesDossel.aggregate_sum('area_ha'));
+print('Clareira Aberta / Baixa Biomassa:', talhoesClareira.size(), 'glebas | Área (ha):', talhoesClareira.aggregate_sum('area_ha'));
 print('===========================================================');
 
 // ------------------------------------------------------------------------------
@@ -192,24 +198,24 @@ print('===========================================================');
 // ------------------------------------------------------------------------------
 Export.table.toDrive({
   collection: talhoesProcessados,
-  description: 'talhoes_restauracao_charapucu_geojson',
+  description: 'diagnostico_cobertura_charapucu_geojson',
   folder: 'GEE_Charapucu',
-  fileNamePrefix: 'talhoes_restauracao_charapucu',
+  fileNamePrefix: 'diagnostico_cobertura_charapucu',
   fileFormat: 'GeoJSON'
 });
 
 Export.table.toDrive({
   collection: talhoesProcessados,
-  description: 'talhoes_restauracao_charapucu_shp',
+  description: 'diagnostico_cobertura_charapucu_shp',
   folder: 'GEE_Charapucu',
-  fileNamePrefix: 'talhoes_restauracao_charapucu_shp',
+  fileNamePrefix: 'diagnostico_cobertura_charapucu_shp',
   fileFormat: 'SHP'
 });
 
 Export.table.toDrive({
-  collection: talhoesProcessados.select(['id_talhao', 'area_ha', 'metodo', 'classe_area', 'uc', 'municipio'], null, false),
-  description: 'relatorio_talhoes_charapucu_csv',
+  collection: talhoesProcessados.select(['id_talhao', 'area_ha', 'diagnostico', 'severidade', 'classe_area', 'uc', 'municipio'], null, false),
+  description: 'relatorio_diagnostico_charapucu_csv',
   folder: 'GEE_Charapucu',
-  fileNamePrefix: 'tabela_talhoes_charapucu',
+  fileNamePrefix: 'tabela_diagnostico_charapucu',
   fileFormat: 'CSV'
 });
