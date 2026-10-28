@@ -243,6 +243,6 @@ O notebook interativo [`notebooks/dashboard_charapucu.ipynb`](file:///H:/Meu%20D
    * Gráfico donut com proporção percentual e volumetria por método.
    * Histograma de barras estruturado por classe de porte.
 4. **Mapa Temático Reativo:**
-   * Camada base de satélite de alta resolução (Esri World Imagery) e mapa de contexto claro (CartoDB Positron).
+   * Camadas base abertas e sem necessidade de chave de API: Satélite de alta resolução (`Esri World Imagery`), Mapa Claro de alto contraste neutro (`Esri Light Gray Canvas`) e Mapa Topográfico/Hidrográfico (`Esri World Topo`).
    * Contorno do limite oficial do PES Charapucu.
    * Polígonos coloridos por método com tooltips de sobrevoo e popups completos ao clique.

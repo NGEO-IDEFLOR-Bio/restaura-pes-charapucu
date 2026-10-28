@@ -183,18 +183,27 @@ def construir_mapa_reativo(
         control_scale=True
     )
 
-    # Basemaps: Esri Satellite e CartoDB Positron
+    # Basemaps Esri (100% livres, sem restrição de API Key e sem bloqueio em Colab/Jupyter)
     folium.TileLayer(
         tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         attr="Esri World Imagery",
-        name="Satélite (Esri)",
+        name="Satélite (Esri World Imagery)",
         overlay=False,
         control=True
     ).add_to(m)
 
     folium.TileLayer(
-        tiles="CartoDB positron",
-        name="CartoDB Positron (Claro)",
+        tiles="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+        attr="Esri World Light Gray",
+        name="Mapa Claro (Esri Light Gray)",
+        overlay=False,
+        control=True
+    ).add_to(m)
+
+    folium.TileLayer(
+        tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
+        attr="Esri World Topo Map",
+        name="Topográfico (Esri Topo)",
         overlay=False,
         control=True
     ).add_to(m)
