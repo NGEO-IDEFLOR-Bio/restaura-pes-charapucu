@@ -4,9 +4,6 @@
 **Diretoria de Gestão da Biodiversidade (DGBIO) / Núcleo de Geotecnologias (NGEO)**
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NGEO-IDEFLOR-Bio/restaura-pes-charapucu/blob/main/notebooks/dashboard_charapucu.ipynb)
-![CRS](https://img.shields.io/badge/CRS-SIRGAS%202000%20%2F%20UTM%2022N%20(EPSG%3A31988)-blue)
-![Área Auditada](https://img.shields.io/badge/%C3%81rea%20Auditada-90.52%20ha%20(Terrestre)-darkgreen)
-![Glebas](https://img.shields.io/badge/Glebas-219%20pol%C3%ADgonos-orange)
 
 ---
 
