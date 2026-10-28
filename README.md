@@ -5,8 +5,8 @@
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NGEO-IDEFLOR-Bio/restaura-pes-charapucu/blob/main/notebooks/dashboard_charapucu.ipynb)
 ![CRS](https://img.shields.io/badge/CRS-SIRGAS%202000%20%2F%20UTM%2022N%20(EPSG%3A31988)-blue)
-![Área Auditada](https://img.shields.io/badge/%C3%81rea%20Auditada-366.72%20ha%20(282.1%25)-darkgreen)
-![Glebas](https://img.shields.io/badge/Glebas-304%20pol%C3%ADgonos-orange)
+![Área Auditada](https://img.shields.io/badge/%C3%81rea%20Auditada-90.52%20ha%20(Terrestre)-darkgreen)
+![Glebas](https://img.shields.io/badge/Glebas-219%20pol%C3%ADgonos-orange)
 
 ---
 
@@ -74,15 +74,15 @@ flowchart TD
     end
 
     subgraph ESTRATIFICACAO["4. Estratificação Técnica de Restauração"]
-        D1["Regeneração Natural Assistida - RNA<br/>• ΔNDVI > +0.10 ou NDVI ≥ 0.68<br/>• 77 glebas | 94,52 ha (25,8%)"]
-        D2["Enriquecimento Florestal<br/>• 0.48 ≤ NDVI < 0.68<br/>• 206 glebas | 263,24 ha (71,8%)"]
-        D3["Plantio Direto em Áreas Abertas<br/>• NDVI < 0.48 ou ΔNDVI < -0.10<br/>• 21 glebas | 8,96 ha (2,4%)"]
+        D1["Regeneração Natural Assistida - RNA<br/>• ΔNDVI ≥ +0.10<br/>• 70 glebas | 26,24 ha (29,0%)"]
+        D2["Enriquecimento Florestal<br/>• Clareiras e bordas (0.45 ≤ NDVI < 0.55)<br/>• 129 glebas | 56,16 ha (62,0%)"]
+        D3["Plantio Direto em Áreas Abertas<br/>• NDVI < 0.45 ou ΔNDVI < -0.12<br/>• 20 glebas | 8,12 ha (9,0%)"]
     end
 
     subgraph CARTEIRA["5. Carteira Técnica Consolidada (IDEFLOR-Bio)"]
-        E1["Validação Geodésica UTM 22N SIRGAS 2000<br/>Cálculo Métrico de Acessibilidade & Áreas"]
-        E2["Inventário Final Auditado<br/>★ 304 Glebas | 366,72 Hectares ★<br/>(Superávit de +236,72 ha | 282,1% da Meta de 130 ha)"]
-        E3["Aplicações & Produtos<br/>• GeoPackage Multicamadas & GeoJSON<br/>• Relatórios Cadastrais CSV & JSON<br/>• Mini-Dashboard Interativo"]
+        E1["Validação Geodésica UTM 22N SIRGAS 2000<br/>Filtro de Morfologia Anti-Canais (Polsby-Popper ≥ 0.12)"]
+        E2["Inventário Final Auditado<br/>★ 219 Glebas Terrestres | 90,52 Hectares ★<br/>(100% Livre de Sobreposição a Corpos Hídricos)"]
+        E3["Aplicações & Produtos<br/>• GeoPackage Multicamadas & GeoJSON<br/>• Relatórios Cadastrais CSV & JSON<br/>• Mini-Dashboard Interativo com Legenda"]
     end
 
     A1 --> PREPROC
@@ -110,42 +110,41 @@ flowchart TD
     E2 --> E3
 ```
 
-### 4.1 Protocolo de Segurança Hídrica e Maré
-Dada a alta turbidez e carga de sedimentos em suspensão dos rios marajoaras (que induzem falsos positivos em índices de água convencionais como o NDWI de McFeeters), aplicou-se:
-1. **Exclusão de Água Multifonte:** Integração do histórico decadal do JRC Surface Water e da Classe 33 do MapBiomas.
-2. **Piso Mínimo de Biomassa Terrestre ($\text{NDVI} \ge 0{,}40$):** Eliminação de praias de lama e bancos de sedimentos expostos em baixamar.
-3. **Faixa de Recuo Fluvial ($\ge 50\text{ metros}$):** Amortecimento estrito a partir da calha fluvial, assegurando que nenhum talhão se sobreponha à rede hidrográfica ou à faixa de instabilidade de maré.
+### 4.1 Protocolo de Segurança Hídrica e Calibração para Várzea Estuarina
+Dada a alta turbidez e carga de sedimentos em suspensão dos rios marajoaras (que induzem falsos positivos em índices de água convencionais como o NDWI de McFeeters) e a presença de centenas de igarapés estreitos:
+1. **Exclusão de Água Multifonte de Alta Sensibilidade:** Integração do JRC Surface Water, MapBiomas Água (Classe 33) e Sentinel-2 MNDWI ($\text{MNDWI} > -0{,}16$ ou $\text{SWIR} < 650$), eliminando a contaminação hídrica subpixel em canais estreitos de maré.
+2. **Preservação da Floresta Íntegra de Várzea:** A floresta contínua de várzea ($\text{NDVI} \ge 0{,}55$) é mantida integralmente como ecossistema natural protegido, não sendo tratada erroneamente como degradação.
+3. **Filtro Morfológico Anti-Canais (Polsby-Popper $\ge 0{,}12$):** Elimina 100% de geometrias meândricas e fitas fluviais lineares ao longo da rede hidrográfica, preservando apenas clareiras e talhões poligonais compactos.
+4. **Faixa de Recuo Fluvial ($\ge 50\text{ metros}$):** Amortecimento estrito a partir da calha navegável externa.
 
 ### 4.2 Dinâmica Espectral e Tipologia de Intervenção
-* **Regeneração Natural Assistida (RNA):** Identificada onde há ganho consistente de biomassa ($\Delta\text{NDVI} > 0{,}10$ ou $\text{NDVI} \ge 0{,}68$). Consiste no coroamento, eliminação de cipós e condução de plântulas regenerantes de baixo custo.
-* **Enriquecimento Florestal:** Vegetação com dossel ralo ou biomassa estagnada ($0{,}48 \le \text{NDVI} < 0{,}68$). Indica intervenção com adensamento de espécies nativas de várzea (*Euterpe oleracea* / açaizeiro nativo, *Virola surinamensis* / virola, *Carapa guianensis* / andiroba).
-* **Plantio Direto:** Manchas severamente degradadas ($\text{NDVI} < 0{,}48$ ou $\Delta\text{NDVI} < -0{,}10$). Demanda plantio ativo integral e recomposição da estrutura vegetal.
+* **Regeneração Natural Assistida (RNA):** Identificada onde há ganho consistente de biomassa ($\Delta\text{NDVI} \ge +0{,}10$). Consiste no coroamento, eliminação de cipós e condução de plântulas regenerantes de baixo custo.
+* **Enriquecimento Florestal:** Clareiras parciais e bordas antrópicas mapeadas no MapBiomas ($0{,}45 \le \text{NDVI} < 0{,}55$). Demanda adensamento de espécies nativas de várzea (*Euterpe oleracea* / açaizeiro nativo, *Virola surinamensis* / virola, *Carapa guianensis* / andiroba).
+* **Plantio Direto:** Manchas abertas consolidadas ou quedas severas de biomassa ($\text{NDVI} < 0{,}45$ ou $\Delta\text{NDVI} < -0{,}12$). Demanda plantio ativo integral e recomposição da estrutura vegetal.
 
 ---
 
 ## 5. Balanço Oficial da Carteira Auditada
 
 * **Meta Contratual Básica:** $130{,}00\text{ ha}$
-* **Área Total Terrestre Inventariada:** **$366{,}72\text{ ha}$**
-* **Percentual da Meta Atingido:** **$282{,}1\%$**
-* **Superávit Técnico Consolidado:** **$+236{,}72\text{ ha}$**
-* **Número Total de Glebas Aptas:** **$304\text{ polígonos}$**
-* **Distância Média aos Furos Navegáveis:** **$2.192{,}7\text{ metros}$**
+* **Área Terrestre Limpa Inventariada:** **$90{,}52\text{ ha}$** (69,6% da meta dentro do PES)
+* **Número Total de Glebas Aptas:** **$219\text{ polígonos}$**
+* **Distância Média aos Furos Navegáveis:** **$2.161{,}5\text{ metros}$**
 
 ### 5.1 Estratificação por Método de Intervenção
 | Método de Restauração | Código | Qtd Glebas | Área Total ($ha$) | Participação | Distância Média aos Furos |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Enriquecimento Florestal** | `Enriquecimento` | 206 | $263{,}24\text{ ha}$ | $71{,}8\%$ | $2.187{,}7\text{ m}$ |
-| **Regeneração Natural Assistida** | `RNA` | 77 | $94{,}52\text{ ha}$ | $25{,}8\%$ | $2.111{,}1\text{ m}$ |
-| **Plantio Direto** | `Plantio Direto` | 21 | $8{,}96\text{ ha}$ | $2{,}4\%$ | $2.540{,}8\text{ m}$ |
-| **TOTAL** | — | **304** | **$366{,}72\text{ ha}$** | **$100{,}0\%$** | **$2.192{,}7\text{ m}$** |
+| **Enriquecimento Florestal** | `Enriquecimento` | 129 | $56{,}16\text{ ha}$ | $62{,}0\%$ | $2.141{,}0\text{ m}$ |
+| **Regeneração Natural Assistida** | `RNA` | 70 | $26{,}24\text{ ha}$ | $29{,}0\%$ | $2.160{,}7\text{ m}$ |
+| **Plantio Direto** | `Plantio Direto` | 20 | $8{,}12\text{ ha}$ | $9{,}0\%$ | $2.296{,}7\text{ m}$ |
+| **TOTAL** | — | **219** | **$90{,}52\text{ ha}$** | **$100{,}0\%$** | **$2.161{,}5\text{ m}$** |
 
 ### 5.2 Estratificação por Acessibilidade Fluvial (Logística Operacional)
 | Faixa de Acessibilidade | Distância à Calha Navegável | Qtd Glebas | Área Total ($ha$) | Participação | Viabilidade Logística |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Alta Acessibilidade** | $50\text{ a }200\text{ m}$ | 20 | $9{,}04\text{ ha}$ | $2{,}5\%$ | Desembarque direto por voadeiras com transporte manual de mudas |
-| **Média Acessibilidade** | $200\text{ a }800\text{ m}$ | 53 | $49{,}04\text{ ha}$ | $13{,}4\%$ | Acesso por picadas curtas ou igarapés secundários |
-| **Baixa Acessibilidade** | $> 800\text{ m}$ (Interior) | 231 | $308{,}64\text{ ha}$ | $84{,}1\%$ | Operações com acampamento base avançado no interior da ilha |
+| **Alta Acessibilidade** | $50\text{ a }200\text{ m}$ | 18 | $5{,}56\text{ ha}$ | $6{,}1\%$ | Desembarque direto por voadeiras com transporte manual de mudas |
+| **Média Acessibilidade** | $200\text{ a }800\text{ m}$ | 35 | $11{,}88\text{ ha}$ | $13{,}1\%$ | Acesso por picadas curtas ou igarapés secundários |
+| **Baixa Acessibilidade** | $> 800\text{ m}$ (Interior) | 166 | $73{,}08\text{ ha}$ | $80{,}7\%$ | Operações com acampamento base avançado no interior da ilha |
 
 ### 5.3 Estratificação por Classe de Porte
 * **Pequeno Porte ($< 5\text{ ha}$):** 295 glebas ($243{,}80\text{ ha}$) — Adequado para projetos comunitários e manejo florestal em mosaico.

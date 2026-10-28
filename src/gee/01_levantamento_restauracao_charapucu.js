@@ -4,19 +4,11 @@
  * ÓRGÃO: Núcleo de Geotecnologias (NGEO) / IDEFLOR-Bio
  * AMBIENTE: Google Earth Engine (GEE Code Editor)
  * ==============================================================================
- * VERSÃO BLINDADA CONTRA CORPOS D'ÁGUA, FUROS E CANAIS DE MARÉ:
- * 1. Limite Oficial do PES Charapucu.
- * 2. MÁSCARA HÍDRICA MULTIFONTE RIGOROSA:
- *    - JRC Global Surface Water (occurrence > 5% ou max_extent)
- *    - MapBiomas Coleção 11 (Classe 33 - Água) acumulada
- *    - Sentinel-2 MNDWI (Green - SWIR) para detectar água barrenta / turbilhonada
- *    - Piso mínimo de reflectância SWIR (elimina água sedimentada)
- *    - Buffer de exclusão da orla de maré (40 metros)
- * 3. Piso Mínimo de Biomassa Vegetal (NDVI >= 0.40):
- *    - Elimina sedimentos fluviais expostos na maré baixa
- * 4. Detecção de Áreas Terrestres Elegíveis (Mosaico/Campos e Várzea Raleada).
- * 5. Estratificação Metodológica (RNA, Enriquecimento, Plantio Direto).
- * 6. Vetorização e Exportação.
+ * VERSÃO 2.0 (CALIBRAÇÃO ECOLÓGICA PARA VÁRZEA ESTUARINA):
+ * - Preserva a floresta contínua de várzea (NDVI >= 0.55) como ecossistema íntegro.
+ * - Elimina falsos positivos em canais d'água e igarapés estreitos (MNDWI > -0.16 e SWIR < 650).
+ * - Identifica exclusivamente clareiras reais, quedas de dossel (delta_NDVI < -0.10)
+ *   e regenerações comprovadas (delta_NDVI > +0.10) ou histórico antrópico MapBiomas.
  * ==============================================================================
  */
 
@@ -32,20 +24,20 @@ Map.setOptions('SATELLITE');
 Map.addLayer(pesCharapucu.style({color: 'cyan', width: 2, fillColor: '00000000'}), {}, 'Limite Oficial - PES Charapucu');
 
 // ------------------------------------------------------------------------------
-// 2. MÁSCARA HÍDRICA MULTIFONTE (ELIMINAÇÃO TOTAL DE RIOS E FUROS)
+// 2. MÁSCARA HÍDRICA MULTIFONTE DE ALTA SENSIBILIDADE
 // ------------------------------------------------------------------------------
 // A) JRC Global Surface Water (Histórico de 38 anos)
 var jrc = ee.Image('JRC/GSW1_4/GlobalSurfaceWater').clip(roi);
 var jrcAgua = jrc.select('occurrence').gt(5).or(jrc.select('max_extent').eq(1));
 
-// B) MapBiomas Coleção 11 - Classe 33 (Corpos d'Água) nos últimos anos
+// B) MapBiomas Coleção 11 - Classe 33 (Corpos d'Água)
 var assetMapBiomas = 'projects/mapbiomas-public/assets/brazil/lulc/collection11/mapbiomas_brazil_collection11_coverage_v3';
 var mapbiomas = ee.Image(assetMapBiomas).clip(roi);
 var mbAgua = mapbiomas.select('classification_2025').eq(33)
   .or(mapbiomas.select('classification_2024').eq(33))
   .or(mapbiomas.select('classification_2020').eq(33));
 
-// C) Sentinel-2: MNDWI e Absorção SWIR (Água barrenta absorve SWIR fortemente)
+// C) Sentinel-2: Pré-processamento e Índices Espectrais
 function prepS2(img) {
   var qa = img.select('QA60');
   var nuvens = 1 << 10;
@@ -56,7 +48,7 @@ function prepS2(img) {
   
   var clean = img.updateMask(maskQA.and(maskSCL));
   var ndvi = clean.normalizedDifference(['B8', 'B4']).rename('NDVI');
-  // MNDWI usa SWIR1 (B11) que separa água barrenta de solo/vegetação com alta precisão
+  // MNDWI: Green (B3) e SWIR1 (B11) — máxima sensibilidade a água e solo lamacento
   var mndwi = clean.normalizedDifference(['B3', 'B11']).rename('MNDWI');
   return clean.addBands(ndvi).addBands(mndwi);
 }
@@ -75,67 +67,73 @@ var deltaNDVI = ndviRecente.subtract(ndviInicial).rename('delta_ndvi');
 var mndwiRecente = s2Recente.select('MNDWI');
 var swirRecente = s2Recente.select('B11');
 
-// Água espectral no Sentinel-2 (MNDWI > -0.10 ou SWIR muito baixo < 500)
-var s2Agua = mndwiRecente.gt(-0.10).or(swirRecente.lt(500));
+// D) Detecção estrita de água e igarapés estreitos de maré:
+// MNDWI > -0.16 OU SWIR < 650 detecta canais fluviais e poças de maré subpixel
+var s2Agua = mndwiRecente.gt(-0.16).or(swirRecente.lt(650));
 
-// UNIÃO DE TODAS AS FONTES HÍDRICAS
+// UNIÃO DAS MÁSCARAS HÍDRICAS + Buffer estrito de 50 metros
 var mascaraAguaTotal = jrcAgua.or(mbAgua).or(s2Agua);
+var bufferAgua = mascaraAguaTotal.focal_max({radius: 50, units: 'meters'});
 
-// Buffer de proteção da margem fluvial (40m) para impedir invasão em bancos de lodo e orlas de maré
-var bufferAgua = mascaraAguaTotal.focal_max({radius: 40, units: 'meters'});
-
-Map.addLayer(mascaraAguaTotal.selfMask(), {palette: ['0000FF']}, 'Rios e Canais Hídricos (Máscara)', false);
-Map.addLayer(bufferAgua.selfMask(), {palette: ['00FFFF']}, 'Buffer Fluvial de Exclusão (40m)', false);
+Map.addLayer(mascaraAguaTotal.selfMask(), {palette: ['0000FF']}, 'Canais Hídricos e Igarapés', false);
+Map.addLayer(bufferAgua.selfMask(), {palette: ['00FFFF']}, 'Buffer Fluvial de Exclusão (50m)', false);
 
 // ------------------------------------------------------------------------------
-// 3. IDENTIFICAÇÃO RIGOROSA DE ÁREAS TERRESTRES ELEGÍVEIS
+// 3. IDENTIFICAÇÃO ECOLÓGICA DE ÁREAS REALMENTE ELEGÍVEIS (VÁRZEA ESTUARINA)
 // ------------------------------------------------------------------------------
-// Piso mínimo de vegetação terrestre: NDVI >= 0.40 (abaixo disso é água barrenta ou lodo de maré)
-var terraVegetada = ndviRecente.gte(0.40).and(bufferAgua.not());
+// Piso de vegetação terrestre (elimina praias de lama/maré e sedimento líquido)
+var terraSeca = ndviRecente.gte(0.28).and(mndwiRecente.lt(-0.16)).and(bufferAgua.not());
 
-// 1) Aberturas e mosaicos mapeados pelo MapBiomas (classes 11, 21, 25)
-var mbAberto = mapbiomas.select('classification_2025').remap([11, 21, 25], [1, 1, 1], 0);
+// 1) Histórico antrópico / aberturas do MapBiomas (classes 15=pastagem, 21=mosaico, 25=não vegetado)
+var mbAberto = mapbiomas.select('classification_2025').remap([15, 21, 25], [1, 1, 1], 0);
 
-// 2) Dossel ralo / floresta de várzea degradada (0.40 <= NDVI < 0.70)
-var dosselRalo = ndviRecente.gte(0.40).and(ndviRecente.lt(0.70)).and(terraVegetada);
+// 2) Clareiras reais / Dossel aberto (NDVI < 0.48): áreas abertas sem dossel contínuo
+var clareiraAberta = ndviRecente.gte(0.28).and(ndviRecente.lt(0.48)).and(terraSeca);
 
-var areasCandidatas = (mbAberto.eq(1).or(dosselRalo)).and(terraVegetada);
+// 3) Perda multitemporal evidente de dossel (delta_NDVI < -0.10)
+var perdaDossel = deltaNDVI.lt(-0.10).and(terraSeca);
+
+// 4) Regeneração natural ativa comprovada (delta_NDVI > +0.10 partindo de clareira)
+var ganhoRegenerativo = deltaNDVI.gt(0.10).and(ndviInicial.lt(0.60)).and(terraSeca);
+
+// ÁREAS CANDIDATAS REAIS (Sem sobreposição à floresta de várzea íntegra nem a canais de água)
+var areasCandidatas = (mbAberto.eq(1).or(clareiraAberta).or(perdaDossel).or(ganhoRegenerativo)).and(terraSeca);
 
 Map.addLayer(s2Recente, {bands: ['B4', 'B3', 'B2'], min: 200, max: 2000}, 'Sentinel-2 RGB Recente', false);
-Map.addLayer(areasCandidatas.selfMask(), {palette: ['yellow']}, 'Áreas Terrestres Candidatas (Sem Rios)', false);
+Map.addLayer(areasCandidatas.selfMask(), {palette: ['yellow']}, 'Clareiras Candidatas (Sem Rios)', false);
 
 // ------------------------------------------------------------------------------
 // 4. ESTRATIFICAÇÃO DOS MÉTODOS DE RESTAURAÇÃO
 // ------------------------------------------------------------------------------
-// 1 = Plantio Direto (degradação severa terrestre: 0.40 <= NDVI < 0.48 ou queda acentuada delta_ndvi < -0.10)
-// 2 = Enriquecimento Florestal (dossel estagnado/raleado: 0.48 <= NDVI < 0.68)
-// 3 = RNA (Regeneração Natural Assistida: ganho consistente delta_ndvi > 0.10 ou NDVI >= 0.68)
+// 1 = Plantio Direto (clareiras severas: NDVI < 0.45 ou perda acentuada delta_ndvi < -0.12)
+// 2 = Enriquecimento Florestal (dossel intermediário em bordas de clareira: 0.45 <= NDVI < 0.55 ou mosaico)
+// 3 = RNA (Regeneração Natural Assistida: ganho consistente delta_ndvi > 0.10)
 var classeRestauracao = ee.Image(0)
-  .where(areasCandidatas.and(ndviRecente.lt(0.48).or(deltaNDVI.lt(-0.10))), 1)
+  .where(areasCandidatas.and(ndviRecente.lt(0.45).or(deltaNDVI.lt(-0.12))), 1)
   .where(areasCandidatas.and(
-    (ndviRecente.gte(0.48).and(ndviRecente.lt(0.68)))
-    .or(deltaNDVI.gte(-0.10).and(deltaNDVI.lte(0.10)))
+    (ndviRecente.gte(0.45).and(ndviRecente.lt(0.55)))
+    .or(mbAberto.eq(1))
   ), 2)
-  .where(areasCandidatas.and(deltaNDVI.gt(0.10).or(ndviRecente.gte(0.68))), 3)
+  .where(areasCandidatas.and(deltaNDVI.gte(0.10)), 3)
   .rename('classe_cod')
   .clip(roi);
 
 var classeRestauracaoMasked = classeRestauracao.updateMask(areasCandidatas.and(classeRestauracao.gt(0)));
 
 // ------------------------------------------------------------------------------
-// 5. VETORIZAÇÃO DOS TALHÕES
+// 5. VETORIZAÇÃO E FILTRAGEM GEOMÉTRICA
 // ------------------------------------------------------------------------------
 var talhoesVetoriais = classeRestauracaoMasked.reduceToVectors({
   geometry: roi,
   crs: 'EPSG:31988',
-  scale: 20,
+  scale: 15,
   geometryType: 'polygon',
   eightConnected: true,
   labelProperty: 'classe_cod',
   maxPixels: 1e9
 });
 
-// Enriquecer atributos com tolerância de 1 metro na área
+// Enriquecer atributos e filtrar área mínima (>= 0.25 ha)
 var talhoesProcessados = talhoesVetoriais.map(function(feat) {
   var areaHa = feat.geometry().area(1).divide(10000);
   var cod = ee.Number(feat.get('classe_cod'));
@@ -161,7 +159,7 @@ var talhoesProcessados = talhoesVetoriais.map(function(feat) {
     'uc': 'Parque Estadual Charapucu',
     'municipio': 'Afuá'
   });
-}).filter(ee.Filter.gte('area_ha', 0.2));
+}).filter(ee.Filter.gte('area_ha', 0.25));
 
 // ------------------------------------------------------------------------------
 // 6. VISUALIZAÇÃO TEMÁTICA
@@ -170,18 +168,18 @@ var talhoesRNA = talhoesProcessados.filter(ee.Filter.eq('metodo', 'RNA'));
 var talhoesEnriq = talhoesProcessados.filter(ee.Filter.eq('metodo', 'Enriquecimento'));
 var talhoesPlantio = talhoesProcessados.filter(ee.Filter.eq('metodo', 'Plantio Direto'));
 
-Map.addLayer(talhoesRNA.style({color: '2ecc71', fillColor: '2ecc7188', width: 1}), {}, 'Talhões: RNA (Regeneração Natural Assistida)');
-Map.addLayer(talhoesEnriq.style({color: 'f39c12', fillColor: 'f39c1288', width: 1}), {}, 'Talhões: Enriquecimento Florestal');
-Map.addLayer(talhoesPlantio.style({color: 'e74c3c', fillColor: 'e74c3c88', width: 1}), {}, 'Talhões: Plantio Direto');
+Map.addLayer(talhoesRNA.style({color: '2ecc71', fillColor: '2ecc71aa', width: 1.5}), {}, 'Talhões: RNA (Regeneração Natural)');
+Map.addLayer(talhoesEnriq.style({color: 'f39c12', fillColor: 'f39c12aa', width: 1.5}), {}, 'Talhões: Enriquecimento Florestal');
+Map.addLayer(talhoesPlantio.style({color: 'e74c3c', fillColor: 'e74c3caa', width: 1.5}), {}, 'Talhões: Plantio Direto');
 
 // ------------------------------------------------------------------------------
 // 7. ESTATÍSTICAS NO CONSOLE
 // ------------------------------------------------------------------------------
 print('===========================================================');
-print('🌳 BANCO DE RESTAURAÇÃO PES CHARAPUCU (SEM RIOS)');
+print('🌳 BANCO DE RESTAURAÇÃO PES CHARAPUCU — CALIBRAÇÃO VÁRZEA');
 print('===========================================================');
 print('Total de Talhões Terrestres:', talhoesProcessados.size());
-print('Área Total Filtrada (ha):', talhoesProcessados.aggregate_sum('area_ha'));
+print('Área Total Auditada (ha):', talhoesProcessados.aggregate_sum('area_ha'));
 
 print('--- Estratificação por Método ---');
 print('RNA (Regeneração Assistida):', talhoesRNA.size(), 'talhões | Área (ha):', talhoesRNA.aggregate_sum('area_ha'));
