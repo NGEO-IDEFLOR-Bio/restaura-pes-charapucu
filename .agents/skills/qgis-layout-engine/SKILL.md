@@ -59,12 +59,12 @@ flowchart TD
    * Em **todos os 3 mapas**, os textos de latitude no eixo Y estão posicionados com rotação de **90° (sentido vertical ascendente)**, acompanhando paralelamente a moldura e poupando espaço horizontal.
 6. **Centralização da Seta Norte e Barra de Escala:**
    * Ambos os elementos técnicos estão centralizados no eixo horizontal de simetria do bloco técnico ($x_{\text{center}} = 145{,}976\text{ mm}$).
-7. **Legenda Completa das Camadas da Prancha:**
-   * A legenda contempla as feições ativas em toda a composição:
+7. **Legenda com Camadas Vetoriais Efetivas:**
+   * Contempla estritamente as feições vetoriais ativas na composição:
      - Área de Corte Raso Auditada (DETER/INPE - 183,76 ha)
-     - Limite do Parque Estadual Charapucu (72.506 ha)
+     - Limite do Parque Estadual Charapucu (sem área em ha na legenda para evitar divergência com decretos)
      - Limite do Estado do Pará (Contexto Regional)
-     - Corpos Hídricos & Várzea Estuarina (Baía Vieira Grande)
+   * Sem classes hídricas fictícias nem insumos matriciais (imagem de satélite citada nas fontes de dados).
 
 ---
 

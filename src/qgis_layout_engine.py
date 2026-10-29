@@ -307,8 +307,8 @@ class QGISLayoutEngine:
         uc_proj.plot(ax=ax, facecolor="#D4EFDF", edgecolor="#1E8449", linewidth=1.2, zorder=3)
 
         c_uc = uc_proj.union_all().centroid if hasattr(uc_proj, "union_all") else uc_proj.unary_union.centroid
-        ax.text(c_uc.x - 0.05, c_uc.y + 0.08, "PES Charapucu\n(72.506 ha)",
-                fontsize=6.0, fontweight="bold", color="#196F3D", ha="center", va="center", zorder=5)
+        ax.text(c_uc.x - 0.05, c_uc.y + 0.08, "PES Charapucu",
+                fontsize=6.2, fontweight="bold", color="#196F3D", ha="center", va="center", zorder=5)
 
         ax.text(bounds[2] + 0.02, (bounds[1] + bounds[3])/2, "Baía de\nVieira Grande",
                 fontsize=5.2, color="#2980B9", style="italic", ha="left", va="center", zorder=5)
@@ -518,11 +518,10 @@ class QGISLayoutEngine:
     def render_legend(self):
         """
         Desenha a Legenda Cartográfica Completa:
-        - Inclui todas as camadas temáticas ativas na prancha:
+        - Inclui estritamente as camadas vetoriais ativas na prancha:
           1. Área de Corte Raso Auditada (DETER/INPE - 183,76 ha)
-          2. Limite do Parque Estadual Charapucu (72.506 ha)
+          2. Limite do Parque Estadual Charapucu
           3. Limite do Estado do Pará (Contexto Regional)
-          4. Corpos Hídricos & Várzea Estuarina (Baía Vieira Grande)
         """
         # Caixa: x=8.15, y=151.251, w=108.543, h=32.883
         ax_leg = self.fig.add_axes(self._mm_to_norm(9.5, 152.0, 105.0, 31.0))
@@ -530,24 +529,23 @@ class QGISLayoutEngine:
         ax_leg.set_xlim(0, 100)
         ax_leg.set_ylim(0, 30)
 
-        ax_leg.text(1, 26, "LEGENDA CONVENCIONADA", fontsize=7.5, fontweight="bold", color="#1B2631")
+        ax_leg.text(1, 25.0, "LEGENDA CONVENCIONADA", fontsize=7.5, fontweight="bold", color="#1B2631")
 
         itens = [
             ("Área de Corte Raso Auditada (DETER/INPE - 183,76 ha)", "#E74C3C", "#FFD700", "polygon"),
-            ("Limite do Parque Estadual Charapucu (72.506 ha)", "#1E8449", "#1E8449", "line_dash"),
-            ("Limite do Estado do Pará (Contexto Regional)", "#D5F5E3", "#1E8449", "polygon"),
-            ("Corpos Hídricos & Várzea Estuarina (Baía Vieira Grande)", "#EBF5FB", "#2980B9", "polygon")
+            ("Limite do Parque Estadual Charapucu", "#1E8449", "#1E8449", "line_dash"),
+            ("Limite do Estado do Pará (Contexto Regional)", "#D5F5E3", "#1E8449", "polygon")
         ]
 
-        y_pos = 20
+        y_pos = 18.5
         for label, fcolor, ecolor, stype in itens:
             if stype == "polygon":
                 ax_leg.add_patch(patches.Rectangle((2, y_pos - 1.5), 6, 4, facecolor=fcolor, edgecolor=ecolor, linewidth=1.0, alpha=0.75))
             elif stype == "line_dash":
                 ax_leg.plot([2, 8], [y_pos + 0.5, y_pos + 0.5], color=ecolor, linestyle="--", linewidth=1.5)
 
-            ax_leg.text(11, y_pos, label, fontsize=6.2, va="center", color="#2C3E50")
-            y_pos -= 6.2
+            ax_leg.text(11, y_pos, label, fontsize=6.4, va="center", color="#2C3E50")
+            y_pos -= 6.8
 
     def export(self, output_png_path, output_pdf_path=None, dpi=300):
         """Salva a prancha cartográfica em PNG e/ou PDF."""
