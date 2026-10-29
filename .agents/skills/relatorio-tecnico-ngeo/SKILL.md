@@ -9,9 +9,18 @@ Esta skill implementa o fluxo oficial de elaboração de **Relatórios Técnicos
 
 ---
 
-## 1. Padrões Formais e Tipográficos Obrigatórios
+## 1. Princípios Institucionais e Diretrizes de Redação
 
-Para todos os documentos Word (`.docx`) gerados sob esta rotina:
+* **Papel Institucional do NGEO:** O NGEO é um órgão técnico provedor de **subsídios geoespaciais e cartográficos auditados**, e não tomador de decisões de mérito administrativo ou enquadrador de políticas públicas. A redação deve ser rigorosamente técnica, neutra e amparada em dados oficiais (DETER, PRODES, SICAR, DGMUC), sem juízos de valor.
+* **Terminologia de Sensoriamento Remoto:** Utilizar termos limpos e institucionais como *"por meio de imagens orbitais do sensor Sentinel-2"* ou *"imagens orbitais Sentinel-2"*. Provedores específicos de mosaicos (ex.: EOX IT Services GmbH, ESA Copernicus) não devem poluir o corpo do texto metodológico, devendo constar exclusivamente na seção final de **Referências (norma ABNT)**.
+* **Sem Jargões Comerciais ou de Conversa:** Nunca incluir especificações de venda ou menções informais no relatório (evitar termos como *"formato A4 Paisagem em alta resolução de 300 DPI e PDF vetorial"* ou *"padrão do QGIS"*). Utilizar simplesmente: **"prancha cartográfica institucional padronizada"**. O mapa oficial segue anexo ao processo.
+* **Limitações do Sistema PAe e Envio de Vetores:** Como o sistema de processo eletrônico do Estado do Pará (PAe) só suporta anexos em formato PDF, deve-se explicitar no relatório e no despacho que a prancha cartográfica impressa/gerada segue anexa em PDF, enquanto os arquivos vetoriais digitais (Shapefile / GeoPackage) são disponibilizados/encaminhados via correio eletrônico institucional (e-mail).
+
+---
+
+## 2. Padrões Formais e Tipográficos Obrigatórios
+
+Para todos os documentos Word (`.docx`) gerados:
 
 * **Documento Matriz (Template):** Deve ser carregado a partir de `relatorio.docx` oficial (ex.: `H:\Meu Drive\DEV\layout_extraido_qgis\relatorios\relatorio.docx`), garantindo a preservação absoluta do `header1.xml` e da imagem com as logomarcas institucionais (`image1.png`).
 * **Tipografia Padrão:** **Arial**.
@@ -25,9 +34,7 @@ Para todos os documentos Word (`.docx`) gerados sob esta rotina:
 
 ---
 
-## 2. Estrutura Padrão do Relatório Técnico
-
-O relatório técnico deve seguir estritamente as seguintes seções:
+## 3. Estrutura Padrão do Relatório Técnico
 
 ```text
 RELATÓRIO TÉCNICO
@@ -40,24 +47,30 @@ RELATÓRIO TÉCNICO
    • Data: [Data de emissão]
 
 2. Objetivos
-   [Descrição clara do escopo do levantamento em atendimento aos autos]
+   [Descrição do fornecimento de subsídios geoespaciais em atendimento aos autos]
 
 3. Contextualização
-   [Enquadramento institucional, atos legais, decretos de criação de UCs,
-    fundamentação dos memorandos/ofícios e critérios de programas como PRVN-PA]
+   [Histórico administrativo, documentos de encaminhamento (memorando/ofício),
+    enquadramento legal das UCs (decretos) e características físicas da região]
 
 4. Procedimentos Realizados
-   [Metodologia em SIG, geodésia SIRGAS 2000 UTM, fontes oficiais (INPE, SICAR,
-    DGMUC), filtros de qualidade e pranchas cartográficas geradas]
+   [Ambiente SIG, geodésia SIRGAS 2000 UTM, fontes primárias homologadas,
+    conferência por imagens orbitais Sentinel-2 e geração da prancha cartográfica]
 
 5. Resultados
-   5.1 Detalhamento das Glebas / Polígonos
-   [Tabela 1: Caracterização individualizada das feições]
-   5.2 Enquadramento Institucional e Técnico
-   [Tabela 2: Balanço de metas, áreas auditadas e superávits]
+   5.1 Síntese Espacial das Glebas / Ocorrências Mapeadas
+   [Tabela 1: Identificador NGEO, área calculada e acesso/localização]
+   5.2 [Seção Analítica Dinâmica / Atributos Oficiais]
+   [Tabela 2: Atributos homologados na base oficial (ex.: DETER/INPE com GID, data, sensor,
+    órbita/ponto; ou sobreposição de imóvel/CAR com zoneamento/UC)]
+   * A skill deve consultar o usuário sobre os dados específicos para esta seção.
 
 6. Conclusão e Encaminhamento
-   [Parecer conclusivo e formalização de remessa dos autos ao demandante]
+   [Formalização de atendimento, prancha cartográfica anexa em PDF e
+    aviso de disponibilização dos arquivos vetoriais via e-mail institucional]
+
+7. Referências
+   [Citações bibliográficas e bases de dados padronizadas na norma ABNT]
 
 [Assinatura Centralizada]
 SAMUEL DA COSTA DOS SANTOS
@@ -67,34 +80,9 @@ Instituto de Desenvolvimento Florestal e da Biodiversidade do Estado do Pará �
 
 ---
 
-## 3. Padrão da Folha de Despacho (`despacho.txt`)
+## 4. Padrão da Folha de Despacho (`despacho.txt`)
 
 O despacho de devolução para o sistema eletrônico (PAe / SEI) deve ser objetivo e formal:
-* **Destino:** A autoridade ou gerência que assinou o último despacho de encaminhamento (ex.: DGMUC, GRX, etc.).
+* **Destino:** A autoridade ou gerência que assinou o último despacho de encaminhamento (ex.: DGMUC, GRX).
 * **Regra de Ouro:** Não duplicar as tabelas e dados analíticos do relatório técnico.
-* **Conteúdo:** Informar a conclusão técnica dos trabalhos, a juntada do Relatório Técnico e da prancha cartográfica oficial, e colocar o núcleo à disposição para alinhamentos complementares.
-
-```text
-FOLHA DE DESPACHO
-
-PROCESSO: [Nº do Processo]
-ORIGEM: NGEO – Núcleo de Geotecnologias / IDEFLOR-Bio
-DESTINO: [Diretoria / Gerência de Destino]
-ASSUNTO: Devolução de Processo com Atendimento Técnico (Relatório Técnico e Prancha Cartográfica)
-REFERÊNCIA: [Documentos do Processo]
-
-À [Sigla do Destinatário],
-
-Cumprimentando-os cordialmente, e em atenção ao [Documento de Origem] nos autos do Processo nº [XXXX/XXXXXXX], restituímos os presentes autos a esta [Diretoria/Gerência] informando o integral atendimento técnico à solicitação.
-
-Para subsidiar [finalidade da demanda], fazemos a juntada aos autos do Relatório Técnico conclusivo e da respectiva prancha cartográfica oficial (padrão QGIS em alta resolução e PDF vetorial), acompanhada dos arquivos geoespaciais correspondentes.
-
-Permanecemos à disposição para eventuais alinhamentos técnicos complementares.
-
-Respeitosamente,
-
-
-SAMUEL DA COSTA DOS SANTOS
-Coordenador do Núcleo de Geotecnologias – NGEO
-Instituto de Desenvolvimento Florestal e da Biodiversidade do Estado do Pará – IDEFLOR-Bio
-```
+* **Conteúdo:** Restituição dos autos informando o atendimento técnico com juntada do Relatório Técnico e da prancha cartográfica em PDF, indicando o envio dos vetores por e-mail institucional.
