@@ -125,7 +125,7 @@ class QGISLayoutEngine:
 
         # Título simples do Inset Superior (com folga após a borda superior do painel)
         self.ax_canvas.text(
-            230.987, self.height_mm - 22.5,
+            230.987, self.height_mm - 21.8,
             "LOCALIZAÇÃO DA OCORRÊNCIA NA UC",
             ha="center", va="center",
             fontfamily=FONT_MAP, fontsize=8.2, color="#1B2631", zorder=5
@@ -133,7 +133,7 @@ class QGISLayoutEngine:
 
         # Título simples do Inset Inferior
         self.ax_canvas.text(
-            230.987, self.height_mm - 106.0,
+            230.987, self.height_mm - 106.8,
             "LOCALIZAÇÃO DA UNIDADE – PARQUE ESTADUAL CHARAPUCU",
             ha="center", va="center",
             fontfamily=FONT_MAP, fontsize=8.0, color="#1B2631", zorder=5
@@ -234,15 +234,15 @@ class QGISLayoutEngine:
     def render_macro_map(self, gdf_estados, gdf_paises, gdf_uc):
         """
         Renderiza o Mapa Macro (Pará no contexto dos estados e países vizinhos).
-        - Dimensões idênticas ao mapa intermediário: w = 98.0 mm, h = 68.0 mm.
-        - Posição: x = 182.0, y = 110.0 mm.
+        - Dimensões idênticas ao mapa intermediário: w = 102.0 mm, h = 75.0 mm.
+        - Posição: x = 180.0, y = 110.5 mm.
         - Grade UNIFORME: passo idêntico de 4.0° em X e Y.
         - Moldura com zorder=100 e set_axisbelow(False).
         - Segoe UI Semibold em todos os textos.
         """
-        w_mm = 98.0
-        h_mm = 68.0
-        ax = self.fig.add_axes(self._mm_to_norm(182.0, 110.0, w_mm, h_mm))
+        w_mm = 102.0
+        h_mm = 75.0
+        ax = self.fig.add_axes(self._mm_to_norm(180.0, 110.5, w_mm, h_mm))
         ax.set_facecolor("#EBF5FB")
         ax.set_axisbelow(False)
 
@@ -320,15 +320,15 @@ class QGISLayoutEngine:
     def render_intermediate_map(self, gdf_uc, gdf_alvo, gdf_municipios=None):
         """
         Renderiza o Mapa Intermediário (Enquadramento no PES Charapucu).
-        - Dimensões idênticas ao mapa macro: w = 98.0 mm, h = 68.0 mm.
-        - Posição: x = 182.0, y = 26.5 mm.
+        - Dimensões idênticas ao mapa macro: w = 102.0 mm, h = 75.0 mm.
+        - Posição: x = 180.0, y = 25.5 mm.
         - Grade UNIFORME: passo idêntico de 0.10° em X e Y.
         - Moldura com zorder=100 e set_axisbelow(False).
         - Segoe UI Semibold em todos os textos.
         """
-        w_mm = 98.0
-        h_mm = 68.0
-        ax = self.fig.add_axes(self._mm_to_norm(182.0, 26.5, w_mm, h_mm))
+        w_mm = 102.0
+        h_mm = 75.0
+        ax = self.fig.add_axes(self._mm_to_norm(180.0, 25.5, w_mm, h_mm))
         ax.set_facecolor("#EBF5FB")
         ax.set_axisbelow(False)
 

@@ -23,12 +23,12 @@ O layout é construído em uma folha **A4 Paisagem ($297 \times 210\text{ mm}$)*
 
 ```mermaid
 flowchart TD
-    subgraph MACRO["1. Localização Macro (Inferior Direito - 98 x 68 mm)"]
+    subgraph MACRO["1. Localização Macro (Inferior Direito - 102 x 75 mm)"]
         M1["Estado do Pará em Destaque (#D5F5E3 / #1E8449)<br/>• Estados vizinhos (#EAEDED: AM, MT, TO, MA, AP, RR)<br/>• Países vizinhos (Suriname, Guiana Francesa) & Oceano Atlântico<br/>• UC em destaque com marcador vermelho e halo circular<br/>• Grade UNIFORME com passo de 4.0° em X e Y<br/>• Moldura garantida no topo (zorder=100)"]
     end
 
-    subgraph INTERMEDIARIO["2. Localização Intermediária (Superior Direito - 98 x 68 mm)"]
-        I1["Contexto da Unidade de Conservação<br/>• Limite integral da UC em verde florestal (#D4EFDF / #1E8449)<br/>• Contexto municipal/hidrográfico (Afuá, rios e baías ao fundo)<br/>• Ocorrência em destaque com ponto de chamada e seta indicativa<br/>• Grade UNIFORME com passo de 0.10° em X e Y<br/>• Dimensões idênticas ao mapa macro (98 x 68 mm)<br/>• Moldura no topo (zorder=100)"]
+    subgraph INTERMEDIARIO["2. Localização Intermediária (Superior Direito - 102 x 75 mm)"]
+        I1["Contexto da Unidade de Conservação<br/>• Limite integral da UC em verde florestal (#D4EFDF / #1E8449)<br/>• Contexto municipal/hidrográfico (Afuá, rios e baías ao fundo)<br/>• Ocorrência em destaque com ponto de chamada e seta indicativa<br/>• Grade UNIFORME com passo de 0.10° em X e Y<br/>• Dimensões idênticas ao mapa macro (102 x 75 mm)<br/>• Moldura no topo (zorder=100)"]
     end
 
     subgraph DETALHE["3. Mapa Principal de Detalhe (Esquerda - 155 x 124 mm)"]
@@ -74,8 +74,8 @@ flowchart TD
 | `rec_mapa` | Moldura Externa do Mapa Principal | 8.150 | 18.500 | 167.106 | 132.751 | Retângulo de contenção |
 | `mapa_geral` | Mapa Principal (Satélite + Vetor) | 14.150 | 22.500 | 155.000 | 124.000 | Viewport proporcional com grade ancorada |
 | `rec_localizacao`| Painel Direito de Enquadramento | 175.254 | 18.500 | 111.466 | 180.010 | Painel para os dois mapas de apoio |
-| `mapa_localizacao_imovel`| Inset Superior (Alvo na UC) | 182.000 | 26.500 | 98.000 | 68.000 | Contexto regional com coordenadas (98 x 68 mm) |
-| `mapa_localizacao_unidade`| Inset Inferior (UC no Pará) | 182.000 | 110.000 | 98.000 | 68.000 | Contexto macro estadual (98 x 68 mm) |
+| `mapa_localizacao_imovel`| Inset Superior (Alvo na UC) | 180.000 | 25.500 | 102.000 | 75.000 | Contexto regional com coordenadas (102 x 75 mm) |
+| `mapa_localizacao_unidade`| Inset Inferior (UC no Pará) | 180.000 | 110.500 | 102.000 | 75.000 | Contexto macro estadual (102 x 75 mm) |
 | `rec_legenda` | Caixa de Legenda | 8.150 | 151.251 | 108.543 | 32.883 | Legenda completa de todas as feições |
 | `rec_fonte` | Caixa de Metadados e Fontes | 8.150 | 184.135 | 108.543 | 14.375 | SIRGAS 2000, insumo orbital e notas |
 | `rec_escala-icons-seta` | Caixa de Escala, Norte e Logos | 116.697 | 151.251 | 58.559 | 47.259 | Bloco técnico e institucional |
