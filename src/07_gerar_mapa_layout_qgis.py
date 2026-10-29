@@ -77,7 +77,7 @@ def main():
     engine.render_intermediate_map(gdf_uc, gdf_alvo, gdf_afua)
 
     print("  -> Nível 3: Renderizando Mapa Principal (Zoom com Mosaico Sentinel-2 EOX)...")
-    engine.render_main_map(gdf_alvo, gdf_uc=gdf_uc, eox_year="2025", buffer_meters=1200)
+    engine.render_main_map(gdf_alvo, eox_year="2025", buffer_meters=1000)
 
     # 6. Renderização da Legenda e Exportação
     print("\n[5/5] Finalizando legenda e gravando arquivos de alta resolução...")
