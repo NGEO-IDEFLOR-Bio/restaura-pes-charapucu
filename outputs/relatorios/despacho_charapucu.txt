@@ -1,0 +1,22 @@
+FOLHA DE DESPACHO
+
+PROCESSO: LEVANTAMENTO GEOESPACIAL / RESTAURAÇÃO FLORESTAL
+ORIGEM: NGEO – Núcleo de Geotecnologias / IDEFLOR-Bio
+DESTINO: DGBIO – Diretoria de Gestão da Biodiversidade / Gerência do PES Charapucu
+ASSUNTO: Encaminhamento de Diagnóstico Geoespacial de Desmatamento (DETER/INPE) e Prancha Cartográfica Oficial
+REFERÊNCIA: Mapeamento de Áreas Elegíveis para Restauração no Parque Estadual Charapucu
+
+À DGBIO / Gerência do PES Charapucu,
+
+Cumprimentando-os cordialmente, encaminhamos o Relatório Técnico nº 019/2026-NGEO e a respectiva prancha cartográfica oficial em padrão QGIS (A4 Paisagem, 300 DPI e PDF vetorial), contendo o diagnóstico geoespacial auditado das áreas de corte raso (DETER/INPE) no interior do Parque Estadual Charapucu.
+
+O levantamento auditou um total de 183,76 hectares (superando a meta referencial de 130 ha em 141,4%), fornecendo subsídios técnicos qualificados para apoiar o planejamento de vistorias de campo desta Diretoria e a submissão de propostas de captação de recursos junto a fundos climáticos (Fundo Amazônia / BNDES / GEF).
+
+Permanecemos à inteira disposição para o fornecimento dos dados vetoriais complementares (GeoPackage) e demais esclarecimentos técnicos.
+
+Respeitosamente,
+
+
+SAMUEL DA COSTA DOS SANTOS
+Coordenador do Núcleo de Geotecnologias – NGEO
+Instituto de Desenvolvimento Florestal e da Biodiversidade do Estado do Pará – IDEFLOR-Bio
