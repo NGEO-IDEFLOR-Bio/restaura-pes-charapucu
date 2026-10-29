@@ -353,8 +353,10 @@ class QGISLayoutEngine:
         ax.text(c_uc.x - 0.05, c_uc.y + 0.08, "PES Charapucu",
                 fontfamily=FONT_MAP, fontsize=6.2, color="#196F3D", ha="center", va="center", zorder=5)
 
-        ax.text(bounds[2] + 0.02, (bounds[1] + bounds[3])/2, "Baía de\nVieira Grande",
-                fontfamily=FONT_MAP, fontsize=5.2, color="#2980B9", style="italic", ha="left", va="center", zorder=5)
+        x_baia = bounds[2] + pad_x * 0.48
+        y_baia = (bounds[1] + bounds[3]) / 2.0
+        ax.text(x_baia, y_baia, "Baía de\nVieira Grande",
+                fontfamily=FONT_MAP, fontsize=5.0, color="#2980B9", style="italic", ha="center", va="center", zorder=5)
 
         if gdf_alvo is not None and len(gdf_alvo) > 0:
             alvo_proj = gdf_alvo.to_crs(epsg=4674)

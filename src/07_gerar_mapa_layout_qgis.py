@@ -14,7 +14,7 @@ def main():
 
     # 1. Definição de caminhos
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    qgis_dir = r"H:\Meu Drive\DEV\layout_extraido_qgis"
+    qgis_dir = r"H:\Meu Drive\DEV\qgis-layout-engine"
     tutorial_dir = r"H:\Meu Drive\DEV\pyqgis-location-map-tutorial\dados"
 
     path_layout_json = os.path.join(qgis_dir, "layout_elements.json")

@@ -22,7 +22,7 @@ Esta skill implementa o fluxo oficial de elaboração de **Relatórios Técnicos
 
 Para todos os documentos Word (`.docx`) gerados:
 
-* **Documento Matriz (Template):** Deve ser carregado a partir de `relatorio.docx` oficial (ex.: `H:\Meu Drive\DEV\layout_extraido_qgis\relatorios\relatorio.docx`), garantindo a preservação absoluta do `header1.xml` e da imagem com as logomarcas institucionais (`image1.png`).
+* **Documento Matriz (Template):** Deve ser carregado a partir de `relatorio.docx` oficial (ex.: `H:\Meu Drive\DEV\qgis-layout-engine\relatorios\relatorio.docx`), garantindo a preservação absoluta do `header1.xml` e da imagem com as logomarcas institucionais (`image1.png`).
 * **Tipografia Padrão:** **Arial**.
 * **Tamanho do Corpo de Texto:** **12 pt**.
 * **Alinhamento do Corpo de Texto:** **Justificado** (`WD_ALIGN_PARAGRAPH.JUSTIFY`).
