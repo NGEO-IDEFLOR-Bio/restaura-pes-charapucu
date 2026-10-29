@@ -3,20 +3,20 @@ Motor Cartográfico QGIS para Python / Colab (qgis_layout_engine.py)
 Reproduz com fidelidade milimétrica e elegância o layout A4 Paisagem (297 x 210 mm)
 extraído do QGIS (NGEO/IDEFLOR-Bio).
 
-Refinamentos de Precisão Cartográfica:
-1. Snap da grade a valores redondos/cheios (ex: 0.01° no principal, 0.10° no intermediário, 5° no macro).
-2. Supressão de rótulos dos cantos para evitar qualquer colisão X/Y ou transbordamento da moldura.
-3. Rótulos minimalistas nas feições: feição grande com texto e halo/buffer sutil; feição pequena com rótulo deslocado e seta apontando, sem cobrir a geometria.
-4. Dimensões rigorosamente idênticas para os dois mapas de apoio (98.0 x 70.0 mm), garantindo harmonia visual.
-5. Todos os eixos Y com coordenadas em sentido vertical ascendente (90°).
-6. Títulos diretos e limpos (sem subtítulos desnecessários).
-7. Seta norte e barra de escala centralizadas horizontalmente.
-8. Legenda contemplando todas as camadas temáticas ativas na prancha.
+Refinamentos Cartográficos e Visuais Implementados:
+1. Tipografia Moderna: Segoe UI Semibold aplicada em todos os títulos, rótulos, legendas e coordenadas.
+2. Deslocamento do bloco inferior para eliminar sobreposição com o retângulo do título principal.
+3. Supressão inteligente de rótulos de quina baseada em limiar de proximidade normalizado (threshold = 3.5%),
+   preservando rótulos que estejam a uma distância segura dos cantos.
+4. Grade uniforme com passo idêntico nos eixos X e Y nos mapas de apoio (passo 4.0° no macro, 0.10° no intermediário).
+5. Molduras dos mapas com zorder=100 e set_axisbelow(False), garantindo que as bordas nunca fiquem encobertas
+   ou apagadas por camadas matriciais ou vetoriais.
+6. Rótulos minimalistas nas feições (halo sutil na feição grande e apontador direcional na feição menor).
+7. Eixo Y com coordenadas no sentido vertical ascendente (90°).
 """
 
 import os
 import json
-import math
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
@@ -25,6 +25,8 @@ import geopandas as gpd
 from shapely.geometry import box, Point
 from PIL import Image
 import contextily as cx
+
+FONT_MAP = "Segoe UI Semibold"
 
 class QGISLayoutEngine:
     def __init__(self, layout_json_path=None):
@@ -62,78 +64,84 @@ class QGISLayoutEngine:
         self.ax_canvas.set_ylim(0, self.height_mm)
 
     def draw_frames(self):
-        """Desenha todas as molduras geométricas originais da prancha."""
-        # Moldura externa da prancha
+        """
+        Desenha todas as molduras geométricas da prancha.
+        Ajustado para que os painéis comecem em y = 18.5 mm (logo abaixo da base do título em y = 17.713 mm),
+        eliminando qualquer sobreposição entre o título e os retângulos inferiores.
+        """
+        # Moldura externa geral da prancha
         self.ax_canvas.add_patch(
             patches.Rectangle((2.0, 2.0), self.width_mm - 4.0, self.height_mm - 4.0,
                               linewidth=1.2, edgecolor="#2C3E50", facecolor="none", zorder=1)
         )
 
-        # Caixa do Título Principal
+        # Caixa do Título Principal (y: 5.411 a 17.713 mm)
         self.ax_canvas.add_patch(
             patches.Rectangle((8.0, self.height_mm - (5.411 + 12.302)), 278.85, 12.302,
                               linewidth=1.0, edgecolor="#2C3E50", facecolor="#F8F9F9", zorder=2)
         )
 
-        # Moldura Externa do Mapa Geral
+        # Moldura Externa do Mapa Geral (inicia em y = 18.5 mm, terminando em 151.251 mm)
+        # Altura: 151.251 - 18.5 = 132.751 mm
         self.ax_canvas.add_patch(
-            patches.Rectangle((8.15, self.height_mm - (14.108 + 137.143)), 167.106, 137.143,
+            patches.Rectangle((8.15, self.height_mm - (18.5 + 132.751)), 167.106, 132.751,
                               linewidth=1.0, edgecolor="#2C3E50", facecolor="#FFFFFF", zorder=2)
         )
 
-        # Painel Direito de Enquadramento
+        # Painel Direito de Enquadramento (inicia em y = 18.5 mm, terminando em 198.51 mm)
+        # Altura: 198.51 - 18.5 = 180.01 mm
         self.ax_canvas.add_patch(
-            patches.Rectangle((175.254, self.height_mm - (14.108 + 184.402)), 111.466, 184.402,
+            patches.Rectangle((175.254, self.height_mm - (18.5 + 180.01)), 111.466, 180.01,
                               linewidth=1.0, edgecolor="#2C3E50", facecolor="#FAFAFA", zorder=2)
         )
 
-        # Caixa da Legenda
+        # Caixa da Legenda (y: 151.251 a 184.134 mm)
         self.ax_canvas.add_patch(
             patches.Rectangle((8.15, self.height_mm - (151.251 + 32.883)), 108.543, 32.883,
                               linewidth=0.8, edgecolor="#2C3E50", facecolor="#FFFFFF", zorder=2)
         )
 
-        # Caixa de Fonte e Informações Geodésicas
+        # Caixa de Fonte e Informações Geodésicas (y: 184.135 a 198.51 mm)
         self.ax_canvas.add_patch(
             patches.Rectangle((8.15, self.height_mm - (184.135 + 14.375)), 108.543, 14.375,
                               linewidth=0.8, edgecolor="#2C3E50", facecolor="#F8F9F9", zorder=2)
         )
 
-        # Caixa da Escala, Seta Norte e Logos
+        # Caixa da Escala, Seta Norte e Logos (y: 151.251 a 198.51 mm)
         self.ax_canvas.add_patch(
             patches.Rectangle((116.697, self.height_mm - (151.251 + 47.259)), 58.559, 47.259,
                               linewidth=0.8, edgecolor="#2C3E50", facecolor="#FFFFFF", zorder=2)
         )
 
     def draw_header_and_titles(self, titulo_mapa):
-        """Insere o título principal e os títulos simples e diretos dos mapas de apoio."""
-        y_titulo = self.height_mm - 5.411 - 6.5
+        """Insere o título principal e os títulos dos mapas de apoio com a fonte Segoe UI Semibold."""
+        y_titulo = self.height_mm - 5.411 - 6.15
         self.ax_canvas.text(
             147.4, y_titulo,
             titulo_mapa,
             ha="center", va="center",
-            fontfamily="sans-serif", fontweight="bold", fontsize=10.5, color="#1B2631", zorder=5
+            fontfamily=FONT_MAP, fontsize=10.5, color="#1B2631", zorder=5
         )
 
-        # Título simples do Inset Superior (sem subtítulo)
+        # Título simples do Inset Superior (com folga após a borda superior do painel)
         self.ax_canvas.text(
-            230.987, self.height_mm - 18.0,
+            230.987, self.height_mm - 22.5,
             "LOCALIZAÇÃO DA OCORRÊNCIA NA UC",
             ha="center", va="center",
-            fontfamily="sans-serif", fontweight="bold", fontsize=8.2, color="#1B2631", zorder=5
+            fontfamily=FONT_MAP, fontsize=8.2, color="#1B2631", zorder=5
         )
 
-        # Título simples do Inset Inferior (posicionado com espaço seguro em y = 105.0 mm)
+        # Título simples do Inset Inferior
         self.ax_canvas.text(
-            230.987, self.height_mm - 105.0,
+            230.987, self.height_mm - 106.0,
             "LOCALIZAÇÃO DA UNIDADE – PARQUE ESTADUAL CHARAPUCU",
             ha="center", va="center",
-            fontfamily="sans-serif", fontweight="bold", fontsize=8.0, color="#1B2631", zorder=5
+            fontfamily=FONT_MAP, fontsize=8.0, color="#1B2631", zorder=5
         )
 
     def draw_metadata_and_sources(self, autor="Núcleo de Geotecnologias (NGEO/IDEFLOR-Bio)",
                                   fontes="INPE / DETER (TerraBrasilis); IDEFLOR-Bio; EOX Sentinel-2 Cloudless (2025)"):
-        """Escreve a nota de fontes cartográficas, datum e insumo de satélite."""
+        """Escreve a nota de fontes cartográficas e datum com Segoe UI Semibold."""
         x = 9.8
         y_top = self.height_mm - 184.135 - 3.0
         linhas = [
@@ -146,7 +154,7 @@ class QGISLayoutEngine:
         self.ax_canvas.text(
             x, y_top, texto,
             ha="left", va="top",
-            fontfamily="sans-serif", fontsize=5.8, color="#2C3E50", linespacing=1.35, zorder=5
+            fontfamily=FONT_MAP, fontsize=5.8, color="#2C3E50", linespacing=1.35, zorder=5
         )
 
     def draw_north_arrow(self):
@@ -164,7 +172,7 @@ class QGISLayoutEngine:
 
         ax_norte.fill([0.5, 0.5, 0.2, 0.5], [0.1, 0.85, 0.35, 0.1], color="#2C3E50")
         ax_norte.fill([0.5, 0.5, 0.8, 0.5], [0.1, 0.85, 0.35, 0.1], color="#FFFFFF", edgecolor="#2C3E50", linewidth=0.8)
-        ax_norte.text(0.5, 0.96, "N", ha="center", va="center", fontsize=8.5, fontweight="bold", color="#1B2631")
+        ax_norte.text(0.5, 0.96, "N", ha="center", va="center", fontfamily=FONT_MAP, fontsize=8.5, color="#1B2631")
 
     def draw_scale_bar(self, length_km, scale_text="1 : 36.000"):
         """Desenha a barra de escala gráfica centralizada horizontalmente no mesmo eixo da seta norte."""
@@ -184,10 +192,10 @@ class QGISLayoutEngine:
         ax_escala.fill([0.45, 0.85, 0.85, 0.45], [0.45, 0.45, 0.60, 0.60], color="#FFFFFF", edgecolor="#2C3E50", linewidth=0.6)
 
         # Rótulos métricos
-        ax_escala.text(0.05, 0.70, "0", ha="center", va="bottom", fontsize=5.5, fontweight="bold")
-        ax_escala.text(0.45, 0.70, f"{length_km/2:g}", ha="center", va="bottom", fontsize=5.5, fontweight="bold")
-        ax_escala.text(0.85, 0.70, f"{length_km:g} km", ha="center", va="bottom", fontsize=5.5, fontweight="bold")
-        ax_escala.text(0.45, 0.22, f"Escala {scale_text}", ha="center", va="top", fontsize=6.2, fontweight="bold", color="#1B2631")
+        ax_escala.text(0.05, 0.70, "0", ha="center", va="bottom", fontfamily=FONT_MAP, fontsize=5.5)
+        ax_escala.text(0.45, 0.70, f"{length_km/2:g}", ha="center", va="bottom", fontfamily=FONT_MAP, fontsize=5.5)
+        ax_escala.text(0.85, 0.70, f"{length_km:g} km", ha="center", va="bottom", fontfamily=FONT_MAP, fontsize=5.5)
+        ax_escala.text(0.45, 0.22, f"Escala {scale_text}", ha="center", va="top", fontfamily=FONT_MAP, fontsize=6.2, color="#1B2631")
 
     def draw_logos(self, path_ngeo, path_ideflor, path_gov_pa):
         """Renderiza os 3 logotipos no rodapé da caixa técnica com espaçamento equilibrado."""
@@ -207,17 +215,36 @@ class QGISLayoutEngine:
                 except Exception as e:
                     print(f"[Aviso] Falha ao renderizar logo {p}: {e}")
 
+    @staticmethod
+    def _filter_corner_labels(ticks, vmin, vmax, format_fn, threshold=0.035):
+        """
+        Suprime o texto de uma coordenada apenas quando ela estiver excessivamente próxima
+        do canto (threshold normalizado de 3.5%), evitando suprimir coordenadas distantes da quina.
+        """
+        span = vmax - vmin
+        labels = []
+        for val in ticks:
+            u = (val - vmin) / span if span > 0 else 0.5
+            if u < threshold or u > (1.0 - threshold):
+                labels.append("")
+            else:
+                labels.append(format_fn(val))
+        return labels
+
     def render_macro_map(self, gdf_estados, gdf_paises, gdf_uc):
         """
         Renderiza o Mapa Macro (Pará no contexto dos estados e países vizinhos).
-        Dimensões rigorosamente idênticas ao mapa intermediário: w = 98.0 mm, h = 70.0 mm.
-        Posição: x = 182.0, y = 110.5 mm.
-        Snap da grade em valores redondos (5°), rótulos dos cantos suprimidos e eixo Y a 90°.
+        - Dimensões idênticas ao mapa intermediário: w = 98.0 mm, h = 68.0 mm.
+        - Posição: x = 182.0, y = 110.0 mm.
+        - Grade UNIFORME: passo idêntico de 4.0° em X e Y.
+        - Moldura com zorder=100 e set_axisbelow(False).
+        - Segoe UI Semibold em todos os textos.
         """
         w_mm = 98.0
-        h_mm = 70.0
-        ax = self.fig.add_axes(self._mm_to_norm(182.0, 110.5, w_mm, h_mm))
+        h_mm = 68.0
+        ax = self.fig.add_axes(self._mm_to_norm(182.0, 110.0, w_mm, h_mm))
         ax.set_facecolor("#EBF5FB")
+        ax.set_axisbelow(False)
 
         xmin, ymin, xmax, ymax = -61.9, -11.0, -43.5, 3.8
         ax.set_xlim(xmin, xmax)
@@ -246,11 +273,11 @@ class QGISLayoutEngine:
             }
             for uf, pos in siglas_pos.items():
                 cor = "#196F3D" if uf == "PA" else "#7F8C8D"
-                ax.text(pos[0], pos[1], uf, fontsize=6.2, fontweight="bold", color=cor, ha="center", va="center", zorder=6)
+                ax.text(pos[0], pos[1], uf, fontfamily=FONT_MAP, fontsize=6.2, color=cor, ha="center", va="center", zorder=6)
 
-        ax.text(-55.5, 3.0, "SURINAME", fontsize=4.8, color="#7F8C8D", style="italic", ha="center", zorder=6)
-        ax.text(-52.5, 2.8, "GUIANA FRANCESA", fontsize=4.8, color="#7F8C8D", style="italic", ha="center", zorder=6)
-        ax.text(-47.0, 1.8, "OCEANO\nATLÂNTICO", fontsize=5.2, color="#2980B9", style="italic", fontweight="bold", ha="center", zorder=6)
+        ax.text(-55.5, 3.0, "SURINAME", fontfamily=FONT_MAP, fontsize=4.8, color="#7F8C8D", style="italic", ha="center", zorder=6)
+        ax.text(-52.5, 2.8, "GUIANA FRANCESA", fontfamily=FONT_MAP, fontsize=4.8, color="#7F8C8D", style="italic", ha="center", zorder=6)
+        ax.text(-47.0, 1.8, "OCEANO\nATLÂNTICO", fontfamily=FONT_MAP, fontsize=5.2, color="#2980B9", style="italic", ha="center", zorder=6)
 
         if gdf_uc is not None and len(gdf_uc) > 0:
             uc_proj = gdf_uc.to_crs(epsg=4674)
@@ -259,46 +286,62 @@ class QGISLayoutEngine:
             uc_proj.plot(ax=ax, facecolor="#E74C3C", edgecolor="#922B21", linewidth=0.8, zorder=7)
             ax.plot(centroid.x, centroid.y, marker="o", markersize=7, color="#E74C3C", alpha=0.35, zorder=8)
             ax.plot(centroid.x, centroid.y, marker="o", markersize=4.0, color="#E74C3C", markeredgecolor="#FFFFFF", markeredgewidth=0.7, zorder=9)
-            ax.text(centroid.x + 0.6, centroid.y + 0.3, "PES Charapucu", fontsize=5.5, fontweight="bold", color="#900C3F",
+            ax.text(centroid.x + 0.6, centroid.y + 0.3, "PES Charapucu", fontfamily=FONT_MAP, fontsize=5.5, color="#900C3F",
                     bbox=dict(boxstyle="square,pad=0.15", facecolor="#FFFFFF", edgecolor="#E74C3C", alpha=0.9), zorder=10)
 
-        # Snap da grade em valores redondos (5° e 2°)
-        lon_ticks = [-60.0, -55.0, -50.0, -45.0]
-        lat_ticks = [-10.0, -8.0, -6.0, -4.0, -2.0, 0.0, 2.0]
+        # GRADE UNIFORME: Passo idêntico de 4.0° em X e Y
+        grid_step = 4.0
+        lon_ticks = np.arange(-60.0, -43.0, grid_step)
+        lat_ticks = np.arange(-12.0, 4.0 + grid_step/2.0, grid_step)
 
         ax.set_xticks(lon_ticks)
         ax.set_yticks(lat_ticks)
 
-        # Suprime os rótulos de canto para não colidir
-        ax.set_xticklabels([f"{lon:.0f}°" if i not in [0, len(lon_ticks)-1] else "" for i, lon in enumerate(lon_ticks)], fontsize=5.0)
-        ax.set_yticklabels([f"{lat:.0f}°" if i not in [0, len(lat_ticks)-1] else "" for i, lat in enumerate(lat_ticks)], fontsize=5.0)
+        # Supressão inteligente apenas se estiver colado no canto (< 3.5%)
+        x_labels = self._filter_corner_labels(lon_ticks, xmin, xmax, lambda v: f"{v:.0f}°")
+        y_labels = self._filter_corner_labels(lat_ticks, ymin, ymax, lambda v: f"{v:.0f}°")
+
+        ax.set_xticklabels(x_labels, fontfamily=FONT_MAP, fontsize=5.0)
+        ax.set_yticklabels(y_labels, fontfamily=FONT_MAP, fontsize=5.0)
 
         for label in ax.get_yticklabels():
             label.set_rotation(90)
             label.set_verticalalignment("center")
 
-        ax.tick_params(axis="both", which="both", labelsize=5.0, length=2.0, color="#7F8C8D", pad=1.5)
-        ax.grid(color="#BDC3C7", linestyle=":", linewidth=0.4, alpha=0.7)
+        ax.tick_params(axis="both", which="both", labelsize=5.0, length=2.0, color="#2C3E50", pad=1.5)
+        ax.grid(color="#BDC3C7", linestyle=":", linewidth=0.4, alpha=0.7, zorder=1)
+
+        # Moldura garantida sempre no topo
+        for spine in ax.spines.values():
+            spine.set_zorder(100)
+            spine.set_edgecolor("#2C3E50")
+            spine.set_linewidth(1.0)
 
     def render_intermediate_map(self, gdf_uc, gdf_alvo, gdf_municipios=None):
         """
         Renderiza o Mapa Intermediário (Enquadramento no PES Charapucu).
-        Dimensões rigorosamente idênticas ao mapa macro: w = 98.0 mm, h = 70.0 mm.
-        Posição: x = 182.0, y = 23.0 mm.
-        Snap da grade em valores redondos (0.10°), cantos suprimidos e eixo Y a 90°.
+        - Dimensões idênticas ao mapa macro: w = 98.0 mm, h = 68.0 mm.
+        - Posição: x = 182.0, y = 26.5 mm.
+        - Grade UNIFORME: passo idêntico de 0.10° em X e Y.
+        - Moldura com zorder=100 e set_axisbelow(False).
+        - Segoe UI Semibold em todos os textos.
         """
         w_mm = 98.0
-        h_mm = 70.0
-        ax = self.fig.add_axes(self._mm_to_norm(182.0, 23.0, w_mm, h_mm))
+        h_mm = 68.0
+        ax = self.fig.add_axes(self._mm_to_norm(182.0, 26.5, w_mm, h_mm))
         ax.set_facecolor("#EBF5FB")
+        ax.set_axisbelow(False)
 
         uc_proj = gdf_uc.to_crs(epsg=4674)
         bounds = uc_proj.total_bounds
         pad_x = (bounds[2] - bounds[0]) * 0.15
         pad_y = (bounds[3] - bounds[1]) * 0.15
 
-        ax.set_xlim(bounds[0] - pad_x, bounds[2] + pad_x)
-        ax.set_ylim(bounds[1] - pad_y, bounds[3] + pad_y)
+        xmin, xmax = bounds[0] - pad_x, bounds[2] + pad_x
+        ymin, ymax = bounds[1] - pad_y, bounds[3] + pad_y
+
+        ax.set_xlim(xmin, xmax)
+        ax.set_ylim(ymin, ymax)
 
         if gdf_municipios is not None:
             mun_proj = gdf_municipios.to_crs(epsg=4674)
@@ -308,10 +351,10 @@ class QGISLayoutEngine:
 
         c_uc = uc_proj.union_all().centroid if hasattr(uc_proj, "union_all") else uc_proj.unary_union.centroid
         ax.text(c_uc.x - 0.05, c_uc.y + 0.08, "PES Charapucu",
-                fontsize=6.2, fontweight="bold", color="#196F3D", ha="center", va="center", zorder=5)
+                fontfamily=FONT_MAP, fontsize=6.2, color="#196F3D", ha="center", va="center", zorder=5)
 
         ax.text(bounds[2] + 0.02, (bounds[1] + bounds[3])/2, "Baía de\nVieira Grande",
-                fontsize=5.2, color="#2980B9", style="italic", ha="left", va="center", zorder=5)
+                fontfamily=FONT_MAP, fontsize=5.2, color="#2980B9", style="italic", ha="left", va="center", zorder=5)
 
         if gdf_alvo is not None and len(gdf_alvo) > 0:
             alvo_proj = gdf_alvo.to_crs(epsg=4674)
@@ -324,48 +367,58 @@ class QGISLayoutEngine:
             ax.annotate("Área Auditada\n(183,76 ha)",
                         xy=(c_alvo.x, c_alvo.y), xytext=(c_alvo.x - 0.12, c_alvo.y - 0.08),
                         arrowprops=dict(facecolor="#900C3F", edgecolor="#FFFFFF", width=0.8, headwidth=4, shrink=0.08),
-                        fontsize=5.5, fontweight="bold", color="#900C3F",
+                        fontfamily=FONT_MAP, fontsize=5.5, color="#900C3F",
                         bbox=dict(boxstyle="round,pad=0.2", facecolor="#FFFFFF", edgecolor="#E74C3C", alpha=0.9),
                         zorder=10)
 
-        # Snap da grade a valores redondos de 0.10° (ex: -50.60°, -50.50°, -50.40°, -50.30°)
-        lon_ticks = np.array([-50.60, -50.50, -50.40, -50.30])
-        lat_ticks = np.array([-0.45, -0.35, -0.25])
+        # GRADE UNIFORME: Passo idêntico de 0.10° em X e Y
+        grid_step = 0.10
+        start_lon = np.ceil(xmin / grid_step) * grid_step
+        end_lon = np.floor(xmax / grid_step) * grid_step
+        lon_ticks = np.arange(start_lon, end_lon + grid_step/2.0, grid_step)
+
+        start_lat = np.ceil(ymin / grid_step) * grid_step
+        end_lat = np.floor(ymax / grid_step) * grid_step
+        lat_ticks = np.arange(start_lat, end_lat + grid_step/2.0, grid_step)
 
         ax.set_xticks(lon_ticks)
         ax.set_yticks(lat_ticks)
 
-        # Suprime os rótulos de canto para não tocar na borda
-        ax.set_xticklabels([f"{lon:.2f}" if i not in [0, len(lon_ticks)-1] else "" for i, lon in enumerate(lon_ticks)], fontsize=5.0)
-        ax.set_yticklabels([f"{lat:.2f}" for lat in lat_ticks], fontsize=5.0)
+        # Supressão inteligente de quinas (< 3.5%)
+        x_labels = self._filter_corner_labels(lon_ticks, xmin, xmax, lambda v: f"{v:.2f}")
+        y_labels = self._filter_corner_labels(lat_ticks, ymin, ymax, lambda v: f"{v:.2f}")
 
-        # ROTAÇÃO VERTICAL ASCENDENTE NO EIXO Y (90°)
+        ax.set_xticklabels(x_labels, fontfamily=FONT_MAP, fontsize=5.0)
+        ax.set_yticklabels(y_labels, fontfamily=FONT_MAP, fontsize=5.0)
+
         for label in ax.get_yticklabels():
             label.set_rotation(90)
             label.set_verticalalignment("center")
 
-        ax.tick_params(axis="both", which="both", labelsize=5.0, length=2.0, color="#7F8C8D", pad=1.5)
-        ax.grid(color="#BDC3C7", linestyle=":", linewidth=0.4, alpha=0.7)
+        ax.tick_params(axis="both", which="both", labelsize=5.0, length=2.0, color="#2C3E50", pad=1.5)
+        ax.grid(color="#BDC3C7", linestyle=":", linewidth=0.4, alpha=0.7, zorder=1)
+
+        # Moldura garantida sempre no topo
+        for spine in ax.spines.values():
+            spine.set_zorder(100)
+            spine.set_edgecolor("#2C3E50")
+            spine.set_linewidth(1.0)
 
     def render_main_map(self, gdf_alvo, gdf_uc=None, eox_year="2025"):
         """
         Renderiza o Mapa Principal:
-        - Viewport perfeitamente proporcional ao retângulo externo com margem homogênea.
-        - Imagem de satélite preenche 100% da área da grade (zero margem interna).
-        - Snap da grade a valores redondos (passo de 0.010°).
-        - Rótulos dos cantos suprimidos (evita sobreposição X/Y e transbordamento).
-        - Rótulos das feições minimalistas:
-          * Feição grande (173.28 ha): texto com halo/buffer sutil.
-          * Feição pequena (10.48 ha): rótulo deslocado com seta indicativa, sem cobrir o polígono.
+        - Viewport posicionada em y = 22.5 mm, h = 124.0 mm, w = 155.0 mm.
+        - Moldura sempre por cima das camadas (zorder=100).
+        - Segoe UI Semibold em todas as anotações e coordenadas.
+        - Supressão inteligente de rótulo de quina (threshold 3.5%).
         """
-        # Dimensões perfeitamente proporcionais ao retângulo externo rec_mapa (167.106 x 137.143):
-        # Margem uniforme de 6.0 mm nas laterais e 5.0 mm no topo e fundo:
         map_x_mm = 14.15
-        map_y_mm = 18.0
+        map_y_mm = 22.5
         map_w_mm = 155.0
-        map_h_mm = 127.2
+        map_h_mm = 124.0
 
         ax = self.fig.add_axes(self._mm_to_norm(map_x_mm, map_y_mm, map_w_mm, map_h_mm))
+        ax.set_axisbelow(False)
 
         alvo_3857 = gdf_alvo.to_crs(epsg=3857)
         c = alvo_3857.union_all().centroid if hasattr(alvo_3857, "union_all") else alvo_3857.unary_union.centroid
@@ -423,41 +476,38 @@ class QGISLayoutEngine:
             zorder=6
         )
 
-        # 4. Rótulos das Feições (Minimalistas e com Tratamento Diferenciado de Escala)
+        # 4. Rótulos das Feições (Segoe UI Semibold)
         pe_stroke = [patheffects.withStroke(linewidth=3.0, foreground="#000000")]
 
         for _, row in alvo_3857.iterrows():
             centroid_pt = row.geometry.centroid
             area_val = row.get("area_ha", 0.0)
 
-            # Diferenciação: feição pequena (< 20 ha) recebe rótulo deslocado com seta para não cobrir o polígono
             if area_val < 20.0:
                 ax.annotate(
                     f"Alerta DETER ({area_val:.2f} ha)",
                     xy=(centroid_pt.x, centroid_pt.y),
                     xytext=(centroid_pt.x + 350.0, centroid_pt.y + 350.0),
                     arrowprops=dict(facecolor="#FFD700", edgecolor="#000000", width=1.0, headwidth=4.0, shrink=0.08),
-                    fontsize=6.8, fontweight="bold", color="#FFFFFF",
+                    fontfamily=FONT_MAP, fontsize=6.8, color="#FFFFFF",
                     bbox=dict(boxstyle="round,pad=0.25", facecolor="#1B2631", edgecolor="#FFD700", alpha=0.88),
                     zorder=10
                 ).set_path_effects(pe_stroke)
             else:
-                # Feição grande: rótulo minimalista centralizado com halo protetor
                 t = ax.text(
                     centroid_pt.x, centroid_pt.y,
                     f"Alerta DETER\n({area_val:.2f} ha)",
                     ha="center", va="center",
-                    fontsize=7.2, fontweight="bold", color="#FFFFFF",
+                    fontfamily=FONT_MAP, fontsize=7.2, color="#FFFFFF",
                     bbox=dict(boxstyle="round,pad=0.25", facecolor="#1B2631", edgecolor="#FFD700", alpha=0.88),
                     zorder=10
                 )
                 t.set_path_effects(pe_stroke)
 
-        # 5. Grade de Coordenadas: Snap a Valores Redondos e Supressão dos Cantos
+        # 5. Grade de Coordenadas com Snap a 0.010° e Supressão Inteligente de Quinas
         pts_geo_min = gpd.GeoSeries([Point(xmin, ymin)], crs=3857).to_crs(epsg=4674).iloc[0]
         pts_geo_max = gpd.GeoSeries([Point(xmax, ymax)], crs=3857).to_crs(epsg=4674).iloc[0]
 
-        # Snap a passo de 0.010° (graus redondos e limpos)
         step = 0.010
         start_lon = np.ceil(pts_geo_min.x / step) * step
         end_lon = np.floor(pts_geo_max.x / step) * step
@@ -473,39 +523,23 @@ class QGISLayoutEngine:
         ax.set_xticks(x_ticks)
         ax.set_yticks(y_ticks)
 
-        # Rótulos nas bordas externas com supressão dos cantos
-        # (O primeiro e último rótulo muito próximos do canto são suprimidos para evitar colisão X/Y)
-        x_labels = []
-        for i, lon in enumerate(lon_vals):
-            # Suprime se for o primeiro ou o último caso estejam muito perto dos limites
-            if i == 0 and abs(lon - pts_geo_min.x) < 0.003:
-                x_labels.append("")
-            elif i == len(lon_vals) - 1 and abs(pts_geo_max.x - lon) < 0.003:
-                x_labels.append("")
-            else:
-                x_labels.append(f"{abs(lon):.2f}°W")
+        # Supressão inteligente apenas quando muito próximo do canto (< 3.5%)
+        x_labels = self._filter_corner_labels(lon_vals, pts_geo_min.x, pts_geo_max.x, lambda v: f"{abs(v):.2f}°W", threshold=0.035)
+        y_labels = self._filter_corner_labels(lat_vals, pts_geo_min.y, pts_geo_max.y, lambda v: f"{abs(v):.2f}°S", threshold=0.035)
 
-        y_labels = []
-        for i, lat in enumerate(lat_vals):
-            if i == 0 and abs(lat - pts_geo_min.y) < 0.003:
-                y_labels.append("")
-            elif i == len(lat_vals) - 1 and abs(pts_geo_max.y - lat) < 0.003:
-                y_labels.append("")
-            else:
-                y_labels.append(f"{abs(lat):.2f}°S")
+        ax.set_xticklabels(x_labels, fontfamily=FONT_MAP, fontsize=6.2, color="#1B2631")
+        ax.set_yticklabels(y_labels, fontfamily=FONT_MAP, fontsize=6.2, color="#1B2631")
 
-        ax.set_xticklabels(x_labels, fontsize=6.2, color="#1B2631")
-        ax.set_yticklabels(y_labels, fontsize=6.2, color="#1B2631")
-
-        # ROTAÇÃO VERTICAL ASCENDENTE NO EIXO Y (90°)
         for label in ax.get_yticklabels():
             label.set_rotation(90)
             label.set_verticalalignment("center")
 
         ax.tick_params(axis="both", which="both", direction="out", length=3.0, width=0.8, color="#2C3E50", pad=2.0)
-        ax.grid(color="#FFFFFF", linestyle="--", linewidth=0.5, alpha=0.4)
+        ax.grid(color="#FFFFFF", linestyle="--", linewidth=0.5, alpha=0.4, zorder=1)
 
+        # Moldura garantida sempre no topo
         for spine in ax.spines.values():
+            spine.set_zorder(100)
             spine.set_edgecolor("#2C3E50")
             spine.set_linewidth(1.0)
 
@@ -517,19 +551,18 @@ class QGISLayoutEngine:
 
     def render_legend(self):
         """
-        Desenha a Legenda Cartográfica Completa:
+        Desenha a Legenda Cartográfica Completa com Segoe UI Semibold:
         - Inclui estritamente as camadas vetoriais ativas na prancha:
           1. Área de Corte Raso Auditada (DETER/INPE - 183,76 ha)
           2. Limite do Parque Estadual Charapucu
           3. Limite do Estado do Pará (Contexto Regional)
         """
-        # Caixa: x=8.15, y=151.251, w=108.543, h=32.883
         ax_leg = self.fig.add_axes(self._mm_to_norm(9.5, 152.0, 105.0, 31.0))
         ax_leg.axis("off")
         ax_leg.set_xlim(0, 100)
         ax_leg.set_ylim(0, 30)
 
-        ax_leg.text(1, 25.0, "LEGENDA CONVENCIONADA", fontsize=7.5, fontweight="bold", color="#1B2631")
+        ax_leg.text(1, 25.0, "LEGENDA CONVENCIONADA", fontfamily=FONT_MAP, fontsize=7.5, color="#1B2631")
 
         itens = [
             ("Área de Corte Raso Auditada (DETER/INPE - 183,76 ha)", "#E74C3C", "#FFD700", "polygon"),
@@ -544,7 +577,7 @@ class QGISLayoutEngine:
             elif stype == "line_dash":
                 ax_leg.plot([2, 8], [y_pos + 0.5, y_pos + 0.5], color=ecolor, linestyle="--", linewidth=1.5)
 
-            ax_leg.text(11, y_pos, label, fontsize=6.4, va="center", color="#2C3E50")
+            ax_leg.text(11, y_pos, label, fontfamily=FONT_MAP, fontsize=6.4, va="center", color="#2C3E50")
             y_pos -= 6.8
 
     def export(self, output_png_path, output_pdf_path=None, dpi=300):
