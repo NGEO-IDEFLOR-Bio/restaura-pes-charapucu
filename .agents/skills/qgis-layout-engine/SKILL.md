@@ -23,16 +23,16 @@ O layout é construído em uma folha **A4 Paisagem ($297 \times 210\text{ mm}$)*
 
 ```mermaid
 flowchart TD
-    subgraph MACRO["1. Localização Macro (Inferior Direito)"]
-        M1["Estado do Pará em Destaque (#D5F5E3 / #1E8449)<br/>• Estados vizinhos (#EAEDED: AM, MT, TO, MA, AP, RR)<br/>• Países vizinhos (Suriname, Guiana Francesa) & Oceano Atlântico<br/>• UC em destaque com marcador vermelho e halo circular<br/>• Eixo Y com coordenadas no sentido vertical ascendente (90°)"]
+    subgraph MACRO["1. Localização Macro (Inferior Direito - 98 x 70 mm)"]
+        M1["Estado do Pará em Destaque (#D5F5E3 / #1E8449)<br/>• Estados vizinhos (#EAEDED: AM, MT, TO, MA, AP, RR)<br/>• Países vizinhos (Suriname, Guiana Francesa) & Oceano Atlântico<br/>• UC em destaque com marcador vermelho e halo circular<br/>• Grade com snap em 5° e eixo Y a 90°"]
     end
 
-    subgraph INTERMEDIARIO["2. Localização Intermediária (Superior Direito)"]
-        I1["Contexto da Unidade de Conservação<br/>• Limite integral da UC em verde florestal (#D4EFDF / #1E8449)<br/>• Contexto municipal/hidrográfico (Afuá, rios e baías ao fundo)<br/>• Ocorrência em destaque com ponto de chamada e seta indicativa<br/>• Grade e rótulos de coordenadas nos eixos X e Y<br/>• Espaçamento livre de 9.5 mm até o título do mapa inferior"]
+    subgraph INTERMEDIARIO["2. Localização Intermediária (Superior Direito - 98 x 70 mm)"]
+        I1["Contexto da Unidade de Conservação<br/>• Limite integral da UC em verde florestal (#D4EFDF / #1E8449)<br/>• Contexto municipal/hidrográfico (Afuá, rios e baías ao fundo)<br/>• Ocorrência em destaque com ponto de chamada e seta indicativa<br/>• Grade com snap em 0.10° e eixo Y a 90°<br/>• Dimensões idênticas ao mapa macro (98 x 70 mm)"]
     end
 
-    subgraph DETALHE["3. Mapa Principal de Detalhe (Esquerda)"]
-        D1["Enquadramento Focado no Alvo<br/>• Proporção idêntica à do retângulo externo (aspect ratio exato)<br/>• A imagem de satélite preenche 100% da área da grade (zero margem interna)<br/>• Grade de coordenadas ancorada na borda visível do mapa<br/>• Eixo Y com coordenadas no sentido vertical ascendente (90°)<br/>• Rótulos de feição com área e classe: Alerta DETER<br/>• Limite real da UC plotado fielmente se interceptar a viewport"]
+    subgraph DETALHE["3. Mapa Principal de Detalhe (Esquerda - 155 x 127.2 mm)"]
+        D1["Enquadramento Focado no Alvo<br/>• Proporção idêntica à do retângulo externo (aspect ratio exato)<br/>• A imagem de satélite preenche 100% da área da grade (zero margem interna)<br/>• Snap da grade a valores redondos (0.010°)<br/>• Supressão de rótulos dos cantos (evita sobreposição X/Y e transbordamento)<br/>• Feição grande: rótulo minimalista com halo<br/>• Feição pequena: rótulo deslocado com seta indicativa (não cobre o polígono)<br/>• Eixo Y com coordenadas no sentido vertical ascendente (90°)"]
     end
 
     MACRO --> INTERMEDIARIO
@@ -46,20 +46,25 @@ flowchart TD
 1. **Alinhamento do Mapa Principal e Margens Homogêneas:**
    * A janela cartográfica principal possui a mesma proporção geométrica de sua moldura externa (`155.0 / 127.2 \approx 1{,}2185`).
    * A imagem de satélite cobre 100% do interior da grade, sem qualquer faixa de margem interna entre o raster e as linhas de coordenadas.
-2. **Orientação dos Rótulos no Eixo Y (Vertical Ascendente):**
+2. **Snap da Grade e Supressão de Rótulos de Canto:**
+   * Todas as grades de coordenadas possuem snap travado em valores redondos e cheios (`0.01°` no principal, `0.10°` no intermediário, `5°` no macro).
+   * Rótulos muito próximos dos cantos são automaticamente suprimidos para eliminar colisão entre números de latitude e longitude nas quinas e evitar transbordamento da moldura.
+3. **Harmonia dos Mapas de Apoio (Dimensões Idênticas):**
+   * Tanto o mapa de *Localização da Ocorrência na UC* quanto o de *Localização da Unidade no Pará* possuem **dimensões rigorosamente idênticas ($98{,}0 \times 70{,}0\text{ mm}$)**.
+   * Títulos simples diretos e sem subtítulos desnecessários.
+4. **Rótulos Minimalistas e com Tratamento Diferenciado de Escala:**
+   * Feição grande ($> 20\text{ ha}$): rótulo centralizado minimalista com halo protetor.
+   * Feição pequena ($< 20\text{ ha}$): rótulo deslocado externamente com linha/seta dourada apontando para o centroide, mantendo 100% da feição visível sobre a imagem de satélite.
+5. **Orientação dos Rótulos no Eixo Y (Vertical Ascendente):**
    * Em **todos os 3 mapas**, os textos de latitude no eixo Y estão posicionados com rotação de **90° (sentido vertical ascendente)**, acompanhando paralelamente a moldura e poupando espaço horizontal.
-3. **Simplicidade dos Títulos nos Mapas de Apoio:**
-   * Título simples direto: `LOCALIZAÇÃO DA OCORRÊNCIA NA UC` e `LOCALIZAÇÃO DA UNIDADE – PARQUE ESTADUAL CHARAPUCU` (sem subtítulos redundantes).
-   * O mapa intermediário superior termina em $y = 90{,}0\text{ mm}$ com coordenadas terminando em $y = 94{,}0\text{ mm}$, garantindo um espaço livre de quase $10\text{ mm}$ até o título do mapa inferior ($y = 103{,}5\text{ mm}$).
-4. **Centralização da Seta Norte e Barra de Escala:**
-   * Ambos os elementos técnicos estão perfeitamente centralizados no eixo horizontal de simetria do bloco técnico ($x_{\text{center}} = 145{,}976\text{ mm}$).
-5. **Legenda Completa das Camadas da Prancha:**
+6. **Centralização da Seta Norte e Barra de Escala:**
+   * Ambos os elementos técnicos estão centralizados no eixo horizontal de simetria do bloco técnico ($x_{\text{center}} = 145{,}976\text{ mm}$).
+7. **Legenda Completa das Camadas da Prancha:**
    * A legenda contempla as feições ativas em toda a composição:
      - Área de Corte Raso Auditada (DETER/INPE - 183,76 ha)
      - Limite do Parque Estadual Charapucu (72.506 ha)
      - Limite do Estado do Pará (Contexto Regional)
      - Corpos Hídricos & Várzea Estuarina (Baía Vieira Grande)
-   * A imagem de satélite não é listada na legenda, sendo formalmente discriminada nas notas e fontes de dados do rodapé.
 
 ---
 
@@ -71,8 +76,8 @@ flowchart TD
 | `rec_mapa` | Moldura Externa do Mapa Principal | 8.150 | 14.108 | 167.106 | 137.143 | Retângulo de contenção |
 | `mapa_geral` | Mapa Principal (Satélite + Vetor) | 14.150 | 18.000 | 155.000 | 127.200 | Viewport proporcional com grade ancorada |
 | `rec_localizacao`| Painel Direito de Enquadramento | 175.254 | 14.108 | 111.466 | 184.402 | Painel para os dois mapas de apoio |
-| `mapa_localizacao_imovel`| Inset Superior (Alvo na UC) | 180.000 | 22.500 | 102.000 | 67.500 | Contexto regional com coordenadas e Y a 90° |
-| `mapa_localizacao_unidade`| Inset Inferior (UC no Pará) | 180.000 | 108.500 | 102.000 | 74.500 | Contexto macro estadual e países vizinhos |
+| `mapa_localizacao_imovel`| Inset Superior (Alvo na UC) | 182.000 | 23.000 | 98.000 | 70.000 | Contexto regional com coordenadas (98 x 70 mm) |
+| `mapa_localizacao_unidade`| Inset Inferior (UC no Pará) | 182.000 | 110.500 | 98.000 | 70.000 | Contexto macro estadual (98 x 70 mm) |
 | `rec_legenda` | Caixa de Legenda | 8.150 | 151.251 | 108.543 | 32.883 | Legenda completa de todas as feições |
 | `rec_fonte` | Caixa de Metadados e Fontes | 8.150 | 184.135 | 108.543 | 14.375 | SIRGAS 2000, insumo EOX e notas |
 | `rec_escala-icons-seta` | Caixa de Escala, Norte e Logos | 116.697 | 151.251 | 58.559 | 47.259 | Bloco técnico e institucional |

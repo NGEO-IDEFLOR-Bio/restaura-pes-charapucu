@@ -3,15 +3,15 @@ Motor Cartográfico QGIS para Python / Colab (qgis_layout_engine.py)
 Reproduz com fidelidade milimétrica e elegância o layout A4 Paisagem (297 x 210 mm)
 extraído do QGIS (NGEO/IDEFLOR-Bio).
 
-Ajustes refinados baseados no layout de referência:
-1. Mapa Principal com proporção idêntica ao retângulo externo e margem uniforme.
-2. A grade de coordenadas coincide com a borda do mapa (imagem 100% preenchida sem margem interna na grade).
-3. Textos de coordenadas em TODOS os eixos Y em sentido vertical ascendente (rotação 90°).
-4. Coordenadas dos mapas de localização ajustadas sem colisão com títulos ou molduras.
-5. Títulos simples nos mapas de localização (sem subtítulos desnecessários).
-6. Seta norte e barra de escala centralizadas horizontalmente no bloco técnico.
-7. Legenda representativa de todas as camadas temáticas (Alerta, UC, Estado do Pará e Hidrografia) sem citar imagem de satélite (esta citada nas fontes).
-8. Limite da UC no mapa principal fiel à geometria real (plotado apenas se interceptar o enquadramento).
+Refinamentos de Precisão Cartográfica:
+1. Snap da grade a valores redondos/cheios (ex: 0.01° no principal, 0.10° no intermediário, 5° no macro).
+2. Supressão de rótulos dos cantos para evitar qualquer colisão X/Y ou transbordamento da moldura.
+3. Rótulos minimalistas nas feições: feição grande com texto e halo/buffer sutil; feição pequena com rótulo deslocado e seta apontando, sem cobrir a geometria.
+4. Dimensões rigorosamente idênticas para os dois mapas de apoio (98.0 x 70.0 mm), garantindo harmonia visual.
+5. Todos os eixos Y com coordenadas em sentido vertical ascendente (90°).
+6. Títulos diretos e limpos (sem subtítulos desnecessários).
+7. Seta norte e barra de escala centralizadas horizontalmente.
+8. Legenda contemplando todas as camadas temáticas ativas na prancha.
 """
 
 import os
@@ -106,7 +106,7 @@ class QGISLayoutEngine:
         )
 
     def draw_header_and_titles(self, titulo_mapa):
-        """Insere o título principal e os títulos simples (sem subtítulos) dos mapas de apoio."""
+        """Insere o título principal e os títulos simples e diretos dos mapas de apoio."""
         y_titulo = self.height_mm - 5.411 - 6.5
         self.ax_canvas.text(
             147.4, y_titulo,
@@ -116,28 +116,26 @@ class QGISLayoutEngine:
         )
 
         # Título simples do Inset Superior (sem subtítulo)
-        # x = 175.254 + 111.466/2 = 230.987 mm, y = 17.5 mm
         self.ax_canvas.text(
             230.987, self.height_mm - 18.0,
             "LOCALIZAÇÃO DA OCORRÊNCIA NA UC",
             ha="center", va="center",
-            fontfamily="sans-serif", fontweight="bold", fontsize=8.5, color="#1B2631", zorder=5
+            fontfamily="sans-serif", fontweight="bold", fontsize=8.2, color="#1B2631", zorder=5
         )
 
-        # Título simples do Inset Inferior (sem subtítulo e com espaçamento seguro)
-        # Posicionado em y = 103.0 mm para não colidir com as coordenadas do mapa superior
+        # Título simples do Inset Inferior (posicionado com espaço seguro em y = 105.0 mm)
         self.ax_canvas.text(
-            230.987, self.height_mm - 103.5,
+            230.987, self.height_mm - 105.0,
             "LOCALIZAÇÃO DA UNIDADE – PARQUE ESTADUAL CHARAPUCU",
             ha="center", va="center",
-            fontfamily="sans-serif", fontweight="bold", fontsize=8.2, color="#1B2631", zorder=5
+            fontfamily="sans-serif", fontweight="bold", fontsize=8.0, color="#1B2631", zorder=5
         )
 
     def draw_metadata_and_sources(self, autor="Núcleo de Geotecnologias (NGEO/IDEFLOR-Bio)",
                                   fontes="INPE / DETER (TerraBrasilis); IDEFLOR-Bio; EOX Sentinel-2 Cloudless (2025)"):
         """Escreve a nota de fontes cartográficas, datum e insumo de satélite."""
         x = 9.8
-        y_top = self.height_mm - 184.135 - 3.2
+        y_top = self.height_mm - 184.135 - 3.0
         linhas = [
             f"Elaboração: {autor}",
             "Sistema Geodésico de Referência: SIRGAS 2000 (EPSG:4674 / UTM Fuso 22N)",
@@ -212,10 +210,13 @@ class QGISLayoutEngine:
     def render_macro_map(self, gdf_estados, gdf_paises, gdf_uc):
         """
         Renderiza o Mapa Macro (Pará no contexto dos estados e países vizinhos).
-        Posição: x = 180.0, y = 108.5, w = 102.0, h = 74.5 mm.
-        Eixo Y com coordenadas no sentido vertical ascendente (90°).
+        Dimensões rigorosamente idênticas ao mapa intermediário: w = 98.0 mm, h = 70.0 mm.
+        Posição: x = 182.0, y = 110.5 mm.
+        Snap da grade em valores redondos (5°), rótulos dos cantos suprimidos e eixo Y a 90°.
         """
-        ax = self.fig.add_axes(self._mm_to_norm(180.0, 108.5, 102.0, 74.5))
+        w_mm = 98.0
+        h_mm = 70.0
+        ax = self.fig.add_axes(self._mm_to_norm(182.0, 110.5, w_mm, h_mm))
         ax.set_facecolor("#EBF5FB")
 
         xmin, ymin, xmax, ymax = -61.9, -11.0, -43.5, 3.8
@@ -245,29 +246,33 @@ class QGISLayoutEngine:
             }
             for uf, pos in siglas_pos.items():
                 cor = "#196F3D" if uf == "PA" else "#7F8C8D"
-                ax.text(pos[0], pos[1], uf, fontsize=6.5, fontweight="bold", color=cor, ha="center", va="center", zorder=6)
+                ax.text(pos[0], pos[1], uf, fontsize=6.2, fontweight="bold", color=cor, ha="center", va="center", zorder=6)
 
-        ax.text(-55.5, 3.2, "SURINAME", fontsize=5, color="#7F8C8D", style="italic", ha="center", zorder=6)
-        ax.text(-52.5, 3.0, "GUIANA FRANCESA", fontsize=5, color="#7F8C8D", style="italic", ha="center", zorder=6)
-        ax.text(-47.0, 1.8, "OCEANO\nATLÂNTICO", fontsize=5.5, color="#2980B9", style="italic", fontweight="bold", ha="center", zorder=6)
+        ax.text(-55.5, 3.0, "SURINAME", fontsize=4.8, color="#7F8C8D", style="italic", ha="center", zorder=6)
+        ax.text(-52.5, 2.8, "GUIANA FRANCESA", fontsize=4.8, color="#7F8C8D", style="italic", ha="center", zorder=6)
+        ax.text(-47.0, 1.8, "OCEANO\nATLÂNTICO", fontsize=5.2, color="#2980B9", style="italic", fontweight="bold", ha="center", zorder=6)
 
         if gdf_uc is not None and len(gdf_uc) > 0:
             uc_proj = gdf_uc.to_crs(epsg=4674)
             centroid = uc_proj.union_all().centroid if hasattr(uc_proj, "union_all") else uc_proj.unary_union.centroid
 
             uc_proj.plot(ax=ax, facecolor="#E74C3C", edgecolor="#922B21", linewidth=0.8, zorder=7)
-            ax.plot(centroid.x, centroid.y, marker="o", markersize=8, color="#E74C3C", alpha=0.35, zorder=8)
-            ax.plot(centroid.x, centroid.y, marker="o", markersize=4.5, color="#E74C3C", markeredgecolor="#FFFFFF", markeredgewidth=0.7, zorder=9)
-            ax.text(centroid.x + 0.6, centroid.y + 0.3, "PES Charapucu", fontsize=5.8, fontweight="bold", color="#900C3F",
+            ax.plot(centroid.x, centroid.y, marker="o", markersize=7, color="#E74C3C", alpha=0.35, zorder=8)
+            ax.plot(centroid.x, centroid.y, marker="o", markersize=4.0, color="#E74C3C", markeredgecolor="#FFFFFF", markeredgewidth=0.7, zorder=9)
+            ax.text(centroid.x + 0.6, centroid.y + 0.3, "PES Charapucu", fontsize=5.5, fontweight="bold", color="#900C3F",
                     bbox=dict(boxstyle="square,pad=0.15", facecolor="#FFFFFF", edgecolor="#E74C3C", alpha=0.9), zorder=10)
 
-        # Grade e coordenadas nos eixos
-        ax.set_xticks([-60.0, -57.5, -55.0, -52.5, -50.0, -47.5, -45.0])
-        ax.set_yticks([-10, -8, -6, -4, -2, 0, 2])
-        ax.set_xticklabels(["-60.0", "-57.5", "-55.0", "-52.5", "-50.0", "-47.5", "-45.0"], fontsize=5.0)
-        ax.set_yticklabels(["-10", "-8", "-6", "-4", "-2", "0", "2"], fontsize=5.0)
+        # Snap da grade em valores redondos (5° e 2°)
+        lon_ticks = [-60.0, -55.0, -50.0, -45.0]
+        lat_ticks = [-10.0, -8.0, -6.0, -4.0, -2.0, 0.0, 2.0]
 
-        # ROTAÇÃO VERTICAL ASCENDENTE NO EIXO Y (90°)
+        ax.set_xticks(lon_ticks)
+        ax.set_yticks(lat_ticks)
+
+        # Suprime os rótulos de canto para não colidir
+        ax.set_xticklabels([f"{lon:.0f}°" if i not in [0, len(lon_ticks)-1] else "" for i, lon in enumerate(lon_ticks)], fontsize=5.0)
+        ax.set_yticklabels([f"{lat:.0f}°" if i not in [0, len(lat_ticks)-1] else "" for i, lat in enumerate(lat_ticks)], fontsize=5.0)
+
         for label in ax.get_yticklabels():
             label.set_rotation(90)
             label.set_verticalalignment("center")
@@ -278,12 +283,13 @@ class QGISLayoutEngine:
     def render_intermediate_map(self, gdf_uc, gdf_alvo, gdf_municipios=None):
         """
         Renderiza o Mapa Intermediário (Enquadramento no PES Charapucu).
-        Posição: x = 180.0, y = 22.5, w = 102.0, h = 67.5 mm.
-        As coordenadas inferiores terminam em y = 94.0 mm, garantindo 9.5 mm de espaço livre
-        até o título do mapa inferior (em y = 103.5 mm).
-        Eixo Y com coordenadas no sentido vertical ascendente (90°).
+        Dimensões rigorosamente idênticas ao mapa macro: w = 98.0 mm, h = 70.0 mm.
+        Posição: x = 182.0, y = 23.0 mm.
+        Snap da grade em valores redondos (0.10°), cantos suprimidos e eixo Y a 90°.
         """
-        ax = self.fig.add_axes(self._mm_to_norm(180.0, 22.5, 102.0, 67.5))
+        w_mm = 98.0
+        h_mm = 70.0
+        ax = self.fig.add_axes(self._mm_to_norm(182.0, 23.0, w_mm, h_mm))
         ax.set_facecolor("#EBF5FB")
 
         uc_proj = gdf_uc.to_crs(epsg=4674)
@@ -302,7 +308,7 @@ class QGISLayoutEngine:
 
         c_uc = uc_proj.union_all().centroid if hasattr(uc_proj, "union_all") else uc_proj.unary_union.centroid
         ax.text(c_uc.x - 0.05, c_uc.y + 0.08, "PES Charapucu\n(72.506 ha)",
-                fontsize=6.2, fontweight="bold", color="#196F3D", ha="center", va="center", zorder=5)
+                fontsize=6.0, fontweight="bold", color="#196F3D", ha="center", va="center", zorder=5)
 
         ax.text(bounds[2] + 0.02, (bounds[1] + bounds[3])/2, "Baía de\nVieira Grande",
                 fontsize=5.2, color="#2980B9", style="italic", ha="left", va="center", zorder=5)
@@ -313,22 +319,24 @@ class QGISLayoutEngine:
 
             c_alvo = alvo_proj.union_all().centroid if hasattr(alvo_proj, "union_all") else alvo_proj.unary_union.centroid
             ax.plot(c_alvo.x, c_alvo.y, marker="o", markersize=7, color="#E74C3C", alpha=0.35, zorder=7)
-            ax.plot(c_alvo.x, c_alvo.y, marker="o", markersize=4.0, color="#E74C3C", markeredgecolor="#FFFFFF", markeredgewidth=0.7, zorder=8)
+            ax.plot(c_alvo.x, c_alvo.y, marker="o", markersize=3.8, color="#E74C3C", markeredgecolor="#FFFFFF", markeredgewidth=0.7, zorder=8)
 
             ax.annotate("Área Auditada\n(183,76 ha)",
                         xy=(c_alvo.x, c_alvo.y), xytext=(c_alvo.x - 0.12, c_alvo.y - 0.08),
                         arrowprops=dict(facecolor="#900C3F", edgecolor="#FFFFFF", width=0.8, headwidth=4, shrink=0.08),
-                        fontsize=5.6, fontweight="bold", color="#900C3F",
+                        fontsize=5.5, fontweight="bold", color="#900C3F",
                         bbox=dict(boxstyle="round,pad=0.2", facecolor="#FFFFFF", edgecolor="#E74C3C", alpha=0.9),
                         zorder=10)
 
-        # Grade e rótulos de coordenadas
-        lon_ticks = np.linspace(bounds[0], bounds[2], 5)
-        lat_ticks = np.linspace(bounds[1], bounds[3], 6)
+        # Snap da grade a valores redondos de 0.10° (ex: -50.60°, -50.50°, -50.40°, -50.30°)
+        lon_ticks = np.array([-50.60, -50.50, -50.40, -50.30])
+        lat_ticks = np.array([-0.45, -0.35, -0.25])
 
         ax.set_xticks(lon_ticks)
         ax.set_yticks(lat_ticks)
-        ax.set_xticklabels([f"{lon:.2f}" for lon in lon_ticks], fontsize=5.0)
+
+        # Suprime os rótulos de canto para não tocar na borda
+        ax.set_xticklabels([f"{lon:.2f}" if i not in [0, len(lon_ticks)-1] else "" for i, lon in enumerate(lon_ticks)], fontsize=5.0)
         ax.set_yticklabels([f"{lat:.2f}" for lat in lat_ticks], fontsize=5.0)
 
         # ROTAÇÃO VERTICAL ASCENDENTE NO EIXO Y (90°)
@@ -342,18 +350,16 @@ class QGISLayoutEngine:
     def render_main_map(self, gdf_alvo, gdf_uc=None, eox_year="2025"):
         """
         Renderiza o Mapa Principal:
-        - Viewport posicionada de forma homogênea dentro do retângulo externo rec_mapa.
-        - Proporção física idêntica à do retângulo (aspect ratio exato).
-        - A imagem de satélite preenche 100% da área da grade (zero margem interna).
-        - Eixo Y com coordenadas no sentido vertical ascendente (90°).
-        - Traçado do limite real da UC desenhado se interceptar a área visível.
+        - Viewport perfeitamente proporcional ao retângulo externo com margem homogênea.
+        - Imagem de satélite preenche 100% da área da grade (zero margem interna).
+        - Snap da grade a valores redondos (passo de 0.010°).
+        - Rótulos dos cantos suprimidos (evita sobreposição X/Y e transbordamento).
+        - Rótulos das feições minimalistas:
+          * Feição grande (173.28 ha): texto com halo/buffer sutil.
+          * Feição pequena (10.48 ha): rótulo deslocado com seta indicativa, sem cobrir o polígono.
         """
         # Dimensões perfeitamente proporcionais ao retângulo externo rec_mapa (167.106 x 137.143):
-        # Deixando margem uniforme:
-        # x = 14.15 mm (margem esquerda de 6.0 mm para os números verticais de latitude)
-        # y = 18.0 mm (margem superior de 3.89 mm)
-        # w = 155.0 mm
-        # h = 127.2 mm (margem inferior de 6.0 mm para os números de longitude antes de rec_legenda)
+        # Margem uniforme de 6.0 mm nas laterais e 5.0 mm no topo e fundo:
         map_x_mm = 14.15
         map_y_mm = 18.0
         map_w_mm = 155.0
@@ -365,10 +371,8 @@ class QGISLayoutEngine:
         c = alvo_3857.union_all().centroid if hasattr(alvo_3857, "union_all") else alvo_3857.unary_union.centroid
         b = alvo_3857.total_bounds
 
-        # Proporção exata da viewport física (w / h)
         phys_ratio = map_w_mm / map_h_mm
 
-        # Enquadramento harmonioso com buffer
         span_y = (b[3] - b[1]) + 2000.0
         span_x = span_y * phys_ratio
 
@@ -393,13 +397,12 @@ class QGISLayoutEngine:
             except Exception as e2:
                 print(f"[Aviso] Sem conexão com provedores: {e2}")
 
-        # Re-enforça limites exatos e elimina qualquer letterboxing (zero margem interna)
         ax.set_xlim(xmin, xmax)
         ax.set_ylim(ymin, ymax)
         ax.set_aspect("auto")
         ax.margins(0)
 
-        # 2. Limite REAL do Parque Estadual Charapucu (se interceptar a viewport visível)
+        # 2. Limite REAL da UC se interceptar a viewport
         if gdf_uc is not None and len(gdf_uc) > 0:
             map_box = box(xmin, ymin, xmax, ymax)
             uc_3857 = gdf_uc.to_crs(epsg=3857)
@@ -410,9 +413,7 @@ class QGISLayoutEngine:
                     ax=ax, color="#2ECC71", linestyle="--", linewidth=1.8, zorder=5
                 )
 
-        # 3. Alertas DETER Oficiais
-        pe_stroke = [patheffects.withStroke(linewidth=3.5, foreground="#000000")]
-
+        # 3. Polígonos de Corte Raso DETER Oficiais
         alvo_3857.plot(
             ax=ax,
             facecolor="#E74C3C",
@@ -422,27 +423,49 @@ class QGISLayoutEngine:
             zorder=6
         )
 
-        # 4. Rótulos das Feições
+        # 4. Rótulos das Feições (Minimalistas e com Tratamento Diferenciado de Escala)
+        pe_stroke = [patheffects.withStroke(linewidth=3.0, foreground="#000000")]
+
         for _, row in alvo_3857.iterrows():
             centroid_pt = row.geometry.centroid
             area_val = row.get("area_ha", 0.0)
-            txt = f"Alerta DETER\nÁrea: {area_val:.2f} ha\nClasse: Corte Raso (DETER)"
 
-            t = ax.text(
-                centroid_pt.x, centroid_pt.y, txt,
-                ha="center", va="center",
-                fontsize=7.2, fontweight="bold", color="#FFFFFF",
-                bbox=dict(boxstyle="round,pad=0.25", facecolor="#1B2631", edgecolor="#FFD700", alpha=0.88),
-                zorder=10
-            )
-            t.set_path_effects(pe_stroke)
+            # Diferenciação: feição pequena (< 20 ha) recebe rótulo deslocado com seta para não cobrir o polígono
+            if area_val < 20.0:
+                ax.annotate(
+                    f"Alerta DETER ({area_val:.2f} ha)",
+                    xy=(centroid_pt.x, centroid_pt.y),
+                    xytext=(centroid_pt.x + 350.0, centroid_pt.y + 350.0),
+                    arrowprops=dict(facecolor="#FFD700", edgecolor="#000000", width=1.0, headwidth=4.0, shrink=0.08),
+                    fontsize=6.8, fontweight="bold", color="#FFFFFF",
+                    bbox=dict(boxstyle="round,pad=0.25", facecolor="#1B2631", edgecolor="#FFD700", alpha=0.88),
+                    zorder=10
+                ).set_path_effects(pe_stroke)
+            else:
+                # Feição grande: rótulo minimalista centralizado com halo protetor
+                t = ax.text(
+                    centroid_pt.x, centroid_pt.y,
+                    f"Alerta DETER\n({area_val:.2f} ha)",
+                    ha="center", va="center",
+                    fontsize=7.2, fontweight="bold", color="#FFFFFF",
+                    bbox=dict(boxstyle="round,pad=0.25", facecolor="#1B2631", edgecolor="#FFD700", alpha=0.88),
+                    zorder=10
+                )
+                t.set_path_effects(pe_stroke)
 
-        # 5. Grade de Coordenadas (SIRGAS 2000 - EPSG:4674)
+        # 5. Grade de Coordenadas: Snap a Valores Redondos e Supressão dos Cantos
         pts_geo_min = gpd.GeoSeries([Point(xmin, ymin)], crs=3857).to_crs(epsg=4674).iloc[0]
         pts_geo_max = gpd.GeoSeries([Point(xmax, ymax)], crs=3857).to_crs(epsg=4674).iloc[0]
 
-        lon_vals = np.linspace(pts_geo_min.x, pts_geo_max.x, 9)
-        lat_vals = np.linspace(pts_geo_min.y, pts_geo_max.y, 9)
+        # Snap a passo de 0.010° (graus redondos e limpos)
+        step = 0.010
+        start_lon = np.ceil(pts_geo_min.x / step) * step
+        end_lon = np.floor(pts_geo_max.x / step) * step
+        lon_vals = np.arange(start_lon, end_lon + step/2.0, step)
+
+        start_lat = np.ceil(pts_geo_min.y / step) * step
+        end_lat = np.floor(pts_geo_max.y / step) * step
+        lat_vals = np.arange(start_lat, end_lat + step/2.0, step)
 
         x_ticks = [gpd.GeoSeries([Point(lon, (pts_geo_min.y+pts_geo_max.y)/2)], crs=4674).to_crs(epsg=3857).iloc[0].x for lon in lon_vals]
         y_ticks = [gpd.GeoSeries([Point((pts_geo_min.x+pts_geo_max.x)/2, lat)], crs=4674).to_crs(epsg=3857).iloc[0].y for lat in lat_vals]
@@ -450,9 +473,29 @@ class QGISLayoutEngine:
         ax.set_xticks(x_ticks)
         ax.set_yticks(y_ticks)
 
-        # Rótulos nas bordas externas do mapa
-        ax.set_xticklabels([f"{lon:.3f}°W" for lon in lon_vals], fontsize=6.2, color="#1B2631")
-        ax.set_yticklabels([f"{lat:.3f}°S" for lat in lat_vals], fontsize=6.2, color="#1B2631")
+        # Rótulos nas bordas externas com supressão dos cantos
+        # (O primeiro e último rótulo muito próximos do canto são suprimidos para evitar colisão X/Y)
+        x_labels = []
+        for i, lon in enumerate(lon_vals):
+            # Suprime se for o primeiro ou o último caso estejam muito perto dos limites
+            if i == 0 and abs(lon - pts_geo_min.x) < 0.003:
+                x_labels.append("")
+            elif i == len(lon_vals) - 1 and abs(pts_geo_max.x - lon) < 0.003:
+                x_labels.append("")
+            else:
+                x_labels.append(f"{abs(lon):.2f}°W")
+
+        y_labels = []
+        for i, lat in enumerate(lat_vals):
+            if i == 0 and abs(lat - pts_geo_min.y) < 0.003:
+                y_labels.append("")
+            elif i == len(lat_vals) - 1 and abs(pts_geo_max.y - lat) < 0.003:
+                y_labels.append("")
+            else:
+                y_labels.append(f"{abs(lat):.2f}°S")
+
+        ax.set_xticklabels(x_labels, fontsize=6.2, color="#1B2631")
+        ax.set_yticklabels(y_labels, fontsize=6.2, color="#1B2631")
 
         # ROTAÇÃO VERTICAL ASCENDENTE NO EIXO Y (90°)
         for label in ax.get_yticklabels():
@@ -478,9 +521,8 @@ class QGISLayoutEngine:
         - Inclui todas as camadas temáticas ativas na prancha:
           1. Área de Corte Raso Auditada (DETER/INPE - 183,76 ha)
           2. Limite do Parque Estadual Charapucu (72.506 ha)
-          3. Limite do Estado do Pará (Área de Contexto)
+          3. Limite do Estado do Pará (Contexto Regional)
           4. Corpos Hídricos & Várzea Estuarina (Baía Vieira Grande)
-        - Não cita imagem de satélite (esta discriminada no bloco de fontes).
         """
         # Caixa: x=8.15, y=151.251, w=108.543, h=32.883
         ax_leg = self.fig.add_axes(self._mm_to_norm(9.5, 152.0, 105.0, 31.0))
